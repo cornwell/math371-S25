@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Running Python and Jupyter}{3}{0}{1}
-\beamer@sectionintoc {2}{Variables and Types}{9}{0}{2}
-\beamer@sectionintoc {3}{Operations on different types}{15}{0}{3}
-\beamer@sectionintoc {4}{Lists}{23}{0}{4}
-\beamer@sectionintoc {5}{Intro to Python functions}{43}{0}{5}
