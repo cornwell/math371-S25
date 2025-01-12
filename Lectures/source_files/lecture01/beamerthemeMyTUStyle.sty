@@ -1,0 +1,150 @@
+\ProvidesPackage{beamerthemeMyStyle}[2025/01/01]
+
+\definecolor{TUYellow}{RGB}{255,204,0}
+\definecolor{TUGray}{RGB}{107,107,107}	
+\definecolor{TUWhite}{RGB}{255,255,255}
+\definecolor{TUBlack}{RGB}{0,0,0}
+\definecolor{mygreen}{RGB}{60,179,113}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 									Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{author}{size=\large\normalfont}
+\setbeamerfont{institute}{size=\normalsize\itshape}
+
+
+%\setbeamertemplate{title page}{%
+%\begin{tikzpicture}[remember picture,overlay]
+
+%\fill[TUYellow] ([yshift=-40pt]current page.west) rectangle (current page.north east);
+  
+%\node[anchor=west] at ([xshift=20pt,yshift=20pt]current page.west) (title)
+%	{\parbox[t]{\textwidth}{\raggedright%
+%		\usebeamerfont{title}\textcolor{TUBlack}{%
+%		\textpdfrender{FillColor=TUBlack,LineWidth=.1ex,TextRenderingMode=FillStroke}
+%	{\inserttitle}}
+%	}};
+    
+%\node[anchor=south west] at ([xshift=19pt, yshift=65pt]current page.south west) (author)
+%	{\parbox[t]{.9\paperwidth}{\raggedright%
+%		\usebeamerfont{author}\textcolor{TUBlack}{%
+%	{\insertauthor}}
+%	}};
+
+%\node[anchor=south west] at ([xshift=19pt,yshift=50pt]current page.south west) (institute)
+%	{\parbox[t]{.9\paperwidth}{\raggedright%
+%		\usebeamerfont{institute}\textcolor{TUBlack}{\insertinstitute}}};
+%
+%\node[anchor=south east] at (current page.south east) (logo)
+%  {\parbox[t]{.28\paperwidth}{\raggedleft%
+%    \usebeamercolor[TUBlack]{titlegraphic}\inserttitlegraphic}};
+%    
+%\end{tikzpicture}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%									 Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\useoutertheme[width=.15\paperwidth]{sidebar}
+%\setlength{\beamer@headheight}{.18\paperheight}
+%
+%\pgfdeclareimage[width=.12\paperwidth]{small-logo}{tu_logo.png}
+%
+%\setbeamertemplate{sidebar left}{%
+%	\vskip5pt\insertverticalnavigation{\beamer@sidebarwidth}
+%}
+
+
+\setbeamercolor{date in head/foot}{fg=TUBlack}
+%\setbeamerfont{date in head/foot}{series=\bfseries}
+\setbeamertemplate{footline}{%
+	\leavevmode%
+		\hbox{\begin{beamercolorbox}[leftskip=.03\paperwidth]{date in head/foot}%
+ 			   \usebeamerfont{date in head/foot}\insertshortdate\hfill\insertshorttitle\hfill\insertframenumber/\inserttotalframenumber\hspace*{.03\paperwidth}%\insertshortauthor
+  		\end{beamercolorbox}%
+}%
+  \vskip2pt%
+}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+%\addtobeamertemplate{frametitle}{}{%
+%	\begin{pgfpicture}
+%		\pgf@relevantforpicturesizefalse
+%		\pgftransformxshift{-\Gm@lmargin}
+%		\pgftransformyshift{\beamer@headheight+18pt}
+%    
+%		\pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+%		\pgfpathlineto{\pgfpoint{.15\paperwidth}{-1.1\beamer@headheight}}
+%		\pgfsetlinewidth{3.5pt}
+%		\pgfsetinnerlinewidth{1pt}
+%		\pgfsetinnerstrokecolor{TUBlack}
+%    
+%		\pgfsetcolor{TUWhite}
+%		\pgfusepath{stroke}
+%		\pgfpathmoveto{\pgfpoint{.15\paperwidth}{\paperheight}}
+%		\pgfpathlineto{\pgfpoint{.15\paperwidth}{-1.09\paperheight}}
+%		\pgfsetlinewidth{1pt}
+%		\pgfsetinnerlinewidth{0pt}
+%		
+%    
+%		\pgfsetcolor{TUBlack}
+%		\pgfusepath{stroke}
+%    
+%    		\pgftext[at=\pgfpoint{.075\paperwidth}{-1.\paperheight},center,base]{\pgfuseimage{small-logo}}
+%	\end{pgfpicture}%
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%									 Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%									 Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usecolortheme[named=TUYellow]{structure}
+
+\setbeamercolor{normal text}{fg=TUBlack}\usebeamercolor*{normal text}
+
+\setbeamercolor{frametitle}{fg=TUBlack,bg=TUYellow}
+\setbeamercolor{section in sidebar}{fg=TUBlack}
+%\setbeamerfont{section in sidebar}{series=\bfseries}
+
+\setbeamercolor{block title}{bg=TUBlack,fg=TUWhite}
+\setbeamercolor{block body}{bg=TUWhite!80!gray}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%								Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\setbeamercolor{section in toc}{fg=TUBlack}
+
