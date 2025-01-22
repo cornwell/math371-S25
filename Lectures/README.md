@@ -20,5 +20,5 @@ Editing and running a Jupyter notebook can be done in a number of ways. Here are
 * **Python.** [Download](https://www.python.org/downloads/) the latest version of Python. When the installer runs, make sure to **check "Add to Path"** before selecting "Install Now."
 * **Virtual Studio Code.** [Download](https://code.visualstudio.com/) VS Code. When running the installer, use all default options.
 * You might need to restart your computer after these installations. Then open VS Code.
-* Open the command line (either `` Ctrl+` `` within VS Code, or open a command terminal from Windows). Then, type `py --version` and hit Enter. If Python is installed correctly, it should print out the Python version you installed (likely something that starts with 3.13).
-* Now, select Extensions from the sidebar $(extensions-view-icon). Some good extensions to install are: Python, Jupyter, and Pylance. Potentially, also install the LaTeX extension. 
+* Open the command line (either `` Ctrl+` `` within VS Code, or open a command terminal from Windows). Then, type `py --version` and hit Enter. If Python is installed correctly, it should print out the Python version you installed (most likely, something starting with 3.13).
+* Now, select Extensions from the sidebar (`` Ctrl+Shift+X ``). Some good extensions to install are: Python, Jupyter, and Pylance. Potentially, also install the LaTeX extension. 
