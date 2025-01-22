@@ -161,7 +161,7 @@ name_full = 'Chris Cornwell'
 
 $\qquad\uparrow$ this code assigns three variables, \ttt{x}, \ttt{y}, and \ttt{name}\ct{_}\ttt{full}
 
-\pause
+%\pause
 \begin{itemize}
 	\item To ``comment out'' a line, begin line with \#. Good for notes to yourself, or others reading the code.
 \end{itemize}
@@ -175,7 +175,7 @@ $\qquad\uparrow$ this code assigns three variables, \ttt{x}, \ttt{y}, and \ttt{n
 
 \end{codeblock}
 
-\pause
+%\pause
 \begin{itemize}
 	\item Possible to assign more than one variable in one line.
 \end{itemize}
@@ -211,7 +211,7 @@ name_full = 'Chris Cornwell'
 	\item[] $\uparrow$ the types of the assigned vars are {\ttb float}, {\ttb int}, and {\ttb str} respectively.
 \end{itemize}
 
-\pause
+%\pause
 Unlike in other programming languages, don't need to declare the types of the variables. Python \emph{interprets} it. (The type might even \emph{change} at a later point.)
 
 \begin{itemize}
@@ -229,11 +229,11 @@ Unlike in other programming languages, don't need to declare the types of the va
 
 The four main operations\footnote{Representing addition, subtraction, multiplication, and division.} \ttt{+, -, *,} and \ttt{/} work as you would expect on numerical types {\ttb int} and {\ttb float}. Unlike when writing math, you cannot leave out \ttt{*} when multiplying.
 
-\pause
+%\pause
 \begin{question} Why would it be a \emph{bad} idea to have Python interpret something like \ttt{ab} as being ``\ttt{a} times \ttt{b}''?
 \end{question}
 
-\pause
+%\pause
 
 {\bf \color{mygreen} Assigning after an operation.} {\bf Very} often want to change a variable by some amount (e.g., increase it by \ttt{1}); to keep new value, \emph{reassign} after the operation.
 
@@ -247,7 +247,7 @@ y += 1
 
 \end{codeblock}
 
-\pause
+%\pause
 This is \emph{not} a mathematical equation, but an assignment. The shorthand works for other operations.
 \end{frame}
 
@@ -258,7 +258,7 @@ This is \emph{not} a mathematical equation, but an assignment. The shorthand wor
 We have some logical types, as every language needs {--} \ttt{True} and \ttt{False}. 
 
 Usually, no need to directly assign or work with these. They are ``under the hood'' when making comparisons. 
-\pause
+%\pause
 \begin{itemize}
 	\item Technically, \ttt{True} and \ttt{False} are like \ct{1} and \ct{0} in Python. Use this fact only with \emph{extreme care}! (Maybe just avoid it.)
 \end{itemize}
@@ -273,7 +273,7 @@ Usually, no need to directly assign or work with these. They are ``under the hoo
 $\qquad \uparrow$ the line above will return \ct{0}.
 \vspace*{12pt}
 
-\pause
+%\pause
 The \emph{null} type in Python is \ttt{None}. We'll talk about using it in later lectures.
 \end{frame}
 
@@ -286,7 +286,7 @@ The \emph{null} type in Python is \ttt{None}. We'll talk about using it in later
 {\ttb list} is a \emph{sequential} data type in Python {--} it holds a sequence of ``items.'' 
 \begin{itemize}
 	\item[] Each item could be an {\ttb int}, each could be a {\ttb list}, or possibly some with one type, some with another. 
-	\pause
+	%\pause
 	\item[] Example below: a list with {\ttb int} and {\ttb str} type items.
 \end{itemize}
 
@@ -299,11 +299,11 @@ empty_list = []
 
 \end{codeblock}
 
-\pause
+%\pause
 Referring to a list item by index: \\ 
 \ttt{my}\ct{_}\lsitem{list}{0} is \ct{2} above, \ttt{my}\ct{_}\lsitem{list}{1} is \ct{3}, and so on.
 
-\pause
+%\pause
 The \ttt{+} operation is defined on lists. It results in the \emph{concatenation} of the lists {--} putting them together, end to end.
 
 \begin{codeblock}
@@ -325,9 +325,9 @@ my_list + [11, 13]
 	\item Multiplication by an integer: adds that many copies of the list together. For example, \ct{[1,2]*3} will result in \ct{[1,2,1,2,1,2]}, since 
 	\begin{center}\ct{[1,2] + [1,2] + [1,2] = [1,2,1,2,1,2]}.
 	\end{center}
-	\pause
+	%\pause
 	\item Length of a list: use the function \ttt{len()}, with your list as input, to get the number of items in your list.
-	\pause
+	%\pause
 	\item Checking if an item is in a list: use the \emph{keyword} \ttt{in} to check this. For example, if \ttt{my}\ct{_}\ttt{list} is \ct{[2, 3, 5, 'p']} then the first line below would result in \ttt{True}, the second would be \ttt{False}.
 \end{itemize}
 
@@ -350,13 +350,13 @@ print( 4 in my_list )
 	\item Some other sequential types: {\ttb tuple}, {\ttb range}.
 	\item The operations we discussed (on lists) will work in same way on these.
 
-	\pause
+	%\pause
 	\item Final important sequential type: {\ttb str}, ``strings.''
 	\begin{itemize}
 		\item a sequence of \emph{characters}, from your keyboard
 	\end{itemize}
 	\item Above, the variable that was assigned \ttt{'Chris Cornwell'}, and the item \ttt{'p'} in \ttt{my}\ct{_}\ttt{list}, each is a string.
-	\pause
+	%\pause
 	\item \emph{Thinking} of a string as a list of single characters, operations on strings work like they do on lists (e.g., \ttt{+} will concatenate and \ttt{len()} gives the number of characters, etc. 
 \end{itemize}
 \end{frame}
@@ -367,10 +367,10 @@ print( 4 in my_list )
 
 To produce an output string that uses values of some variables in memory: two methods (\emph{there are others I won't mention}).
 
-\pause
+%\pause
 Say a variable \ttt{i} is in memory, with \ttt{i = }\ct{2}.
 
-\pause
+%\pause
 \begin{codeblock}
 
 \begin{python}
@@ -382,7 +382,7 @@ print('The value of i is', i, '.')
 
 \begin{itemize}
 	\item Works, but has some downsides. 
-	\pause
+	%\pause
 	\item Better: use so-called \ttt{f}-strings, allowing variable(s) directly inside the string, surrounded by braces \ttt{\{ \}}.
 \end{itemize}
 
@@ -395,7 +395,7 @@ print(f'The value of i is {i}.')
 
 \end{codeblock}
 
-\pause
+%\pause
 \emph{Escape characters} can be handled inside strings also: e.g., \verb|'\t'| will produce a tab; \verb|'\n'| produces a newline.
 
 \end{frame}
@@ -409,9 +409,9 @@ Two important types that contain items, but are not sequential are sets ({\ttb s
 
 \begin{itemize}
 	\item {\ttb set}: roughly matches the mathematical notion of a set. Items are not ordered; there are no repeated items.
-	\pause
+	%\pause
 	\item {\ttb dict}: has \emph{dictionary keys}; for each key there is an item (the ``entry'' for that key).
-	\pause
+	%\pause
 	\item Two example dictionaries with same keys:
 \end{itemize}
 
@@ -425,7 +425,7 @@ neighbor_pet = {'name':'Checkers', 'age':2, 'type':'dog'}
 \end{codeblock}
 
 \vspace*{12pt}
-\pause
+%\pause
 Good idea to work with dictionaries for certain kinds of data. Later in the semester, will work with something very similar to a dictionary {--} a DataFrame.
 \end{frame}
 
@@ -437,18 +437,18 @@ Good idea to work with dictionaries for certain kinds of data. Later in the seme
 
 Similar to most programming languages, Python uses \emph{functions}, each of which takes some number of \emph{arguments} (sometimes an argument is optional).
 
-\pause
+%\pause
 \begin{itemize}
 	\item Common function, already encountered: \ttt{print()}.
-	\pause
+	%\pause
 	\item Absolute value: \ttt{abs()}. Takes a numeric argument {--} either {\ttb int} or {\ttb float} type.
-	\pause
+	%\pause
 	\item Round to nearest integer: \ttt{round()}. Takes argument that is {\ttb float} (if an {\ttb int}, will return the same thing).
 	\begin{itemize}
 		\item Optional 2nd argument, the number of decimal digits.
 	\end{itemize}
 \end{itemize}
-\pause
+%\pause
 In Python, run the following to see how \ttt{round()} works.
 
 \begin{codeblock}
@@ -468,14 +468,14 @@ print( (round(a+8), round(a+8, 2)) )
 \frametitle{Changing one type to another}
 Some functions change the type of the input, when possible. 
 
-\pause
+%\pause
 Some examples:
 
 \begin{itemize}
 	\item \ttt{str()} changes to a string; works on nearly anything.
-	\pause
+	%\pause
 	\item \ttt{int()} will convert a float to an int; always rounds toward 0.
-	\pause
+	%\pause
 	\item \ttt{set()} will convert a list or tuple into a set; ``forgets'' order, drops repeats.
 \end{itemize}
 \end{frame}
@@ -487,7 +487,7 @@ Recall: if \ttt{my}\ct{_}\ttt{list} is a list, the item at index \ct{i} is found
 
 To get shorter list with consecutive items from \ttt{my}\ct{_}\ttt{list}.
 
-\pause
+%\pause
 \begin{codeblock}
 
 \begin{python}
@@ -506,7 +506,7 @@ print(my_list[-2:])
 
 \end{codeblock}
 
-\pause
+%\pause
 There is an easy way to reverse the order of a list.\footnote{Only as an output. This does not change the list variable unless you reassign it.}
 
 \begin{codeblock}
@@ -524,19 +524,19 @@ my_list[::-1]
 \frametitle{Basic list methods}
 
 Methods are functions that you call on an instance of a class. There are several methods for lists. Here are two.
-\pause
+%\pause
 \begin{itemize}
 	\item \ttt{append()}: the command \ttt{my}\ct{_}\ttt{list.append(x)}puts \ttt{x} at the end of \ttt{my}\ct{_}\ttt{list}. 
 	\begin{itemize}
 		\item Changes \ttt{my}\ct{_}\ttt{list} ``in place.''
-		\pause
+		%\pause
 		\item Is equivalent to \ttt{my}\ct{_}\ttt{list += [x]}.
 	\end{itemize}
-	\pause
+	%\pause
 	\item \ttt{remove()}: the command \ttt{my}\ct{_}\ttt{list.remove(x)} takes out the \emph{first} item in \ttt{my}\ct{_}\ttt{list} that is equal to \ttt{x}.	
 	\begin{itemize}
 		\item Changes \ttt{my}\ct{_}\ttt{list} in place, making it shorter.
-		\pause
+		%\pause
 		\item \ttt{my}\ct{_}\ttt{list.pop(i)} does something similar with item at index \ttt{i}, but also returns (has as output) that item.
 	\end{itemize}
 \end{itemize}

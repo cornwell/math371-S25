@@ -3,7 +3,7 @@ Recall: if \ttt{my}\ct{_}\ttt{list} is a list, the item at index \ct{i} is found
 
 To get shorter list with consecutive items from \ttt{my}\ct{_}\ttt{list}.
 
-\pause
+%\pause
 \begin{codeblock}
 
 \begin{python}
@@ -22,7 +22,7 @@ print(my_list[-2:])
 
 \end{codeblock}
 
-\pause
+%\pause
 There is an easy way to reverse the order of a list.\footnote{Only as an output. This does not change the list variable unless you reassign it.}
 
 \begin{codeblock}
