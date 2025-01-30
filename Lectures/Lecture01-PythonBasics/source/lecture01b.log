@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  16 JAN 2025 22:54
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  30 JAN 2025 07:23
  restricted system commands enabled.
 **lecture01b
 (./lecture01b.tex
@@ -2223,6 +2223,14 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 [4
 
 ]
+
+[5
+
+]
+
+[6
+
+]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
@@ -2232,24 +2240,44 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 (Font)              scaled to size 5.10004pt on input line 10.
 )
 
-[5
+[7
+
+] (./lecture01b.vrb)
+
+[8
 
 ] (./lecture01b.toc)
 
-[6
+[9
 
 ]
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
 (Font)              scaled to size 9.30756pt on input line 225.
 
 
-[7
+[10
+
+]
+
+[11
+
+]
+
+[12
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[8
+[13
+
+] (./lecture01b.vrb)
+
+[14
+
+] (./lecture01b.vrb)
+
+[15
 
 ]
 \openout4 = lecture01b.vrb
@@ -2265,13 +2293,29 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
 
 )
 
-[9
+[16
+
+] (./lecture01b.vrb)
+
+[17
+
+] (./lecture01b.vrb)
+
+[18
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[10
+[19
+
+] (./lecture01b.vrb)
+
+[20
+
+] (./lecture01b.vrb)
+
+[21
 
 ]
 \openout4 = lecture01b.vrb
@@ -2294,35 +2338,110 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 (Font)              scaled to size 7.65005pt on input line 15.
 )
 
-[11
+[22
+
+] (./lecture01b.vrb
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+)
+
+[23
+
+] (./lecture01b.vrb
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+)
+
+[24
+
+] (./lecture01b.vrb
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 9.
+
+)
+
+[25
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[12
+[26
+
+] (./lecture01b.vrb)
+
+[27
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[13
+[28
+
+] (./lecture01b.vrb)
+
+[29
 
 ] (./lecture01b.toc)
 
-[14
+[30
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[15
+[31
+
+] (./lecture01b.vrb)
+
+[32
+
+] (./lecture01b.vrb)
+
+[33
 
 ]
 \openout4 = lecture01b.vrb
  (./lecture01b.vrb)
 
-[16
+[34
+
+] (./lecture01b.vrb)
+
+[35
+
+] (./lecture01b.vrb)
+
+[36
 
 ]
 \tf@nav=\write6
@@ -2345,18 +2464,18 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `lecture01b.out' has not changed.
-(rerunfilecheck)             Checksum: 19ABE95FB6E2FD337CE1D982BCE9A5E5;717.
+(rerunfilecheck)             Checksum: DFE10F0D475F3CF029241F973C18D76E;718.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28299 strings out of 475915
+ 28420 strings out of 475915
  100000,1977958 words of node,token memory allocated
- 14642 words of node memory still in use:
+ 14766 words of node memory still in use:
    324 hlist, 16 vlist, 26 rule, 28 disc, 11 local_par, 4 math, 534 glue, 101 ke
-rn, 31 penalty, 481 glyph, 562 attribute, 61 glue_spec, 562 attribute_list, 4 wr
-ite, 84 pdf_literal, 90 pdf_colorstack nodes
-   avail lists: 2:1207,3:239,4:732,5:565,6:45,7:2739,8:31,9:1483,10:18,11:101
- 49818 multiletter control sequences out of 65536+600000
+rn, 31 penalty, 481 glyph, 581 attribute, 61 glue_spec, 581 attribute_list, 4 wr
+ite, 100 pdf_literal, 90 pdf_colorstack nodes
+   avail lists: 2:1611,3:271,4:732,5:659,6:45,7:2739,8:31,9:1483,10:18,11:101
+ 49819 multiletter control sequences out of 65536+600000
  258 fonts using 42591455 bytes
  128i,11n,121p,423b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSan
@@ -2374,9 +2493,9 @@ tt.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/
 t1xtt.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx
 /txsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newt
 x/txsys.pfb>
-Output written on lecture01b.pdf (16 pages, 120596 bytes).
+Output written on lecture01b.pdf (36 pages, 174262 bytes).
 
-PDF statistics: 220 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 131072)
+PDF statistics: 323 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 100000000)
 

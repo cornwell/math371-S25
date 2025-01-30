@@ -149,10 +149,10 @@ keepspaces=true
     \item One of the main packages for scientific computing, a must for machine learning and data science. 
     \item Not built-in {--} must import NumPy into Python session. 
 \end{itemize}
-%\pause
+\pause
 We will also want to track runtime, so we import the package \ttt{time}.
 
-%\pause 
+\pause 
 \begin{codeblock}
 
 \begin{python}
@@ -166,7 +166,7 @@ We will also want to track runtime, so we import the package \ttt{time}.
     \item[] Create a shortcut, \ttt{np}, for NumPy. This is a common convention.
 \end{itemize}
 
-%\pause
+\pause
 \begin{itemize}
 	\item Depending on how you are interacting with Python, may have to \emph{install} the \ttt{numpy} package before the first use. Open a command terminal (\ttt{Ctrl+`}, in VSCode on Windows) and type the appropriate command below.
 \end{itemize}
@@ -187,11 +187,11 @@ The main type of object in NumPy is the \ttt{ndarray} (n-dimensional array), whi
 \begin{center}\ttt{np.array(the}\ct{_}\ttt{list)}.\end{center}
 
 \vspace*{12pt}
-%\pause
+\pause
 If items in \ttt{the}\ct{_}\ttt{list} are of numeric type, then think of the resulting \ttt{ndarray} as like a vector. Operations on NumPy arrays work like vectors in linear algebra.
 \vspace*{12pt}
 
-%\pause
+\pause
 Example:
 
 \begin{codeblock}
@@ -214,7 +214,7 @@ print(2*w)
 \frametitle{More than {\ttm 1d}}
 A NumPy array from a list containing numeric types makes a vector {--} also known as a 1-\emph{dimensional array} (Python language), or a \emph{tensor of order} 1 (mathematics). 
 
-%\pause
+\pause
 A 2-dimensional array, or tensor of order 2, is like a matrix. You construct it with \ttt{np.array()} from a list of lists {--} each of the same length.
 
 \begin{codeblock}
@@ -229,7 +229,7 @@ A = np.array([[1, 2, 3], [4, 5, 6]])
     \item[] Each ``inside list'' is a row. The array \ttt{A} is a $2\times 3$ matrix.
 \end{itemize}
 
-%\pause
+\pause
 Every array in NumPy has an attribute \ttt{shape}. 
 \begin{itemize}
     \item Previous slide: \ttt{v = np.array([-1,1,1])} has \ttt{v.shape = (3,)}. 
@@ -247,7 +247,7 @@ When the arrays are both matrices, it computes their matrix product; when one is
 
 %You can also use the function \ttt{np.dot()} for these computations. However, the \ttt{@} symbol is needed to compute products of higher order tensors.\footnote{\ttt{np.dot()} on higher tensors would compute simply the matrix product in the last two dimensions.}
 
-%\pause
+\pause
 For example, say that \ttt{A} is the matrix $\begin{bmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{bmatrix}$ from before, \ttt{v} is the vector $(-1, 1, 1)$, and let \ttt{B} and \ttt{u} be the matrix and vector defined in the code below.
 
 \vspace*{12pt}
@@ -261,7 +261,7 @@ u = np.array([1, 1, 0])
 \end{python}
 
 \end{codeblock}
-%\pause
+\pause
 \begin{itemize}
     \item Output is the ordered triple 
     \item[] \qquad \ct{( array([[6, 1], [15, 1]]), array([4, 7]), 0 )}.
@@ -276,11 +276,11 @@ u = np.array([1, 1, 0])
 Items in 1d array are accessed the same way as in a list (e.g., \ttt{v}\ct{[0]} is the first item, at index 0).  For a 2d array, say the matrix \ttt{A}, we can access the item in the row \ct{i} and column \ct{j} by \ttt{A}\ct{[i, j]}.
 
 \vspace*{12pt}
-%\pause
+\pause
 Like lists, can also use slicing with arrays. Examples:
 \begin{enumerate}
     \item To get first column of the matrix \ttt{A}, write \ttt{A}\ct{[: , 0]}.\footnote{Recall the use of the colon from before. It functions the same way here.}
-    %\pause 
+    \pause 
     \item To get top-right $2\times 2$ submatrix of a matrix \ttt{M}, then use \ttt{M}\ct{[:2, -2:]}.
 \end{enumerate}
 
@@ -291,10 +291,10 @@ Like lists, can also use slicing with arrays. Examples:
 
 % \end{codeblock}
 
-%\pause
+\pause
 A row of \ttt{A} is easier {--} row \ct{i} would be \ttt{A}\ct{[i]}.\footnote{Could, if you want, use slicing: \ttt{A}\ct{[i, :]}.}
 
-%\pause
+\pause
 If \ttt{A} is a 2d array, its transpose is \ttt{A.T} (providing yet another alternative for accessing a column).
 \end{frame}
 
@@ -308,14 +308,14 @@ Some types of matrices are used a lot; would be cumbersome to always write the r
     %pause
     \begin{itemize}
         \item[] \textbf{Zero matrix}: The command \ttt{np.zeros((m, n))} constructs an $m\times n$ matrix with all entries equal to zero.
-        %\pause
+        \pause
         \item[] \textbf{Diagonal matrix}: If \ttt{d} is a 1d array of length $n$, the command \ttt{np.diag(d)} constructs an $n\times n$ diagonal matrix which has \ttt{d} as its diagonal entries.
-        %\pause
+        \pause
         \item[] \textbf{Identity matrix}: The command \ttt{np.eye(n)} constructs the $n\times n$ identity matrix.
     \end{itemize}
     
 %pause
-\textbf{Extracting part of matrix:} May want to get part of a matrix. To get a submatrix from consecutive rows and columns, use slicing. %\pause
+\textbf{Extracting part of matrix:} May want to get part of a matrix. To get a submatrix from consecutive rows and columns, use slicing. \pause
 Also, here are functions that return part of the matrix (other entries being set to \ttt{0}).%\footnote{Can use a \emph{method} for last one: \ttt{A.diagonal()} returns the same as \ttt{np.diag(A)}.} 
 
 \begin{codeblock}
@@ -337,17 +337,17 @@ np.diag(A)
 \frametitle{Using NumPy for linear algebra}
 In addition to the product operations on arrays, NumPy has a library (\ttt{linalg}) with many functions for linear algebra. 
 
-%\pause
+\pause
 Examples: 
 \begin{enumerate}
     \item If $M$ is a square matrix, can compute $\det(M)$ with the command \ttt{np.linalg.det(M)}.
-    %\pause
+    \pause
     \item When $M$ is invertible, can compute $M^{-1}$ with the command \ttt{np.linalg.inv(M)}.
-    %\pause
+    \pause
     \item If $M$ is a square matrix, can compute eigenvalues and eigenvectors with \ttt{np.linalg.eig(M)}. 
 \end{enumerate}
 
-%\pause
+\pause
 There are many other linear algebra functions. Some are only implemented for square matrices (and perhaps only invertible ones), even though it would make sense to have them work more generally {--} for example, \ttt{np.solve(A, b)} only solves the system $A\mathbf{x} = b$ if \ttt{A} is a square invertible matrix.
 \end{frame}
 
@@ -356,7 +356,7 @@ There are many other linear algebra functions. Some are only implemented for squ
 \frametitle{Solving a linear system \& Errors}
 To solve $A\mathbf{x} = \mathbf{b}$, with a square invertible matrix \ttt{A} and vector \ttt{b} of the right size, you can use \ttt{np.linalg.solve(A, b)}.
 
-%\pause
+\pause
 What happens when \ttt{A} is not square? Execute the following code in Python.
 
 \begin{codeblock}
@@ -371,10 +371,10 @@ What happens when \ttt{A} is not square? Execute the following code in Python.
 
 \end{codeblock}
 
-%\pause
+\pause
 A message is generated about the error. It gives you helpful information, if it can. In this case, it is a \ttt{LinAlgError} with the message \ttt{Last 2 dimensions of the array must be square}.
 
-%\pause
+\pause
 Spend time trying to use error messages to understand issues in your code. Also, have healthy skepticism about AI assistants. They hallucinate; error messages don't.\footnote{While writing this slide, Github Copilot suggested I write that it would be a \ttt{ValueError} from \emph{mismatched dimensions}: rows of \ttt{A} being size \ttt{(3,)} and the vector \ttt{b} being size \ttt{(2,)}.}
 \end{frame}
 
@@ -402,7 +402,7 @@ sqrt_v = np.sqrt(v)
 \end{itemize}
 Functions that work on arrays this way are quite common in NumPy. They are called {\ttb ufuncs} (universal functions).
 
-%\pause
+\pause
 Other examples of ufuncs in NumPy: 
     \begin{itemize}
         \item[] \ttt{np.abs()}, \ttt{np.sum()}, \ttt{np.maximum()}, \ttt{np.minimum()}, \ttt{np.exp()}, \ttt{np.log()}.
@@ -415,16 +415,16 @@ Many basic operations with NumPy arrays use broadcasting. Here are a few example
 \begin{enumerate}
     \item To add the same scalar, say \ct{3}, to every array entry: type \ttt{v+3}.
     \item To multiply every entry by \ct{3}: type \ttt{3*v}.
-    %\pause
+    \pause
     \item To square every entry of an array: type \ttt{v**2}.
     \item To multiply \ttt{v} by another array \ttt{w}, entry-wise\footnote{In mathematics, this product on vectors is called the Hadamard product.}: type \ttt{v*w}.
 \end{enumerate}
 
-%\pause
+\pause
 Everything mentioned here works just as well on matrices (2d arrays), and generally on any \ttt{n}d array (higher order tensors).
 
 \vspace*{12pt}
-%\pause
+\pause
 Exercise. \newline
 Write out code that uses broadcasting to create a $100\times 100$ matrix where all non-diagonal entries are $-1$ and all diagonal entries are $2$.
 \end{frame}
@@ -434,10 +434,10 @@ Write out code that uses broadcasting to create a $100\times 100$ matrix where a
 \frametitle{Experiment with runtime for universal function}
 To check the efficiency of broadcasting, use the \ttt{time} package. Beforehand, make sure that you imported both \ttt{numpy} and \ttt{time} (see slide in first section).
 
-%\pause
+\pause
 Something simple: from a large identity matrix, we will get the exponential of the matrix (apply the function $e^x$ to every entry).
 
-%\pause
+\pause
 First, we use a \ttt{for} loop. Run the code below in your Jupyter notebook.
 
 \begin{codeblock}
@@ -456,7 +456,7 @@ print(f"Seconds taken: {end-start}.")
 \end{codeblock}
 
 \vspace*{12pt}
-%\pause
+\pause
 \begin{itemize}
     \item[] The output gives the number of seconds to run the computation. The exact time will vary based on your computer. Mine took around 0.55 seconds.
 \end{itemize}
@@ -467,7 +467,7 @@ print(f"Seconds taken: {end-start}.")
 \frametitle{Experiment with runtime for universal function}
 Now, we will use broadcasting to compute the exponential of the identity matrix.
 
-%\pause
+\pause
 Run the following code in your Jupyter notebook.
 
 \begin{codeblock}
@@ -484,7 +484,7 @@ print(f"Seconds taken: {end-start}.")
 \end{codeblock}
 
 \vspace*{12pt}
-%\pause
+\pause
 \begin{itemize}
     \item[] Again, the output is the number of seconds of runtime. For this approach with \ttt{np.exp()}, my computer took around 0.0045 seconds. That is over 100 times faster than writing the loop!
 \end{itemize}

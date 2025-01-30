@@ -147,7 +147,7 @@ keepspaces=true
 \frametitle{Comparisons}
 We often need to compare variables, or compare a variable to some value {--} a ``literal.'' 
 
-%\pause
+\pause
 The comparison operations are in the table below.
 \begin{center}
 	\ttt{
@@ -163,7 +163,7 @@ The comparison operations are in the table below.
 	\item[] \ttt{<=}, for \emph{less than or equal to} (and similarly with \ttt{>=} and greater than).
 \end{itemize}
 
-%\pause
+\pause
 \begin{itemize}
 	\item Error occurs if a comparison doesn't make sense for that type. 
 	\item Don't use \ttt{is} or \ttt{is not} with literals {--} meaning, they compare values of two variables but not, for example, if variable \ttt{x} equals \ttt{5}. Use either \ttt{==} or \ttt{!=} for that.
@@ -189,7 +189,7 @@ print(x is 10)
 \end{codeblock}
 
 \vfill
-%\pause
+\pause
 With the same variable assignments as above, the following prints \ttt{True} twice.
 \vspace*{12pt}
 
@@ -214,11 +214,11 @@ So far, all code has had simple structure {--} a few lines of code each get exec
     \item[] Achieve this with \textbf{control flow} statements.
 \end{itemize}
 
-%\pause
+\pause
 Right now, we'll look at the following.
 \begin{itemize}
 	\item \ttt{if-else} statements.
-    %\pause
+    \pause
 	\item Loops: \ttt{for} loops.
 	\item Loops: \ttt{while} loops.
 \end{itemize}
@@ -231,7 +231,7 @@ Right now, we'll look at the following.
 
 When you want part of code to execute only when a condition is satisfied, use an \ttt{if-else} statement. 
 
-%\pause
+\pause
 A basic example below (\ct{v=10} and \ct{w=5} as in slide from Comparisons).
 
 \begin{codeblock}
@@ -252,7 +252,7 @@ else:
 \vspace*{12pt}
 
 Notice the indentation of the lines between \ttt{if} and \ttt{else}, and those after \ttt{else}, which determines the code that runs on the condition. 
-%\pause
+\pause
 \begin{itemize}
 	\item[] Lines 7 and 8 will only be executed if \ttt{len(Class)} is less than \ct{11}. If a line after line 8 is \emph{not} indented, it will be executed no matter what.
 \end{itemize}
@@ -265,7 +265,7 @@ Notice the indentation of the lines between \ttt{if} and \ttt{else}, and those a
 
 What if we have more than just two cases? That is, when the \ttt{if} condition fails we want to check another condition before deciding what to do.
 
-%\pause
+\pause
 \begin{itemize}
 	\item[] Put an \ttt{elif} block between the \ttt{if} and \ttt{else}. (This is short for ``else, if\ldots''.)
 \end{itemize}
@@ -284,7 +284,7 @@ else:
 \end{codeblock}
 
 \vfill
-%\pause
+\pause
 If we only care to do something in one of the cases, put \ttt{pass} in the block for the other case.
 
 \begin{codeblock}
@@ -308,7 +308,7 @@ Use a \emph{loop} to construct, or compute, something through various iterations
 
 The block of code that repeats should be indented, as with \ttt{if-else} statements. The next line not indented is outside that loop.
 
-%\pause
+\pause
 Example:
 
 \begin{codeblock}
@@ -323,7 +323,7 @@ print(the_sum)
 
 \end{codeblock}
 
-%\pause
+\pause
 To avoid writing out the list of values for \ttt{i}, the following does the same as previous.
 
 \begin{codeblock}
@@ -349,14 +349,14 @@ print(the_sum)
 This function uses three arguments {--} \ttt{start}, \ttt{stop}, and \ttt{step}. %; however, \ttt{start} and \ttt{step} have a \emph{default value}, of \ct{0} and \ct{1}, if they are not provided. 
 As a list, \ttt{range(start, stop, step)} will contain integers between \ttt{start} and \ttt{stop-1}, with a gap of \ttt{step} between consecutive items. 
 
-%\pause
+\pause
 For example, if \ttt{step = 1}, the range is 
 \[ [\ttt{start}, \ttt{start+1},\ttt{start+2},\ldots,\ttt{stop-1}]. \]
 
-%\pause
+\pause
 More generally, its largest item equals \ttt{start + k*step}, with \ttt{k} as large as possible to remain less than \ttt{stop}. For example, \ttt{range(}\ct{2, 30, 4}\ttt{)} is \ct{[2,6,10,14,18,22,26]} as a list.
 
-%\pause
+\pause
 Given only two inputs, \ttt{range()} uses them as \ttt{start} and \ttt{stop}, setting \ttt{step=1}. A single input is interpreted as \ttt{stop}, setting \ttt{start=0}, \ttt{step=1}.\footnote{The behavior that has \ttt{start=0} and \ttt{step=1} here, we say these arguments have \emph{default} values of \ttt{0} and \ttt{1}.} So, \ttt{range(6)} is \ct{[0,1,2,3,4,5]}.
 \end{frame}
 
@@ -369,7 +369,7 @@ Given only two inputs, \ttt{range()} uses them as \ttt{start} and \ttt{stop}, se
 \end{itemize}
 
 \vfill
-%\pause
+\pause
 Example: say that in the variable \ttt{Class}, assigned to be \ttt{"MATH 371"} before, we're inserting a period \ttt{"."} after each letter (but, not after a space). A for loop to do it is below.
 \vspace*{12pt}
 
@@ -395,7 +395,7 @@ print(new_Class_string)
 
 Rather than repeating a block of code for items in a specified sequence, we can simply repeat it until a condition is satisfied {--} a \ttt{while} loop.
 
-%\pause
+\pause
 \vspace*{12pt}
 Above the code block to be repeated, put: \ttt{while <condition>}, where \ttt{<condition>} should evaluate to either \ttt{True} or \ttt{False}.
 
@@ -427,7 +427,7 @@ To generate or construct a list with a loop, a common way involves two parts.
 	\item Go through a loop, adding items to the list in each (or some) of the iterations.
 \end{enumerate}
 
-%\pause
+\pause
 Example: have a function, \ttt{item()}, that determines the \ttt{n}$^{th}$ item in the list. You want list to contain the first 50 items. The code could look like below. 
 
 \begin{codeblock}
@@ -441,7 +441,7 @@ for n in range(50):
 
 \end{codeblock}
 
-%\pause
+\pause
 In Python, the same list can be created in one line of code. You do so by typing the following.
 
 \begin{codeblock}
@@ -467,7 +467,7 @@ some_list = [item(n) for n in range(50)]
 
 \end{codeblock}
 
-%\pause
+\pause
 In list comprehensions: can add a condition to check. For example, if you only want to include \ttt{item(n)} if it is even, then you can write the following.
 
 \begin{codeblock}
@@ -478,7 +478,7 @@ some_list = [item(n) for n in range(50) if item(n) % 2 == 0]
 
 \end{codeblock}
 
-%\pause
+\pause
 \vfill
 A more complicated example: get those $x$ between 1 and 100 at which the function $1000\frac{x}{(x^3+1)}$ has value between 0.5 and 2.
 

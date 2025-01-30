@@ -9,7 +9,7 @@ some_list = [item(n) for n in range(50)]
 
 \end{codeblock}
 
-%\pause
+\pause
 In list comprehensions: can add a condition to check. For example, if you only want to include \ttt{item(n)} if it is even, then you can write the following.
 
 \begin{codeblock}
@@ -20,7 +20,7 @@ some_list = [item(n) for n in range(50) if item(n) % 2 == 0]
 
 \end{codeblock}
 
-%\pause
+\pause
 \vfill
 A more complicated example: get those $x$ between 1 and 100 at which the function $1000\frac{x}{(x^3+1)}$ has value between 0.5 and 2.
 
