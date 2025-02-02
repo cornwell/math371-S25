@@ -144,8 +144,8 @@ keepspaces=true
 
 %%%%
 \begin{frame}[fragile]
-\frametitle{The {\ttm random} module in NumPy}
-From documentation: Within NumPy is the package \ttt{random} which ``implments pseudo-random number generators\ldots with the ability to draw samples from a variety of probability distributions.''
+\frametitle{The {\ttm random} submodule in NumPy}
+From documentation: Within NumPy is the submodule \ttt{random} which ``implments pseudo-random number generators\ldots with the ability to draw samples from a variety of probability distributions.''
 %\pause
 \begin{enumerate}
     \item Uniform discrete: to sample \ttt{m} numbers from the uniform distribution on the integers in \ttt{range(n)}, use the function \ttt{np.random.randint(n, size=m)}. 
@@ -177,7 +177,7 @@ From documentation: Within NumPy is the package \ttt{random} which ``implments p
 
 %%%%
 \begin{frame}[fragile]
-\frametitle{The {\ttm random} module in NumPy}
+\frametitle{The {\ttm random} submodule in NumPy}
 
 \begin{enumerate}
     \setcounter{enumi}{1}
@@ -203,7 +203,7 @@ From documentation: Within NumPy is the package \ttt{random} which ``implments p
 
 %%%%
 \begin{frame}[fragile]
-    \frametitle{The {\ttm random} module in NumPy}
+    \frametitle{The {\ttm random} submodule in NumPy}
     
     \begin{enumerate}
         \setcounter{enumi}{1}
@@ -294,200 +294,120 @@ Again, about the normal distribution
     
 \end{frame}
 
-% from on getting matrix entries
-
-% shuffling a random permutation
-    
-\section{Defining custom functions}
-
 %%%%
 \begin{frame}[fragile]
-\frametitle{Constructing special matrices}
-Some types of matrices are used a lot; would be cumbersome to always write the row lists ourselves (e.g., in a $100\times100$ matrix).
-    
-    %pause
-    \begin{itemize}
-        \item[] \textbf{Zero matrix}: The command \ttt{np.zeros((m, n))} constructs an $m\times n$ matrix with all entries equal to zero.
-        %\pause
-        \item[] \textbf{Diagonal matrix}: If \ttt{d} is a 1d array of length $n$, the command \ttt{np.diag(d)} constructs an $n\times n$ diagonal matrix which has \ttt{d} as its diagonal entries.
-        %\pause
-        \item[] \textbf{Identity matrix}: The command \ttt{np.eye(n)} constructs the $n\times n$ identity matrix.
-    \end{itemize}
-    
-%pause
-\textbf{Extracting part of matrix:} May want to get part of a matrix. To get a submatrix from consecutive rows and columns, use slicing. %\pause
-Also, here are functions that return part of the matrix (other entries being set to \ttt{0}).%\footnote{Can use a \emph{method} for last one: \ttt{A.diagonal()} returns the same as \ttt{np.diag(A)}.} 
-
-\begin{codeblock}
-
-\begin{python}
-# return lower triangular part (at or below the diagonal)
-np.tril(A)
-# return upper triangular part (at or above the diagonal)
-np.triu(A)
-# return the diagonal of A
-np.diag(A)
-\end{python}
-
-\end{codeblock}
-\end{frame}
-
-%%%%
-\begin{frame}
-\frametitle{Using NumPy for linear algebra}
-In addition to the product operations on arrays, NumPy has a library (\ttt{linalg}) with many functions for linear algebra. 
-
-%\pause
-Examples: 
-\begin{enumerate}
-    \item If $M$ is a square matrix, can compute $\det(M)$ with the command \ttt{np.linalg.det(M)}.
-    %\pause
-    \item When $M$ is invertible, can compute $M^{-1}$ with the command \ttt{np.linalg.inv(M)}.
-    %\pause
-    \item If $M$ is a square matrix, can compute eigenvalues and eigenvectors with \ttt{np.linalg.eig(M)}. 
-\end{enumerate}
-
-%\pause
-There are many other linear algebra functions. Some are only implemented for square matrices (and perhaps only invertible ones), even though it would make sense to have them work more generally {--} for example, \ttt{np.solve(A, b)} only solves the system $A\mathbf{x} = b$ if \ttt{A} is a square invertible matrix.
-\end{frame}
-
-%%%%
-\begin{frame}[fragile]
-\frametitle{Solving a linear system \& Errors}
-To solve $A\mathbf{x} = \mathbf{b}$, with a square invertible matrix \ttt{A} and vector \ttt{b} of the right size, you can use \ttt{np.linalg.solve(A, b)}.
-
-%\pause
-What happens when \ttt{A} is not square? Execute the following code in Python.
-
-\begin{codeblock}
-
-\begin{python}
-    A = np.array([[1, 2, 3], [1, 4, -1]])
-    b = np.array([1, -5])
-    # system has solution x = [0, -1, 1]
-    # but next line raises an error
-    x = np.linalg.solve(A, b)
-\end{python}
-
-\end{codeblock}
-
-%\pause
-A message is generated about the error. It gives you helpful information, if it can. In this case, it is a \ttt{LinAlgError} with the message \ttt{Last 2 dimensions of the array must be square}.
-
-%\pause
-Spend time trying to use error messages to understand issues in your code. Also, have healthy skepticism about AI assistants. They hallucinate; error messages don't.\footnote{While writing this slide, Github Copilot suggested I write that it would be a \ttt{ValueError} from \emph{mismatched dimensions}: rows of \ttt{A} being size \ttt{(3,)} and the vector \ttt{b} being size \ttt{(2,)}.}
-\end{frame}
-
-\section{Broadcasting and efficient operations}
-%%%%
-\begin{frame}[fragile]
-\frametitle{Broadcasting, universal functions}
-Say that you have a 1d array and you want to make array with square root the entries. 
+\frametitle{Some miscellany about distributions in {\ttm numpy.random}}
 \begin{itemize}
-    \item[] First thought: use a loop, taking square root (and assigning) as you go through items in the array.
+    \item Many other probability distributions are implemented in \ttt{numpy.random}. See \href{https://numpy.org/doc/2.1/reference/random/legacy.html#distributions}{this link} for information about them.
+    
+    %\pause
+    \item There is a useful command to shuffle an array: randomizing the order of the entries in the array: \ttt{np.random.shuffle(the}\ct{_}\ttt{array)}.
+    \begin{itemize}
+        \item This changes \ttt{the}\ct{_}\ttt{array} in place.
+    \end{itemize}
+
+    %\pause
+    \item Not only a 1d array; can get a matrix (or any order tensor) with entries sampled from the distribution by adjusting the \ttt{size} argument.
 \end{itemize}
 
-NumPy has an efficient way to handle it, called \emph{broadcasting}. If \ttt{v} is your array, then you can simply type 
+\begin{codeblock}
+
+\begin{python}
+# to get 30x2 matrix, entries from normal N(0,1)
+np.random.normal(size=(30,2))
+\end{python}
+
+\end{codeblock}
+
+\end{frame}
+
+\section{Defining custom functions}
+
+
+%%%%
+\begin{frame}[fragile]
+    \frametitle{How to define a custom function}
+The basic structure for a definition of a custom function has four parts: the function name, a list of arguments it takes, the ``body'' of the function (what happens when it is called), and what it returns.
+
+Like this:
+
+\begin{codeblock}
+
+    \begin{python}
+    def function_name(argument1, argument2):
+        # in this part is the body of the function
+        return function_output
+    \end{python}
+    
+    \end{codeblock}
+    
+
+\textbf{Example.} Here is a function that takes a 1d array as input. It makes a copy of it, but in reversed order.  Then it multiplies these together entry-wise, and any negative numbers obtained are replaced with 0. It then returns the resulting array of non-negative numbers.
+
+\begin{codeblock}
+
+\begin{python}
+def my_function(v):
+    reverse_v = v[::-1]
+    multiplied = reverse_v * v
+    zeros = np.zeros(len(v))
+    return np.maximum(multiplied, zeros)
+\end{python}
+
+\end{codeblock}
+
+\end{frame}
+
+%%%%
+\begin{frame}[fragile]
+\frametitle{A custom function to help with a plot}
+Say that I have 500 points in the plane. Maybe they are selected randomly in some way, such as 
 
 \begin{codeblock}
 
 \begin{python}[numbers=none]
-sqrt_v = np.sqrt(v)
+p = np.random.uniform(-1, 1, size=(500,2))
 \end{python}
 
 \end{codeblock}
 
-\begin{itemize}
-    \item[] The function \ttt{np.sqrt()} takes the square root of each entry in \ttt{v}; you don't need to write the for loop.\footnote{Technically, there's a for loop in the background, but it happens in C and works much faster.}
-\end{itemize}
-Functions that work on arrays this way are quite common in NumPy. They are called {\ttb ufuncs} (universal functions).
-
 %\pause
-Other examples of ufuncs in NumPy: 
-    \begin{itemize}
-        \item[] \ttt{np.abs()}, \ttt{np.sum()}, \ttt{np.maximum()}, \ttt{np.minimum()}, \ttt{np.exp()}, \ttt{np.log()}.
-    \end{itemize}
-\end{frame}
+Now, say that I want to plot them, coloring them dark blue if their dot product with the vector $(2,-2/3)$ is negative, and coloring them a \emph{salmon} color otherwise.
 
-\begin{frame}
-\frametitle{More on broadcasting}
-Many basic operations with NumPy arrays use broadcasting. Here are a few examples with an array \ttt{v}.
-\begin{enumerate}
-    \item To add the same scalar, say \ct{3}, to every array entry: type \ttt{v+3}.
-    \item To multiply every entry by \ct{3}: type \ttt{3*v}.
-    %\pause
-    \item To square every entry of an array: type \ttt{v**2}.
-    \item To multiply \ttt{v} by another array \ttt{w}, entry-wise\footnote{In mathematics, this product on vectors is called the Hadamard product.}: type \ttt{v*w}.
-\end{enumerate}
-
-%\pause
-Everything mentioned here works just as well on matrices (2d arrays), and generally on any \ttt{n}d array (higher order tensors).
-
-\vspace*{12pt}
-%\pause
-Exercise. \newline
-Write out code that uses broadcasting to create a $100\times 100$ matrix where all non-diagonal entries are $-1$ and all diagonal entries are $2$.
-\end{frame}
-
-%%%%
-\begin{frame}[fragile]
-\frametitle{Experiment with runtime for universal function}
-To check the efficiency of broadcasting, use the \ttt{time} package. Beforehand, make sure that you imported both \ttt{numpy} and \ttt{time} (see slide in first section).
-
-%\pause
-Something simple: from a large identity matrix, we will get the exponential of the matrix (apply the function $e^x$ to every entry).
-
-%\pause
-First, we use a \ttt{for} loop. Run the code below in your Jupyter notebook.
+An efficient way to make the array that contains the colors, ordered as the points are?
 
 \begin{codeblock}
 
 \begin{python}
-id_matrix = np.eye(1000)
-exp_matrix = np.zeros((1000, 1000))
-start = time.time()
-for i in range(1000):
-    for j in range(1000):
-        exp_matrix[i,j] = np.exp(id_matrix[i,j])
-end = time.time()
-print(f"Seconds taken: {end-start}.")
+def coloring(array_of_points):
+    ref_vector = np.array([2,-2/3])
+    dotvalues = array_of_points@ref_vector
+    colors = np.array(['darkblue' if v < 0 else 'salmon' for v in dotvalues])
+    return colors
 \end{python}
 
 \end{codeblock}
-
-\vspace*{12pt}
-%\pause
-\begin{itemize}
-    \item[] The output gives the number of seconds to run the computation. The exact time will vary based on your computer. Mine took around 0.55 seconds.
-\end{itemize}
 \end{frame}
 
 %%%%
 \begin{frame}[fragile]
-\frametitle{Experiment with runtime for universal function}
-Now, we will use broadcasting to compute the exponential of the identity matrix.
+\frametitle{Additional arguments, default values, keyword arguments}
 
-%\pause
-Run the following code in your Jupyter notebook.
+% or, def my_function(v, translate):
+% or, def my_function(v, translate=2):
 
 \begin{codeblock}
 
 \begin{python}
-id_matrix = np.eye(1000)
-exp_matrix = np.zeros((1000, 1000))
-start = time.time()
-exp_matrix = np.exp(id_matrix)
-end = time.time()
-print(f"Seconds taken: {end-start}.")
+def my_function(v, *, translate=2):
+    reverse_v = v[::-1]
+    multiplied = reverse_v * v + translate
+    zeros = np.zeros(len(v))
+    return np.maximum(multiplied, zeros)
 \end{python}
 
 \end{codeblock}
 
-\vspace*{12pt}
-%\pause
-\begin{itemize}
-    \item[] Again, the output is the number of seconds of runtime. For this approach with \ttt{np.exp()}, my computer took around 0.0045 seconds. That is over 100 times faster than writing the loop!
-\end{itemize}
 \end{frame}
 
 \end{document}
