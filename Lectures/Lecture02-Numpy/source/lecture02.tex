@@ -273,7 +273,12 @@ u = np.array([1, 1, 0])
 %%%%
 \begin{frame}
 \frametitle{Indexing and slicing arrays}
-Items in 1d array are accessed the same way as in a list (e.g., \ttt{v}\ct{[0]} is the first item, at index 0).  For a 2d array, say the matrix \ttt{A}, we can access the item in the row \ct{i} and column \ct{j} by \ttt{A}\ct{[i, j]}.
+Items in 1d array are accessed the same way as in a list
+\begin{itemize}
+    \item[] e.g., \ttt{v}\ct{[0]} is the first item, at index 0.  
+\end{itemize}
+
+For a 2d array, say the matrix \ttt{A}, we can access the item in the row \ct{i} and column \ct{j} by \ttt{A}\ct{[i, j]}.
 
 \vspace*{12pt}
 \pause
@@ -292,7 +297,7 @@ Like lists, can also use slicing with arrays. Examples:
 % \end{codeblock}
 
 \pause
-A row of \ttt{A} is easier {--} row \ct{i} would be \ttt{A}\ct{[i]}.\footnote{Could, if you want, use slicing: \ttt{A}\ct{[i, :]}.}
+With arrays, can even get non-consecutive indices. For example, \ttt{A}\ct{[: ,[0,2]]} gives two columns that are not adjacent. 
 
 \pause
 If \ttt{A} is a 2d array, its transpose is \ttt{A.T} (providing yet another alternative for accessing a column).
@@ -311,7 +316,7 @@ Some types of matrices are used a lot; would be cumbersome to always write the r
         \pause
         \item[] \textbf{Diagonal matrix}: If \ttt{d} is a 1d array of length $n$, the command \ttt{np.diag(d)} constructs an $n\times n$ diagonal matrix which has \ttt{d} as its diagonal entries.
         \pause
-        \item[] \textbf{Identity matrix}: The command \ttt{np.eye(n)} constructs the $n\times n$ identity matrix.
+        \item[] \textbf{Identity matrix}: The command \ttt{np.identity(n)} (also, \ttt{np.eye(n)}) constructs the $n\times n$ identity matrix.
     \end{itemize}
     
 %pause
