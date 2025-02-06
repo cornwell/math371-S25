@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  2 FEB 2025 13:16
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  5 FEB 2025 20:00
  restricted system commands enabled.
 **lecture02
 (./lecture02.tex
@@ -2463,7 +2463,7 @@ pdf_literal, 84 pdf_colorstack nodes
    avail lists: 2:1327,3:230,4:438,5:822,6:35,7:3386,8:8,9:1175,10:18,11:142
  50031 multiletter control sequences out of 65536+600000
  218 fonts using 38917255 bytes
- 128i,11n,121p,445b,1147s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,11n,121p,442b,1147s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmromande
 mi10-regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/pu
 blic/lm/lmroman10-regular.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/font
@@ -2481,9 +2481,9 @@ ts/type1/public/txfonts/t1xtt.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/newtx/txsys.pfb>
-Output written on lecture02.pdf (50 pages, 211814 bytes).
+Output written on lecture02.pdf (50 pages, 213436 bytes).
 
-PDF statistics: 398 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 408 PDF objects out of 1000 (max. 8388607)
  105 named destinations out of 1000 (max. 131072)
  48 words of extra memory for PDF output out of 10000 (max. 100000000)
 
