@@ -315,7 +315,7 @@ A larger sample size gives a distribution that is closer to the bell curve.
     \end{itemize}
 
     %\pause
-    \item Not only a 1d array; can get a matrix (or any order tensor) with entries sampled from the distribution by adjusting the \ttt{size} argument.
+    \item Not just for 1d arrays; can get a matrix (or any order tensor) with entries sampled from the distribution by adjusting the \ttt{size} argument.
 \end{itemize}
 
 \begin{codeblock}
@@ -445,4 +445,32 @@ The output, \ttt{df}, is a Pandas DataFrame. Assuming your CSV file had a first 
 A column of a dataframe has a method, \ct{.to_numpy()}, that converts it to a NumPy array.
 \end{frame}
 
+%%%%
+\begin{frame}[fragile]
+    \frametitle{Regression line on data in plane}
+For the data set that was provided, assign it as a dataframe, like with variable \ct{df} on last slide. 
+
+Make two NumPy arrays called \ttt{} and \ttt{} from columns 'column1' and 'column2'. These will be $x$-coordinates and $y$-coordinates. To plot the points in the plane, use the scatter function in \ttt{pyplot}.
+
+\begin{codeblock}
+
+\begin{python}
+plt.scatter(x, y)
+plt.show()
+\end{python}
+
+\end{codeblock}
+
+Getting the ``best fit'' regression line\footnote{Considering $x$ as the independent variable and $y$ as the \emph{response} variable.} is straightforward in NumPy. 
+
+\begin{codeblock}
+
+\begin{python}
+# returns slope and intercept of best fit line
+np.polyfit(x, y, 1)
+\end{python}
+    
+\end{codeblock}
+    
+\end{frame}
 \end{document}

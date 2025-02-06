@@ -1,21 +1,25 @@
-\frametitle{Importing data with Pandas}
-For this first example, we'll keep working with data very simple.
+\frametitle{Regression line on data in plane}
+For the data set that was provided, assign it as a dataframe, like with variable \ct{df} on last slide.
 
-Assumption: data is contained in a CSV file, representing a ``spreadsheet'' of values in columns.
-
-\begin{enumerate}
-    \item Import Pandas, command: \ttt{import pandas as pd}.
-    \item If file is in same folder as your Jupyter notebook, and called \ttt{file1.csv}, then assign
-\end{enumerate}
+Make two NumPy arrays called \ttt{} and \ttt{} from columns 'column1' and 'column2'. These will be $x$-coordinates and $y$-coordinates. To plot the points in the plane, use the scatter function in \ttt{pyplot}.
 
 \begin{codeblock}
 
-\begin{python}[numbers=none]
-df = pd.read_csv('file1.csv')
+\begin{python}
+plt.scatter(x, y)
+plt.show()
 \end{python}
 
 \end{codeblock}
 
-The output, \ttt{df}, is a Pandas DataFrame. Assuming your CSV file had a first line with column headings (\ct{'column1', 'column2',}\ldots etc.), the values in the first column, type \ttt{df['column1']}.
+Getting the ``best fit'' regression line\footnote{Considering $x$ as the independent variable and $y$ as the \emph{response} variable.} is straightforward in NumPy.
 
-A column of a dataframe has a method, \ct{.to_numpy()}, that converts it to a NumPy array.
+\begin{codeblock}
+
+\begin{python}
+# returns slope and intercept of best fit line
+np.polyfit(x, y, 1)
+\end{python}
+
+\end{codeblock}
+
