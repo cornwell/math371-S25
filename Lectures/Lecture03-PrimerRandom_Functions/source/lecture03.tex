@@ -146,16 +146,17 @@ keepspaces=true
 \begin{frame}[fragile]
 \frametitle{The {\ttm random} submodule in NumPy}
 From documentation: Within NumPy is the submodule \ttt{random} which ``implments pseudo-random number generators\ldots with the ability to draw samples from a variety of probability distributions.''
-%\pause
+\pause
 \begin{enumerate}
     \item Uniform discrete: to sample \ttt{m} numbers from the uniform distribution on the integers in \ttt{range(n)}, use the function \ttt{np.random.randint(n, size=m)}. 
     \begin{itemize}
         \item An optional additional integer in the arguments: give a lower bound.\footnote{The default lower end is 0, to sample between 0 and \ttt{n-1}.}
+        \pause
         \item If size argument not given, just one number returned. If the \ttt{size=m} is given, returns a NumPy array.
     \end{itemize}
 \end{enumerate}
 
-%\pause 
+\pause 
 \begin{codeblock}
 
 \begin{python}
@@ -165,7 +166,7 @@ From documentation: Within NumPy is the submodule \ttt{random} which ``implments
 
 \end{codeblock}
 
-%\pause
+\pause
 \begin{enumerate}
     \item[] Commands above will sample with replacement.
     \begin{itemize}
@@ -183,14 +184,14 @@ From documentation: Within NumPy is the submodule \ttt{random} which ``implments
     \setcounter{enumi}{1}
     \item Uniform continuous: to sample \ttt{m} floats in the interval \ttt{[a, b)}, use the function \ttt{np.random.uniform(a, b, size=m)}.
     \begin{itemize}
-        %\pause
+        \pause
         \item The defaults for the left \& right endpoints are 0 and 1. This means that \ttt{np.random.uniform(size=m)} will sample from the unit interval.
         \item An alternative: \ttt{np.random.random(size=m)}. Only samples from the unit interval, but, can get samples from \ttt{[a,b)} by multiplying and adding (below).
     \end{itemize}
 \end{enumerate}
 
 \vspace*{12pt}
-%\pause
+\pause
 \begin{codeblock}
 
 \begin{python}[numbers=none]
@@ -210,13 +211,14 @@ From documentation: Within NumPy is the submodule \ttt{random} which ``implments
         \item Uniform continuous: to sample \ttt{m} floats in the interval \ttt{[a, b)}, use the function \ttt{np.random.uniform(a, b, size=m)}.
         \item Normal distribution: to sample \ttt{m} floats from the normal distribution, with mean \ttt{mu} and standard deviation \ttt{sigma}, use the function \ttt{np.random.normal(mu, sigma, size=m)}
         \begin{itemize}
+            \pause
             \item The two arguments for the mean and standard deviation have default 0 and 1, respectively.
             \item Not uncommon to use the \emph{keywords} for these arguments,\footnote{Using keyword makes the argument not \emph{positional} anymore; arguments coming after it must have keyword too.} as in 
             \begin{center}\ttt{np.random.normal(loc=mu, scale=sigma, size=m)}\end{center}
         \end{itemize}
     \end{enumerate}
 
-    %\pause
+    \pause
     Larger the sample, the closer the distribution of that sample (i.e., normalized histogram) should be to the theoretical pdf. Can we display this in a plot?
 \end{frame}
     
@@ -225,7 +227,7 @@ From documentation: Within NumPy is the submodule \ttt{random} which ``implments
 \frametitle{Visualizing the distribution}
 Using uniform distribution on interval $[a,b)$: for subinterval of width $\delta$, probability $\delta\frac{1}{b-a}$ of getting a sample in that interval.
 
-%\pause
+\pause
 Consequence: plot (normalized) histogram of sample over $[a,b]$; \emph{close} to the distribution means bars are close to height $1/(b-a)$.\newline 
 Below: sample of size 50, from \ttt{uniform(0, 5)}.
 
@@ -242,7 +244,7 @@ plt.show()
 
 \end{codeblock}
 
-%\pause
+\pause
 \centering
 \includegraphics[height=0.35\textheight]{histogram_of_sample1.png}
 
@@ -254,7 +256,7 @@ plt.show()
 
 A larger sample size will (on average) give a distribution that is closer to the \emph{true} one. For example, by changing our previous code so that the sample size is 5000, we can see the sample distribution get much closer.
 
-%\pause
+\pause
 \centering
 \includegraphics[height=0.4\textheight]{histogram_of_sample2.png}
 
@@ -268,6 +270,7 @@ Using the normal distribution, mean $\mu$ and std.deviation $\sigma$, the densit
 p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 }\]
 
+\pause
 Below is a normalized histogram of a sample of size 100.\footnote{Doubled the sample size and the number of bins, due to greater variability in the pdf of the distribution.}
 
 %\pause
@@ -283,7 +286,7 @@ Below is a normalized histogram of a sample of size 100.\footnote{Doubled the sa
 
 % \end{codeblock}
 
-%\pause
+\pause
 \centering
 \includegraphics[width=0.4\textwidth]{histogram_of_sample3.png}
 
@@ -296,7 +299,6 @@ Below is a normalized histogram of a sample of size 100.\footnote{Doubled the sa
     
 A larger sample size gives a distribution that is closer to the bell curve.
     
-%\pause
 \centering
 \includegraphics[width=0.4\textwidth]{histogram_of_sample4.png}
     
@@ -308,13 +310,13 @@ A larger sample size gives a distribution that is closer to the bell curve.
 \begin{itemize}
     \item Many other probability distributions are implemented in \ttt{numpy.random}. See \href{https://numpy.org/doc/2.1/reference/random/legacy.html#distributions}{this link} for information about them.
     
-    %\pause
+    \pause
     \item There is a useful command to shuffle an array: randomizing the order of the entries in the array: \ttt{np.random.shuffle(the}\ct{_}\ttt{array)}.
     \begin{itemize}
         \item This changes \ttt{the}\ct{_}\ttt{array} in place.
     \end{itemize}
 
-    %\pause
+    \pause
     \item Not just for 1d arrays; can get a matrix (or any order tensor) with entries sampled from the distribution by adjusting the \ttt{size} argument.
 \end{itemize}
 
@@ -349,9 +351,10 @@ Like this:
     
     \end{codeblock}
     
-
+\pause
 \textbf{Example.} Here is a function that takes a 1d array as input. It makes a copy of it, but in reversed order.  Then it multiplies these together entry-wise, and any negative numbers obtained are replaced with 0. It then returns the resulting array of non-negative numbers.
 
+\pause
 \begin{codeblock}
 
 \begin{python}
@@ -379,11 +382,12 @@ p = np.random.uniform(-1, 1, size=(500,2))
 
 \end{codeblock}
 
-%\pause
+\pause
 Now, say that I want to plot them, coloring them dark blue if their dot product with the vector $(2,-2/3)$ is negative, and coloring them a \emph{salmon} color otherwise.
 
 An efficient way to make the array that contains the colors, ordered as the points are?
 
+\pause
 \begin{codeblock}
 
 \begin{python}
@@ -427,11 +431,13 @@ For this first example, we'll keep working with data very simple.
 
 Assumption: data is contained in a CSV file, representing a ``spreadsheet'' of values in columns.
 
+\pause
 \begin{enumerate}
     \item Import Pandas, command: \ttt{import pandas as pd}.
     \item If file is in same folder as your Jupyter notebook, and called \ttt{file1.csv}, then assign 
 \end{enumerate}
 
+\pause
 \begin{codeblock}
 
 \begin{python}[numbers=none]
@@ -442,32 +448,36 @@ df = pd.read_csv('file1.csv')
 
 The output, \ttt{df}, is a Pandas DataFrame. Assuming your CSV file had a first line with column headings (\ct{'column1', 'column2',}\ldots etc.), the values in the first column, type \ttt{df['column1']}.
 
+\pause
 A column of a dataframe has a method, \ct{.to_numpy()}, that converts it to a NumPy array.
 \end{frame}
 
 %%%%
 \begin{frame}[fragile]
     \frametitle{Regression line on data in plane}
-For the data set that was provided, assign it as a dataframe, like with variable \ct{df} on last slide. 
+For the data set provided, \ttt{summer.csv}, assign it as a dataframe, like with variable \ct{df} on last slide. 
 
-Make two NumPy arrays called \ttt{} and \ttt{} from columns 'column1' and 'column2'. These will be $x$-coordinates and $y$-coordinates. To plot the points in the plane, use the scatter function in \ttt{pyplot}.
+\pause
+Make two NumPy arrays called \ttt{so2} and \ttt{pm10} from columns 'SO2' and 'PM10'. These will be $x$-coordinates and $y$-coordinates. To plot the points in the plane, use the scatter function in \ttt{pyplot}.
 
+\pause
 \begin{codeblock}
 
 \begin{python}
-plt.scatter(x, y)
+plt.scatter(so2, pm10)
 plt.show()
 \end{python}
 
 \end{codeblock}
 
+\pause
 Getting the ``best fit'' regression line\footnote{Considering $x$ as the independent variable and $y$ as the \emph{response} variable.} is straightforward in NumPy. 
 
 \begin{codeblock}
 
 \begin{python}
 # returns slope and intercept of best fit line
-np.polyfit(x, y, 1)
+np.polyfit(so2, pm10, 1)
 \end{python}
     
 \end{codeblock}
