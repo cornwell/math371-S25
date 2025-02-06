@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  2 FEB 2025 15:33
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  6 FEB 2025 08:53
  restricted system commands enabled.
 **lecture03
 (./lecture03.tex
@@ -2241,34 +2241,23 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 (Font)              scaled to size 6.80005pt on input line 2.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 (Font)              scaled to size 5.18503pt on input line 2.
-
-Overfull \hbox (35.36981pt too wide) in paragraph at lines 14--15
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][] 
- []
-
-<histogram_of_sample1.png, id=64, 393.8715pt x 298.4751pt>
+<histogram_of_sample1.png, id=71, 393.8715pt x 298.4751pt>
 File: histogram_of_sample1.png Graphic file (type png)
 <use histogram_of_sample1.png>
-Package luatex.def Info: histogram_of_sample1.png  used on input line 21.
-(luatex.def)             Requested size: 215.10196pt x 163.005pt.
+Package luatex.def Info: histogram_of_sample1.png  used on input line 23.
+(luatex.def)             Requested size: 124.31058pt x 94.20296pt.
 )
-Overfull \vbox (72.83273pt too high) detected at line 247
- []
-
-
 
 [7
 
 <./histogram_of_sample1.png>]
 \openout4 = lecture03.vrb
  (./lecture03.vrb
-<histogram_of_sample2.png, id=76, 404.712pt x 298.4751pt>
+<histogram_of_sample2.png, id=83, 404.712pt x 298.4751pt>
 File: histogram_of_sample2.png Graphic file (type png)
 <use histogram_of_sample2.png>
-Package luatex.def Info: histogram_of_sample2.png  used on input line 6.
-(luatex.def)             Requested size: 215.10196pt x 158.63737pt.
+Package luatex.def Info: histogram_of_sample2.png  used on input line 7.
+(luatex.def)             Requested size: 145.97409pt x 107.657pt.
 )
 
 [8
@@ -2276,26 +2265,31 @@ Package luatex.def Info: histogram_of_sample2.png  used on input line 6.
 <./histogram_of_sample2.png>]
 \openout4 = lecture03.vrb
  (./lecture03.vrb
-<histogram_of_sample3.png, id=83, 393.8715pt x 302.0886pt>
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 3.
+
+<histogram_of_sample3.png, id=90, 393.8715pt x 298.4751pt>
 File: histogram_of_sample3.png Graphic file (type png)
 <use histogram_of_sample3.png>
-Package luatex.def Info: histogram_of_sample3.png  used on input line 20.
-(luatex.def)             Requested size: 215.10196pt x 164.97842pt.
+Package luatex.def Info: histogram_of_sample3.png  used on input line 24.
+(luatex.def)             Requested size: 122.91406pt x 93.14116pt.
 )
-Overfull \vbox (73.76567pt too high) detected at line 283
- []
-
-
 
 [9
 
 <./histogram_of_sample3.png>]
 \openout4 = lecture03.vrb
- (./lecture03.vrb)
+ (./lecture03.vrb
+<histogram_of_sample4.png, id=98, 398.9304pt x 298.4751pt>
+File: histogram_of_sample4.png Graphic file (type png)
+<use histogram_of_sample4.png>
+Package luatex.def Info: histogram_of_sample4.png  used on input line 7.
+(luatex.def)             Requested size: 122.91406pt x 91.96158pt.
+)
 
 [10
 
-]
+<./histogram_of_sample4.png>]
 \openout4 = lecture03.vrb
  (./lecture03.vrb)
 
@@ -2332,6 +2326,16 @@ Overfull \hbox (53.37pt too wide) in paragraph at lines 23--24
 
 [15
 
+] (./lecture03.toc)
+
+[16
+
+]
+\openout4 = lecture03.vrb
+ (./lecture03.vrb)
+
+[17
+
 ]
 \tf@nav=\write6
 
@@ -2353,18 +2357,18 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `lecture03.out' has not changed.
-(rerunfilecheck)             Checksum: 2BBC58C713D88A7B15FDD0B35719F3BF;351.
+(rerunfilecheck)             Checksum: 9EA05A0750507CF756AAE637C51490DC;467.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28291 strings out of 475630
+ 28329 strings out of 475630
  100000,1373583 words of node,token memory allocated
- 9348 words of node memory still in use:
-   252 hlist, 11 vlist, 39 rule, 9 disc, 8 local_par, 399 glue, 83 kern, 18 pena
-lty, 202 glyph, 299 attribute, 61 glue_spec, 299 attribute_list, 4 write, 28 pdf
-_literal, 36 pdf_colorstack nodes
-   avail lists: 2:1353,3:230,4:516,5:532,6:42,7:3799,8:23,9:1295,10:19,11:180
- 50084 multiletter control sequences out of 65536+600000
+ 9914 words of node memory still in use:
+   130 hlist, 11 vlist, 11 rule, 33 disc, 10 local_par, 260 glue, 133 kern, 30 p
+enalty, 567 glyph, 236 attribute, 61 glue_spec, 236 attribute_list, 4 write, 28 
+pdf_literal, 42 pdf_colorstack nodes
+   avail lists: 2:1479,3:218,4:384,5:480,6:40,7:3573,8:24,9:1445,10:19,11:156
+ 50103 multiletter control sequences out of 65536+600000
  234 fonts using 40033247 bytes
  128i,11n,121p,379b,1162s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSan
@@ -2382,9 +2386,9 @@ t.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txs
 ym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/tx
 sys.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf
 /zsfmi-reg.pfb>
-Output written on lecture03.pdf (15 pages, 138072 bytes).
+Output written on lecture03.pdf (17 pages, 169949 bytes).
 
-PDF statistics: 188 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 131072)
- 32 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 211 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 131072)
+ 40 words of extra memory for PDF output out of 10000 (max. 100000000)
 

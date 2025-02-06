@@ -217,16 +217,17 @@ From documentation: Within NumPy is the submodule \ttt{random} which ``implments
     \end{enumerate}
 
     %\pause
-    Larger the sample, the closer the sample distribution should be to the theoretical distribution. Can we display this in a plot?
+    Larger the sample, the closer the distribution of that sample (i.e., normalized histogram) should be to the theoretical pdf. Can we display this in a plot?
 \end{frame}
     
 %%%%
 \begin{frame}[fragile]
 \frametitle{Visualizing the distribution}
-Say that we are using the uniform distribution on the interval $[a,b)$. For a small subinterval of width $\delta$, we have probability $\delta\frac{1}{b-a}$ of getting a sample in that interval.
+Using uniform distribution on interval $[a,b)$: for subinterval of width $\delta$, probability $\delta\frac{1}{b-a}$ of getting a sample in that interval.
 
 %\pause
-Consequence: if plot (normalized) histogram of sample over the interval $[a,b]$, being close to the distribution means bars are close to height $1/(b-a)$, on average. Below is a histogram from a sample of size 50, from \ttt{uniform(0, 5)}.
+Consequence: plot (normalized) histogram of sample over $[a,b]$; \emph{close} to the distribution means bars are close to height $1/(b-a)$.\newline 
+Below: sample of size 50, from \ttt{uniform(0, 5)}.
 
 \begin{codeblock}
 
@@ -235,14 +236,15 @@ xx = np.linspace(0,5)
 sample = np.random.uniform(0, 5, size=50)
 # will also plot horizontal line at height 1/(b-a)
 plt.plot(xx, [1/5]*len(xx), color='black')
-# "density=True" below -> divide height of each bar by number of samples
 plt.hist(sample, bins=10, density=True)
 plt.show()
 \end{python}
 
 \end{codeblock}
 
-\includegraphics[width=0.7\textwidth]{histogram_of_sample1.png}
+%\pause
+\centering
+\includegraphics[height=0.35\textheight]{histogram_of_sample1.png}
 
 \end{frame}
 
@@ -250,35 +252,40 @@ plt.show()
 \begin{frame}[fragile]
 \frametitle{Visualizing the distribution}
 
-A larger sample size will (on average) give a sample distribution that is closer to the \emph{true} one. For example, by changing our previous code so that the sample size is 5000, we can see the sample distribution get much closer.
+A larger sample size will (on average) give a distribution that is closer to the \emph{true} one. For example, by changing our previous code so that the sample size is 5000, we can see the sample distribution get much closer.
 
 %\pause
-\includegraphics[width=0.7\textwidth]{histogram_of_sample2.png}
+\centering
+\includegraphics[height=0.4\textheight]{histogram_of_sample2.png}
 
 \end{frame}
 
 %%%%
 \begin{frame}[fragile]
 \frametitle{Visualizing the normal distribution}
-If using the normal distribution, with mean $\mu$ and st.deviation $\sigma$, the density function is \[p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.\]
+Using the normal distribution, mean $\mu$ and std.deviation $\sigma$, the density function is 
+\[{\scriptsize 
+p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
+}\]
 
-Consequence: a histogram of a sample being close to the distribution means top of bars are close to graph of $p(x)$. To make the histogram, can do following.\footnote{Doubled the sample size and the number of bins, due to greater variability in the pdf of the distribution.}
-
-%\pause
-
-\begin{codeblock}
-
-\begin{python}
-xx = np.linspace(-3,3)
-sample = np.random.normal(0, 1, size=100)
-plt.hist(sample, bins=20, density=True)
-plt.show()
-\end{python}
-
-\end{codeblock}
+Below is a normalized histogram of a sample of size 100.\footnote{Doubled the sample size and the number of bins, due to greater variability in the pdf of the distribution.}
 
 %\pause
-\includegraphics[width=0.7\textwidth]{histogram_of_sample3.png}
+
+% \begin{codeblock}
+
+% \begin{python}
+% xx = np.linspace(-3,3)
+% sample = np.random.normal(0, 1, size=100)
+% plt.hist(sample, bins=20, density=True)
+% plt.show()
+% \end{python}
+
+% \end{codeblock}
+
+%\pause
+\centering
+\includegraphics[width=0.4\textwidth]{histogram_of_sample3.png}
 
 \end{frame}
 
@@ -287,10 +294,11 @@ plt.show()
 \begin{frame}[fragile]
 \frametitle{Visualizing the normal distribution}
     
-Again, about the normal distribution
+A larger sample size gives a distribution that is closer to the bell curve.
     
 %\pause
-%\includegraphics[width=0.7\textwidth]{histogram_of_sample2.png}
+\centering
+\includegraphics[width=0.4\textwidth]{histogram_of_sample4.png}
     
 \end{frame}
 
@@ -408,6 +416,33 @@ def my_function(v, *, translate=2):
 
 \end{codeblock}
 
+\end{frame}
+
+\section{Importing data}
+
+%%%%
+\begin{frame}[fragile]
+    \frametitle{Importing data with Pandas}
+For this first example, we'll keep working with data very simple. 
+
+Assumption: data is contained in a CSV file, representing a ``spreadsheet'' of values in columns.
+
+\begin{enumerate}
+    \item Import Pandas, command: \ttt{import pandas as pd}.
+    \item If file is in same folder as your Jupyter notebook, and called \ttt{file1.csv}, then assign 
+\end{enumerate}
+
+\begin{codeblock}
+
+\begin{python}[numbers=none]
+df = pd.read_csv('file1.csv')
+\end{python}
+
+\end{codeblock}
+
+The output, \ttt{df}, is a Pandas DataFrame. Assuming your CSV file had a first line with column headings (\ct{'column1', 'column2',}\ldots etc.), the values in the first column, type \ttt{df['column1']}.
+
+A column of a dataframe has a method, \ct{.to_numpy()}, that converts it to a NumPy array.
 \end{frame}
 
 \end{document}
