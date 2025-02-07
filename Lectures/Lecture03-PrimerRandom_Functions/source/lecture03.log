@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2025.1.13)  6 FEB 2025 10:58
+This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2025.1.13)  7 FEB 2025 08:42
  restricted system commands enabled.
 **lecture03
 (./lecture03.tex
@@ -1932,26 +1932,36 @@ Package luatex.def Info: histogram_of_sample3.png  used on input line 25.
 (luatex.def)             Requested size: 122.91406pt x 93.14116pt.
 ) [22
 
+] (./lecture03.vrb
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 3.
+
+File: histogram_of_sample3.png Graphic file (type png)
+<use histogram_of_sample3.png>
+Package luatex.def Info: histogram_of_sample3.png  used on input line 25.
+(luatex.def)             Requested size: 122.91406pt x 93.14116pt.
+) [23
+
 ]
 \openout4 = lecture03.vrb
  (./lecture03.vrb
-<histogram_of_sample4.png, id=165, 398.9304pt x 298.4751pt>
+<histogram_of_sample4.png, id=170, 398.9304pt x 298.4751pt>
 File: histogram_of_sample4.png Graphic file (type png)
 <use histogram_of_sample4.png>
 Package luatex.def Info: histogram_of_sample4.png  used on input line 6.
 (luatex.def)             Requested size: 122.91406pt x 91.96158pt.
-) [23
+) [24
 
 <./histogram_of_sample4.png>]
 \openout4 = lecture03.vrb
  (./lecture03.vrb)
-[24
-
-] (./lecture03.vrb) [25
+[25
 
 ] (./lecture03.vrb) [26
 
-] (./lecture03.toc) [27
+] (./lecture03.vrb) [27
+
+] (./lecture03.toc) [28
 
 ]
 \openout4 = lecture03.vrb
@@ -1959,24 +1969,16 @@ Package luatex.def Info: histogram_of_sample4.png  used on input line 6.
 (./lecture03.vrb
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
 (Font)              scaled to size 9.30756pt on input line 17.
-) [28
-
-] (./lecture03.vrb) [29
+) [29
 
 ] (./lecture03.vrb) [30
+
+] (./lecture03.vrb) [31
 
 ]
 \openout4 = lecture03.vrb
 
 (./lecture03.vrb
-Overfull \hbox (53.37pt too wide) in paragraph at lines 24--25
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-) [31
-
-] (./lecture03.vrb
 Overfull \hbox (53.37pt too wide) in paragraph at lines 24--25
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][] 
@@ -1992,34 +1994,42 @@ Overfull \hbox (53.37pt too wide) in paragraph at lines 24--25
 
 ) [33
 
+] (./lecture03.vrb
+Overfull \hbox (53.37pt too wide) in paragraph at lines 24--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [34
+
 ]
 \openout4 = lecture03.vrb
- (./lecture03.vrb) [34
+ (./lecture03.vrb) [35
 
-] (./lecture03.toc) [35
+] (./lecture03.toc) [36
 
 ]
 \openout4 = lecture03.vrb
- (./lecture03.vrb) [36
+ (./lecture03.vrb) [37
 
 ]
-(./lecture03.vrb) [37
-
-] (./lecture03.vrb) [38
+(./lecture03.vrb) [38
 
 ] (./lecture03.vrb) [39
 
+] (./lecture03.vrb) [40
+
 ]
 \openout4 = lecture03.vrb
 
-(./lecture03.vrb) [40
-
-] (./lecture03.vrb) [41
+(./lecture03.vrb) [41
 
 ] (./lecture03.vrb) [42
 
+] (./lecture03.vrb) [43
+
 ]
-(./lecture03.vrb) [43
+(./lecture03.vrb) [44
 
 ]
 \tf@nav=\write6
@@ -2046,11 +2056,11 @@ Package rerunfilecheck Info: File `lecture03.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28615 strings out of 476497
+ 28624 strings out of 476497
  100000,1977958 words of node,token memory allocated
- 12800 words of node memory still in use:
+ 12804 words of node memory still in use:
    221 hlist, 13 vlist, 35 rule, 24 disc, 12 local_par, 12 math, 401 glue, 138 k
-ern, 30 penalty, 515 glyph, 438 attribute, 61 glue_spec, 438 attribute_list, 4 w
+ern, 30 penalty, 515 glyph, 439 attribute, 61 glue_spec, 439 attribute_list, 4 w
 rite, 88 pdf_literal, 92 pdf_colorstack nodes
    avail lists: 2:1225,3:245,4:334,5:575,6:38,7:3472,8:24,9:1328,10:19,11:165
  49343 multiletter control sequences out of 65536+600000
@@ -2071,9 +2081,9 @@ ms/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><C:/Users/ccornwell/AppData/Local
 a/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/ccornwell/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/ccornw
 ell/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zsfmi-reg.pfb>
-Output written on lecture03.pdf (43 pages, 239202 bytes).
+Output written on lecture03.pdf (44 pages, 241182 bytes).
 
-PDF statistics: 349 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 131072)
+PDF statistics: 354 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 131072)
  40 words of extra memory for PDF output out of 10000 (max. 100000000)
 
