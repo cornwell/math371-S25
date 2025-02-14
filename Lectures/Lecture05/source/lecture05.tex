@@ -209,8 +209,10 @@ y = simulate_data(x, 0.5)
 
 \end{codeblock}
 
+\pause
 In groups, compute slope and intercept of the LSR line for a size 30 simulated data set; store $\hat{m}$ and $\hat{b}$ (in two lists). Iterate this 1000 times $\to$ a list of 1000 slopes and intercepts. 
 
+\pause
 What is the mean of the slopes and of the intercepts?
 
 \end{frame}
@@ -221,11 +223,12 @@ What is the mean of the slopes and of the intercepts?
 This fundamental to statistics. 
 \begin{itemize}
     \item Say that a sample of 2000 people are selected from around the country and their height is measured. Mean of these 2000 heights: sample mean.
+    \pause
     \item Sample mean differs from the true mean height of the entire population of the country. (Perhaps, not by much.)
     \begin{itemize}
         \item Weak Law of Large Numbers: if $s$ random samples of 2000 people taken, and each sample mean calculated, as $s\to\infty$, mean of the sample means limits to population mean.
     \end{itemize}
-
+    \pause
     \item Analogous thing happens with data from linear relationship with noise {--} think of parameters $\hat{m}$ and $\hat{b}$ as sample statistics (like sample mean).
 \end{itemize}
 
@@ -236,15 +239,19 @@ This fundamental to statistics.
 \frametitle{Confidence intervals}
 How close do we suspect $\hat{m}$ and $\hat{b}$ to be to the ``true'' (population) slope and intercept?
 
+\pause
 \textbf{Standard error (SE):}  Suppose that for our error term $\varepsilon$, we have $\operatorname{Var}(\varepsilon) = \sigma^2$. Sample size: $n$.
 
+\pause
 Using $\bar{x}$ for the average of $x_1,\ldots,x_n$,
 
 \[SE(\hat{m})^2 = \frac{\sigma^2}{\sum_{i=1}^n(x_i - \bar{x})^2};\]
 \[SE(\hat{b})^2 = \sigma^2\left(\frac1{n} + \frac{\bar{x}^2}{\sum_{i=1}^n(x_i - \bar{x})^2}\right).\]
 
+\pause
 \emph{Roughly}, these are the amount, on average, that $\hat{m}$ (resp.\ $\hat{b}$) differs from true slope $m$ (resp.\ true intercept $b$).
 
+\pause
 $\sigma$ is unknown, but can estimate it with \textbf{residual standard error}:
     \[\hat{\sigma}^2 = RSE^2 = \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{n-2}.\]
 
@@ -263,6 +270,7 @@ $\sigma$ is unknown, but can estimate it with \textbf{residual standard error}:
     Estimate:
         \[\sigma^2 \approx RSE^2 = \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{n-2}.\]
     
+        \pause
     Can get (roughly) 95\% confidence interval\footnote{95\% of the time, these intervals contain $m$, $b$.} with $\pm 2SE$: 
         \[(\hat{m} - 2SE(\hat{m}), \hat{m} + 2SE(\hat{m}))\]
     and 
