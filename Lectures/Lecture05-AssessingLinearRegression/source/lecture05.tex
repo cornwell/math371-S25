@@ -6,6 +6,8 @@
 \usepackage{etoolbox}
 \usepackage{multicol}
 
+\graphicspath{{../../}}
+
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{}
 \AtBeginSection[ ]
@@ -220,13 +222,13 @@ What is the mean of the slopes and of the intercepts?
 %%%%
 \begin{frame}
 \frametitle{Sample statistic, relation to population statistic}
-This fundamental to statistics. 
+This is fundamental to statistics. 
 \begin{itemize}
     \item Say that a sample of 2000 people are selected from around the country and their height is measured. Mean of these 2000 heights: sample mean.
     \pause
-    \item Sample mean differs from the true mean height of the entire population of the country. (Perhaps, not by much.)
+    \item Sample mean differs from the true mean height of the entire population of the country. (Not by much, perhaps.)
     \begin{itemize}
-        \item Weak Law of Large Numbers: if $s$ random samples of 2000 people taken, and each sample mean calculated, as $s\to\infty$, mean of the sample means limits to population mean.
+        \item Weak Law of Large Numbers: if $s$ random samples of 2000 people taken, and each sample mean calculated, as $s\to\infty$, mean of the sample means limits (in probability) to population mean.
     \end{itemize}
     \pause
     \item Analogous thing happens with data from linear relationship with noise {--} think of parameters $\hat{m}$ and $\hat{b}$ as sample statistics (like sample mean).
@@ -279,9 +281,82 @@ $\sigma$ is unknown, but can estimate it with \textbf{residual standard error}:
 \end{frame}
 
 \section{Measuring how well LSR line fits}
+
 %%%%
 \begin{frame}
-    \frametitle{How well is the data fit by a line?}
+\frametitle{Mean Squared Error}
+How to measure how well the data fits to regression line?
+
+\pause 
+In linear regression, we found $\hat{y}_i, 1\le i\le n$ so that the points $(x_1,\hat{y}_1), \ldots, (x_n, \hat{y}_n)$ fit exactly to a line. Could use average of $(y_i - \hat{y}_i)^2$ as our measure.
+    \[ \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2. \]
+\pause
+\begin{itemize}
+    \item Called the mean squared error, MSE, of the LSR line.
+    \item Larger MSE (for same sample size), the farther $y_i$ is from $\hat{y}_i$, on average.
+\end{itemize}
+
+\pause
+Closely related to RSE (residual standard error). Recall, 
+    \[\textsf{RSE} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i - \hat{y}_i)^2}.\]
+So $\textsf{MSE} = \frac{n-2}{n}\textsf{RSE}^2$.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Mean Squared Error, example}
+    Recall, \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Example1.csv'} data. Its LSR line is 
+        \[y = 1.520275x - 0.33458.\]
+    \onslide<2->{
+    The MSE for this data and its LSR line is $\approx 0.0197$. 
+
+    Does that mean that the linear model is a ``good fit''?
+    }
+
+    \vfill
+    \centering
+    \includegraphics[height=0.35\textheight]{./Lecture04-LinearRegression_1/source/example1-lsrline.png}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Mean Squared Error, scaling}
+    What about the following data and its LSR line? Here, the MSE is 1.9746.
+    
+    \begin{center}
+    \includegraphics[height=0.35\textheight]{./Images/example1-lsr-scaled.png}    
+    \end{center}
+    
+    Is it still a good fit? 
+
+    \pause
+    The data here is from \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Example1.csv'} again, except that the $y$-coordinates have been multiplied by 10. Its LSR line is 
+        \[y = 15.20275x - 3.3458.\]
+    
+    \pause 
+    MSE is still a good measure to think about, but its size depends on scale of $y$-coordinates (equivalently, depends on units $y$ is measured in).
+
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$R^2$: Proportion of ``variance explained''}
+    Get a measure that is unchanged by scaling: first, set \textbf{total sum of squares} (TSS) to 
+    \[\textsf{TSS} = \sum_{i=1}^n(y_i - \bar{y})^2,\]
+    where $\bar{y} = \frac{1}{n}\sum_{i=1}^n y_i$.
+
+    \pause 
+    Then, 
+        \[R^2 = \frac{\textsf{TSS} - n\textsf{MSE}}{\textsf{TSS}} = 1 - \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{\sum_{i=1}^n(y_i - \bar{y}_i)^2}.\]
+    \pause
+    \begin{itemize}
+        \item $R^2$ does \emph{not} depend on the scale of the $y$-coordinates.
+        \pause
+        \item Any data set, have $0\le R^2\le 1$ (provided $R^2$ is defined; i.e., we do not have $y_1,y_2,\ldots,y_n$ all the same).
+        \begin{itemize}
+            \item Can you prove this?
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \end{document}

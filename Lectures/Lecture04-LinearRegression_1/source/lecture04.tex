@@ -345,8 +345,8 @@ Procedure to carry out the steps:
 Given $(x_1,y_1), (x_2,y_2), \ldots, (x_n, y_n)$, as a NumPy array (call it \ttt{D}, with shape \ttt{(n,2)}): 
 
 \begin{pseudo}
-A = [D[:,0], all 1s] # 2-column matrix
-y = D[:,1]
+A = [x coordinates, all 1s] # 2-column matrix
+y = y coordinates
 # next, get 2x2 matrix and 2-vector
 Compute A.T times A; compute A.T times y
 Solve normal eq'ns (numpy solve, or use inverse)
@@ -373,7 +373,7 @@ A plot of the line (in red), alongside the points, looks as follows.
 %%%%
 \begin{frame}[fragile]
 \frametitle{Another example, Advertising data}
-In the \href{https://github.com/cornwell/math371-S25/blob/main/DataSets/}{DataSets folder}, the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Advertising.csv'} file contains data on amounts spent on TV, Radio, and Newspaper advertising for different brands, as well as amounts in Sales (per day??).
+In the \href{https://github.com/cornwell/math371-S25/blob/main/DataSets/}{DataSets folder}, the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Advertising.csv'} file contains data on amounts spent (in thousands of dollars) on TV, Radio, and Newspaper advertising in 200 different markets, as well as the amounts sold in each market (in thousands of units).
 
 \pause
 We will look more at this data later. For now, plotted here are the columns \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{('TV', 'Sales')}.
