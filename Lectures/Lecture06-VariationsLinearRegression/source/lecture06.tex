@@ -224,81 +224,100 @@ Recall the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Ad
     Using $x_1$ for the \ttt{TV} budget, $x_2$ for \ttt{Radio}, and $x_3$ for \ttt{Newspaper}, multiple linear regression for the Advertising data set is approximately 
         \[\textsf{Sales} = 0.04576x_1 + 0.18853x_2 + -0.00104x_3 + 2.93889 + \varepsilon.\]
     
-    Contrast this with what you get if you do three separate linear regressions.
+    Contrast this with what you get if you do three separate linear regressions (below, with $R^2$ coefficient).
     \centering
-    \begin{tabular}{c c c}
-        \ttt{TV} & \ttt{Radio} & \ttt{Newspaper} \\ 
+    \begin{tabular}{l c c c}
+        Independent var. & \ttt{TV} & \ttt{Radio} & \ttt{Newspaper} \\ 
         \hline 
-        $0.04754x_1 + 7.03259$ & $0.2025x_2 + 9.31164$ & $0.05469x_3 + 12.3514$
+        LSR line    &  $0.04754x_1 + 7.03259$ & $0.2025x_2 + 9.31164$ & $0.05469x_3 + 12.3514$ \\
+        \hline 
+        $R^2$       &  0.612  &  0.332  &  0.052
     \end{tabular}
 
 \end{frame}
 
 %%%%
 \begin{frame}
-\frametitle{Confidence intervals}
-How close do we suspect $\hat{m}$ and $\hat{b}$ to be to the ``true'' (population) slope and intercept?
+\frametitle{$R^2$ coefficient}
+On previous slide, saw that $R^2$ for predicting \ttt{Sales} from \ttt{TV} was significantly higher than predicting from either \ttt{Radio} or \ttt{Newspaper}. 
 
 \pause
-\textbf{Standard error (SE):}  Suppose that for our error term $\varepsilon$, we have $\operatorname{Var}(\varepsilon) = \sigma^2$. Sample size: $n$.
+Can compute $R^2$ from multiple linear regression model, either using just two of the variables or using all three. 
+
+First, recall result from simple regression:
+\begin{center}
+    \begin{tabular}{l c c c}
+        Independent var. & \ttt{TV} & \ttt{Radio} & \ttt{Newspaper} \\ 
+        \hline 
+        $R^2$       &  0.612  &  0.332  &  0.052
+    \end{tabular}
+\end{center}
 
 \pause
-Using $\bar{x}$ for the average of $x_1,\ldots,x_n$,
-
-\[SE(\hat{m})^2 = \frac{\sigma^2}{\sum_{i=1}^n(x_i - \bar{x})^2};\]
-\[SE(\hat{b})^2 = \sigma^2\left(\frac1{n} + \frac{\bar{x}^2}{\sum_{i=1}^n(x_i - \bar{x})^2}\right).\]
+Now, $R^2$ for all possible pairs of two:
+\begin{center}
+    \begin{tabular}{l c c c}
+        Two vars. & \ttt{TV}, \ttt{Radio} & \ttt{TV}, \ttt{Newspaper} & \ttt{Radio}, \ttt{Newspaper} \\ 
+        \hline 
+        $R^2$       &  0.89719  &  0.646  &  0.333
+    \end{tabular}
+\end{center}
 
 \pause
-\emph{Roughly}, these are the amount, on average, that $\hat{m}$ (resp.\ $\hat{b}$) differs from true slope $m$ (resp.\ true intercept $b$).
-
-\pause
-$\sigma$ is unknown, but can estimate it with \textbf{residual standard error}:
-    \[\hat{\sigma}^2 = RSE^2 = \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{n-2}.\]
+The value of $R^2$ with all three predictor (independent) variables is: 0.89721.
 
 \end{frame}
 
+\section{Polynomial fitting}
 
 %%%%
 \begin{frame}
-    \frametitle{Confidence intervals}
-    How close do we suspect $\hat{m}$ and $\hat{b}$ to be to the ``true'' (population) slope and intercept?
+    \frametitle{Using powers ``like'' other variables}
+    Often, a linear model does not seem like a good fit for our data. What about trying to fit the data to a polynomial?
+
+    i.e., consider the model 
+        \[p_0x^d + p_1x^{d-1} + \ldots + p_{d-1}x + p_d + \varepsilon\]
+    for some degree $d$, and find the coefficients which give best fit polynomial.
     
-    Formulae: 
-    \[SE(\hat{m})^2 = \frac{\sigma^2}{\sum_{i=1}^n(x_i - \bar{x})^2};\]
-    \[SE(\hat{b})^2 = \sigma^2\left(\frac1{n} + \frac{\bar{x}^2}{\sum_{i=1}^n(x_i - \bar{x})^2}\right).\]
-    
-    Estimate:
-        \[\sigma^2 \approx RSE^2 = \frac{\sum_{i=1}^n(y_i - \hat{y}_i)^2}{n-2}.\]
+    For the procedure, use essentially the same idea for the matrix $A$, but using powers of your variable $x$ (or, variables) instead of using different independent variables. Given data with $x$-coordinates $x_1,x_2,\ldots,x_m$, the matrix $A$ is known as a \textbf{Vandermonde matrix}.
     
         \pause
-    Can get (roughly) 95\% confidence interval\footnote{95\% of the time, these intervals contain $m$, $b$.} with $\pm 2SE$: 
-        \[(\hat{m} - 2SE(\hat{m}), \hat{m} + 2SE(\hat{m}))\]
-    and 
-        \[(\hat{b} - 2SE(\hat{b}), \hat{b} + 2SE(\hat{b})).\]
+    \textbf{Example:} Taking the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'College.csv'} data set from the DataSets folder. Two of the columns are \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top10perc'} and \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top25perc'}. For the schools in the data set, these columns give the percentage of the entering class that were in the top 10\% (resp.\ 25\%) of their graduating high school class.\footnote{Removed rows that contained schools receiving fewer than 2500 applications.}
     
 \end{frame}
 
-\section{Measuring how well LSR line fits}
+%%%%
+\begin{frame}
+\frametitle{Example}
+Here is the data set with a least squares line. The value of $R^2$ is 0.791. 
+\begin{center}
+    \includegraphics[height=0.35\textheight]{../../Images/CollegeTop25ontoTop10_deg1.png}
+\end{center}
+
+\pause 
+Next, we have the data set with a least squares quadratic polynomial fit. The $R^2$ value is 0.854.
+
+\begin{center}
+    \includegraphics[height=0.35\textheight]{../../Images/CollegeTop25ontoTop10_deg2.png}
+\end{center}
+\end{frame}
 
 %%%%
 \begin{frame}
-\frametitle{Mean Squared Error}
-How to measure how well the data fits to regression line?
+    \frametitle{Value of $R^2$ as polynomial degree increases}
+    What will happen to the value of $R^2$ if we increase the degree of the polynomial that we fit to the data?
 
-\pause 
-In linear regression, we found $\hat{y}_i, 1\le i\le n$ so that the points $(x_1,\hat{y}_1), \ldots, (x_n, \hat{y}_n)$ fit exactly to a line. Could use average of $(y_i - \hat{y}_i)^2$ as our measure.
-    \[ \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2. \]
-\pause
-\begin{itemize}
-    \item Called the mean squared error, MSE, of the LSR line.
-    \item Larger MSE (for same sample size), the farther $y_i$ is from $\hat{y}_i$, on average.
-\end{itemize}
+    \begin{itemize}
+        \item Note: Suppose that $n>d$. A Vandermonde matrix for $x$-values $x_1,x_2,\ldots, x_n$, which has $d+1$ columns (so, highest power is $x_i^d$), will have rank $d+1$ if and only if there are $d+1$ of the $x_i$ that are distinct.
+        \begin{itemize}
+            \item[] \textit{If $x_1,x_2,\ldots,x_{d+1}$ are pairwise distinct, say, then the determinant of the $(d+1)\times(d+1)$ submatrix for their corresponding rows is}
+            \[{\displaystyle\prod_{1\le i<j\le d+1}(x_j - x_i)}.\]
+        \end{itemize}
+    \end{itemize}
 
-\pause
-Closely related to RSE (residual standard error). Recall, 
-    \[\textsf{RSE} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i - \hat{y}_i)^2}.\]
-So $\textsf{MSE} = \frac{n-2}{n}\textsf{RSE}^2$.
+    $A_0$: the Vandermonde matrix used in procedure to fit a polynomial of degree $d$; set $A_1$ to be one used for polynomial of degree $d+1$. \footnote{So, $A_{1}$ has all the columns of $A_0$, and one additional column.} From Note, as long as enough of the $x_i$ are distinct, $\operatorname{rank}(A_1) = \operatorname{rank}(A_0)+1$.
+
+    This means: $\textsf{Col}(A_0)$ is proper subspace of $\textsf{Col}(A_1)$. So, using it makes $|y - \hat{y}|^2$ smaller. Since $\sum(y - \bar{y})^2$ is unchanged, makes $R^2$ closer to 1.
 \end{frame}
-
 
 \end{document}
