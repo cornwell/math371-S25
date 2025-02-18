@@ -181,14 +181,16 @@ keepspaces=true
 %%%%
 \begin{frame}
 \frametitle{Working with multiple independent variables}
-Before now, we focused on so-called \emph{simple} linear regression, where there is a single independent variable $x$ from which we predict $y$-values.
+Before now, we focused on \emph{simple} linear regression, with a single independent variable $x$ used to predict values of $\hat{y}$.
 
 Recall the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Advertising.csv'} data set.
 
+\pause
 \begin{itemize}
-    \item Before, looked at the \ttt{Sales} as a function of \ttt{TV} (advertising budget). The data has budgets for other media: \ttt{Radio} and \ttt{Newspaper}.
+    \item Before, looked at the \ttt{Sales} ($y$) as a function of \ttt{TV} (advertising budget, $x$). In data set, budgets for other media: \ttt{Radio} and \ttt{Newspaper}.
     \pause
-    \item Fitting \ttt{Sales} to each one with simple linear regression (one for \ttt{TV}, one for \ttt{Radio}, one for \ttt{Newspaper}) is not right. 
+    \item Fitting \ttt{Sales} to each one with simple linear regression (one for \ttt{TV}, one for \ttt{Radio}, one for \ttt{Newspaper}) is inadequate. 
+    \pause
     \begin{itemize}
         \item Ignores that all are contributing together to \ttt{Sales}.
         \item Doesn't give predictive ability that matches data.
@@ -200,49 +202,74 @@ Recall the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Ad
 %%%%
 \begin{frame}
 \frametitle{Working with multiple independent variables}
-    Rather than fit separate simple linear regressions, use a single model with multiple independent variables. 
+    Rather than fit separate simple linear regressions, use a single model with more than one independent variable {--} \textbf{multiple linear regression}. 
 \pause
 
-    If $x_1,x_2,\ldots,x_d$ are the variables, use the model 
-    \[p_0x_1 + p_1x_2 + \ldots + p_{d-1}x_d + p_d + \varepsilon\]
-    where $p_i, i=0,1,\ldots,d$ are the coefficients to be fit from the data and $\varepsilon$ is a random variable with expected value 0.
+    If $x_0,x_1,\ldots,x_{d-1}$ are the variables, use the model 
+    \[y = p_0x_0 + p_1x_1 + \ldots + p_{d-1}x_{d-1} + p_d + \varepsilon\]
+    where $p_i, i=0,1,\ldots,d$ are coefficients to be fit from the data; $\varepsilon$ is random variable with expected value 0.
+    \pause
     \begin{itemize}
         \item Simple linear regression case, $d=1$: $p_0$ is the slope, $p_1$ is intercept.
-        \item Advertising data set: independent variables are \ttt{TV}, \ttt{Radio}, \ttt{Newspaper}
+        \pause
+        \item Advertising data set: independent variables are \ttt{TV}, \ttt{Radio}, \ttt{Newspaper}; $d = 3$.
+    \end{itemize}
+\vfill
+
+\end{frame}
+
+%%%%
+\begin{frame}
+\frametitle{Working with multiple independent variables}
+    To find the coefficients, alter procedure a bit. 
+    
+    Matrix $A$ is size $n\times(d+1)$ and has column for each variable (and a column of ones). That is, treating each $\vec{x}_i$ as a column vector (with one entry for each data point),
+        \[A = \left[\vec{x}_0, \quad\vec{x}_1, \quad\ldots, \quad\vec{x}_{d-1}, \quad\vec{1}\right].\]
+
+    \pause
+    Just as before, the coefficients ${\bf p} = (\hat{p}_0,\ldots, \hat{p}_d)$ are given by $(A^TA)^{-1}(A^T{\bf y})$, provided that $A^TA$ is invertible. 
+
+    \pause
+    The matrix $A^TA$ is invertible if $A$ has rank $d+1$ (when $\{\vec{x}_0, \vec{x}_1, \ldots, \vec{x}_{d-1}, \vec{1}\}$ a linearly indpt.\ set). \footnote{If a ``real world'' data set with $n\ge d+1$, almost surely.} 
+    \pause
+    \begin{itemize}
+        \item Larger $d$ $\to$ more likely $A^TA$ is poorly conditioned (potential issues from numerically computing its inverse).
     \end{itemize}
 
-\pause
-    To find the coefficients, alter procedure a bit. Now, $A$ has column for each variable and last column of ones: $A = [\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_d, \vec{1}]$.
-
-    Just as before, the coefficients ${\bf p} = (p_0,\ldots, p_d)$ are given by $(A^TA)^{-1}(A^T{\bf y})$.
-
 \end{frame}
 
 %%%%
 \begin{frame}
-\frametitle{Advertising example}
-    Using $x_1$ for the \ttt{TV} budget, $x_2$ for \ttt{Radio}, and $x_3$ for \ttt{Newspaper}, multiple linear regression for the Advertising data set is approximately 
-        \[\textsf{Sales} = 0.04576x_1 + 0.18853x_2 + -0.00104x_3 + 2.93889 + \varepsilon.\]
+    \frametitle{Advertising example}
+    $x_0$ for \ttt{TV} budget; \quad $x_1$ for \ttt{Radio} budget; \quad $x_2$ for \ttt{Newspaper} budget.
     
-    Contrast this with what you get if you do three separate linear regressions (below, with $R^2$ coefficient).
-    \centering
-    \begin{tabular}{l c c c}
-        Independent var. & \ttt{TV} & \ttt{Radio} & \ttt{Newspaper} \\ 
-        \hline 
-        LSR line    &  $0.04754x_1 + 7.03259$ & $0.2025x_2 + 9.31164$ & $0.05469x_3 + 12.3514$ \\
-        \hline 
-        $R^2$       &  0.612  &  0.332  &  0.052
-    \end{tabular}
+    \pause
+    Writing $y$ for \ttt{Sales}, multiple linear regression model for Advertising data is approximately 
+        \[\hat{y} = 0.0458x_0 + 0.1885x_1 - 0.001x_2 + 2.9389.\]
+    \pause
+    Interpretation: given fixed budget for radio and newspaper ads, increasing TV ad budget by \$1000 will increase sales by around 46 units (in each market, on average).
 
+    \pause
+    Contrast with result of three separate linear regressions, below.
+    
+    \begin{center}
+        \begin{tabular}{c ||c|c|c}
+            Variable & \ttt{TV} & \ttt{Radio} & \ttt{Newspaper} \\ 
+            \hline 
+            LSR line    &  {\footnotesize$0.0475x_0 + 7.0326$} & {\footnotesize$0.2025x_1 + 9.3116$} & {\footnotesize$0.0547x_2 + 12.3514$} \\
+            \hline 
+            $R^2$       &  {\footnotesize$0.612$}  &  {\footnotesize$0.332$}  &  {\footnotesize$0.052$}
+        \end{tabular}
+    \end{center}
 \end{frame}
 
 %%%%
 \begin{frame}
-\frametitle{$R^2$ coefficient}
-On previous slide, saw that $R^2$ for predicting \ttt{Sales} from \ttt{TV} was significantly higher than predicting from either \ttt{Radio} or \ttt{Newspaper}. 
+\frametitle{$R^2$}
+Previously: $R^2$ for predicting \ttt{Sales} from \ttt{TV} significantly higher than from either \ttt{Radio} or \ttt{Newspaper}. 
 
 \pause
-Can compute $R^2$ from multiple linear regression model, either using just two of the variables or using all three. 
+Can get $R^2$ from regression model, either using 2 of the variables, or using all 3. 
 
 First, recall result from simple regression:
 \begin{center}
@@ -264,8 +291,26 @@ Now, $R^2$ for all possible pairs of two:
 \end{center}
 
 \pause
-The value of $R^2$ with all three predictor (independent) variables is: 0.89721.
+The value of $R^2$ with all three predictor (independent) variables is: 0.89721. {\color{strings}What conclusion can we draw?}
 
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{How small to decide not significant?}
+    
+    \pause 
+    Hypothesis testing: choose a $p$-value threshold (often $<0.05$ or $<0.01$). The $p$-value corresponds to some $t$-statistic {--} use regression coefficient ($\hat{p}_i$ for $x_i$) and standard error.
+    \begin{itemize}
+        \item In example, if using simple linear regression on \ttt{Newspaper}, would get the variable is significant. However, using multiple regression with \ttt{TV}, \ttt{Radio}, and \ttt{Newspaper}, get very large $p$-value $\to$ so, not significant.
+    \end{itemize}
+
+    \pause 
+    Another perspective: $p$ is large when $t$-statistic is small, which is when $SE$ is large \emph{relative to size of }$\hat{p}_i$. $SE$ is roughly how far $\hat{p}_i$ is from population coeff.\ $p_i$, on average.
+
+    \pause 
+    Can take (many) random subsamples of your data (fraction of whole data set); compute $\hat{p}_i$ for those. Find standard deviation of them $\to$ approximates $SE$. \newline 
+    Next, approximate $p_i$ with regression coefficient from your whole data set. If the standard deviation above, divided by this coeff., is (order(s) of magnitude) larger than the same thing for other variables, this variable is not significant.
 \end{frame}
 
 \section{Polynomial fitting}
@@ -275,27 +320,41 @@ The value of $R^2$ with all three predictor (independent) variables is: 0.89721.
     \frametitle{Using powers ``like'' other variables}
     Often, a linear model does not seem like a good fit for our data. What about trying to fit the data to a polynomial?
 
+    \pause
     i.e., consider the model 
         \[p_0x^d + p_1x^{d-1} + \ldots + p_{d-1}x + p_d + \varepsilon\]
     for some degree $d$, and find the coefficients which give best fit polynomial.
     
+    \pause
     For the procedure, use essentially the same idea for the matrix $A$, but using powers of your variable $x$ (or, variables) instead of using different independent variables. Given data with $x$-coordinates $x_1,x_2,\ldots,x_m$, the matrix $A$ is known as a \textbf{Vandermonde matrix}.
     
-        \pause
-    \textbf{Example:} Taking the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'College.csv'} data set from the DataSets folder. Two of the columns are \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top10perc'} and \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top25perc'}. For the schools in the data set, these columns give the percentage of the entering class that were in the top 10\% (resp.\ 25\%) of their graduating high school class.\footnote{Removed rows that contained schools receiving fewer than 2500 applications.}
-    
+    \vfill
 \end{frame}
 
 %%%%
 \begin{frame}
 \frametitle{Example}
+Taking the \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'College.csv'} data set from the DataSets folder. Two of the columns are \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top10perc'} and \lstinline[language=Python, stringstyle=\ttfamily\color{strings}]{'Top25perc'}. For the schools in the data set, these columns give the percentage of the entering class that were in the top 10\% (resp.\ 25\%) of their graduating high school class.\footnote{Removed rows that contained schools receiving fewer than 2500 applications.}
+    
+
+\pause
 Here is the data set with a least squares line. The value of $R^2$ is 0.791. 
 \begin{center}
     \includegraphics[height=0.35\textheight]{../../Images/CollegeTop25ontoTop10_deg1.png}
 \end{center}
 
-\pause 
-Next, we have the data set with a least squares quadratic polynomial fit. The $R^2$ value is 0.854.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Example}
+    Here is the data set with a least squares line. The value of $R^2$ is 0.791. 
+\begin{center}
+    \includegraphics[height=0.35\textheight]{../../Images/CollegeTop25ontoTop10_deg1.png}
+\end{center}
+
+    \pause 
+    Next, the data set with a least squares quadratic polynomial fit. The $R^2$ value is 0.854.
 
 \begin{center}
     \includegraphics[height=0.35\textheight]{../../Images/CollegeTop25ontoTop10_deg2.png}
@@ -307,16 +366,20 @@ Next, we have the data set with a least squares quadratic polynomial fit. The $R
     \frametitle{Value of $R^2$ as polynomial degree increases}
     What will happen to the value of $R^2$ if we increase the degree of the polynomial that we fit to the data?
 
+    \pause
     \begin{itemize}
         \item Note: Suppose that $n>d$. A Vandermonde matrix for $x$-values $x_1,x_2,\ldots, x_n$, which has $d+1$ columns (so, highest power is $x_i^d$), will have rank $d+1$ if and only if there are $d+1$ of the $x_i$ that are distinct.
+        \pause
         \begin{itemize}
             \item[] \textit{If $x_1,x_2,\ldots,x_{d+1}$ are pairwise distinct, say, then the determinant of the $(d+1)\times(d+1)$ submatrix for their corresponding rows is}
             \[{\displaystyle\prod_{1\le i<j\le d+1}(x_j - x_i)}.\]
         \end{itemize}
     \end{itemize}
 
+    \pause
     $A_0$: the Vandermonde matrix used in procedure to fit a polynomial of degree $d$; set $A_1$ to be one used for polynomial of degree $d+1$. \footnote{So, $A_{1}$ has all the columns of $A_0$, and one additional column.} From Note, as long as enough of the $x_i$ are distinct, $\operatorname{rank}(A_1) = \operatorname{rank}(A_0)+1$.
 
+    \pause
     This means: $\textsf{Col}(A_0)$ is proper subspace of $\textsf{Col}(A_1)$. So, using it makes $|y - \hat{y}|^2$ smaller. Since $\sum(y - \bar{y})^2$ is unchanged, makes $R^2$ closer to 1.
 \end{frame}
 
