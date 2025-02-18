@@ -306,29 +306,37 @@ The value of $R^2$ with all three predictor (independent) variables is: 0.89721.
     \end{itemize}
 
     \pause 
-    Another perspective: $p$ is large when $t$-statistic is small, which is when $SE$ is large \emph{relative to size of }$\hat{p}_i$. $SE$ is roughly how far $\hat{p}_i$ is from population coeff.\ $p_i$, on average.
-
+    Alternatively: if sample regression coeff.\ varies a lot (relative to size) compared to coeff.s of the other var's, that variable is not significant.  
+    \begin{itemize}
+        \item $p$-value large when $t$-statistic is small, which is when $SE$ is large \emph{relative to size of }$\hat{p}_i$.\qquad\footnote{Recall, $SE$ how far $\hat{p}_i$ is from population coeff.\ $p_i$, on average.}
+    \end{itemize}
     \pause 
-    Can take (many) random subsamples of your data (fraction of whole data set); compute $\hat{p}_i$ for those. Find standard deviation of them $\to$ approximates $SE$. \newline 
-    Next, approximate $p_i$ with regression coefficient from your whole data set. If the standard deviation above, divided by this coeff., is (order(s) of magnitude) larger than the same thing for other variables, this variable is not significant.
+    So: Take (\emph{many}) random subsamples of data (fraction of whole set); compute $\hat{p}_i$ for those. Standard deviation of them $\approx$ $SE$. \newline 
+    \pause
+    Then: use regression coeff.\ from whole data set, $\approx p_i$. If standard deviation divided by this coeff.\ is (order(s) of magnitude) larger than the same for other var's $\to$ variable is not significant.
 \end{frame}
 
 \section{Polynomial fitting}
 
 %%%%
 \begin{frame}
-    \frametitle{Using powers ``like'' other variables}
+    \frametitle{Powers of $x$ in place of multiple variables}
     Often, a linear model does not seem like a good fit for our data. What about trying to fit the data to a polynomial?
 
     \pause
     i.e., consider the model 
-        \[p_0x^d + p_1x^{d-1} + \ldots + p_{d-1}x + p_d + \varepsilon\]
+        \[y = p_0x^d + p_1x^{d-1} + \ldots + p_{d-1}x + p_d + \varepsilon\]
     for some degree $d$, and find the coefficients which give best fit polynomial.
     
     \pause
-    For the procedure, use essentially the same idea for the matrix $A$, but using powers of your variable $x$ (or, variables) instead of using different independent variables. Given data with $x$-coordinates $x_1,x_2,\ldots,x_m$, the matrix $A$ is known as a \textbf{Vandermonde matrix}.
+    For the procedure, use essentially the same idea for the matrix $A$, but using powers of single variable $x$ instead of using different independent variables\footnote{Could do mix, multivariate regression and powers.}. Given data with $x$-coordinates $x_1,x_2,\ldots,x_n$, the matrix $A$ is known as a \textbf{Vandermonde matrix}.
+    \pause
     
-    \vfill
+    {\footnotesize
+    \[A = \begin{bmatrix}x_1^d & \ldots & x_1^2 & x_1 & 1 \\ x_2^d & \ldots & x_2^2 & x_2 & 1 \\ 
+        \vdots & & \vdots & \vdots \\
+        x_n^d & \ldots & x_n^2 & x_n & 1 \\ \end{bmatrix}\]
+    }
 \end{frame}
 
 %%%%
@@ -372,15 +380,19 @@ Here is the data set with a least squares line. The value of $R^2$ is 0.791.
         \pause
         \begin{itemize}
             \item[] \textit{If $x_1,x_2,\ldots,x_{d+1}$ are pairwise distinct, say, then the determinant of the $(d+1)\times(d+1)$ submatrix for their corresponding rows is}
+            {\footnotesize
             \[{\displaystyle\prod_{1\le i<j\le d+1}(x_j - x_i)}.\]
+            }
         \end{itemize}
     \end{itemize}
 
     \pause
-    $A_0$: the Vandermonde matrix used in procedure to fit a polynomial of degree $d$; set $A_1$ to be one used for polynomial of degree $d+1$. \footnote{So, $A_{1}$ has all the columns of $A_0$, and one additional column.} From Note, as long as enough of the $x_i$ are distinct, $\operatorname{rank}(A_1) = \operatorname{rank}(A_0)+1$.
+    set $A_0$: the Vandermonde matrix used to fit polynomial of degree $d$; set $A_1$: the one used for polynomial of degree $d+1$. \footnote{So, $A_{1}$ has all the columns of $A_0$, and one additional column.} 
+    
+    From Note, as long as enough of the $x_i$ are distinct, $\operatorname{rank}(A_1) = \operatorname{rank}(A_0)+1$.
 
     \pause
-    This means: $\textsf{Col}(A_0)$ is proper subspace of $\textsf{Col}(A_1)$. So, using it makes $|y - \hat{y}|^2$ smaller. Since $\sum(y - \bar{y})^2$ is unchanged, makes $R^2$ closer to 1.
+    Meaning: $\textsf{Col}(A_0)$ is proper subspace of $\textsf{Col}(A_1)$. So, using $A_1$ makes $|y - \hat{y}|^2$ smaller. Since $\sum(y - \bar{y})^2$ is unchanged, makes $R^2$ closer to 1.
 \end{frame}
 
 \end{document}

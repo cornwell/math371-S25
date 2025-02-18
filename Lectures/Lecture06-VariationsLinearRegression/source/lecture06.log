@@ -1,13 +1,13 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  17 FEB 2025 20:26
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  18 FEB 2025 13:53
  restricted system commands enabled.
 **lecture06
 (./lecture06.tex
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
-Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
-Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
-ollection.
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+Lua module: luaotfload 2024-02-14 v3.28 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
+collection.
 luaotfload | conf : Root cache directory is "C:/Users/gener/AppData/Local/MiKTeX
 /luatex-cache/generic/names".
 luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
@@ -47,23 +47,23 @@ Document Class: beamer 2024/01/06 v3.71 A class for typesetting presentations
 sty
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count192
+\etb@tempcnta=\count194
 )
 \beamer@tempbox=\box52
-\beamer@tempcount=\count193
-\c@beamerpauses=\count194
+\beamer@tempcount=\count195
+\c@beamerpauses=\count196
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbasedecode
 .sty
-\beamer@slideinframe=\count195
-\beamer@minimum=\count196
+\beamer@slideinframe=\count197
+\beamer@minimum=\count198
 \beamer@decode@box=\box53
 )
 \beamer@commentbox=\box54
-\beamer@modecount=\count197
+\beamer@modecount=\count199
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 \headdp=\dimen140
 \footheight=\dimen141
@@ -88,26 +88,26 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \beamer@sectionbox=\box58
 \beamer@logobox=\box59
 \beamer@linebox=\box60
-\beamer@sectioncount=\count198
-\beamer@subsubsectionmax=\count199
-\beamer@subsectionmax=\count266
-\beamer@sectionmax=\count267
-\beamer@totalheads=\count268
-\beamer@headcounter=\count269
-\beamer@partstartpage=\count270
-\beamer@sectionstartpage=\count271
-\beamer@subsectionstartpage=\count272
-\beamer@animationtempa=\count273
-\beamer@animationtempb=\count274
-\beamer@xpos=\count275
-\beamer@ypos=\count276
-\beamer@ypos@offset=\count277
-\beamer@showpartnumber=\count278
-\beamer@currentsubsection=\count279
-\beamer@coveringdepth=\count280
-\beamer@sectionadjust=\count281
-\beamer@toclastsection=\count282
-\beamer@tocsectionnumber=\count283
+\beamer@sectioncount=\count266
+\beamer@subsubsectionmax=\count267
+\beamer@subsectionmax=\count268
+\beamer@sectionmax=\count269
+\beamer@totalheads=\count270
+\beamer@headcounter=\count271
+\beamer@partstartpage=\count272
+\beamer@sectionstartpage=\count273
+\beamer@subsectionstartpage=\count274
+\beamer@animationtempa=\count275
+\beamer@animationtempb=\count276
+\beamer@xpos=\count277
+\beamer@ypos=\count278
+\beamer@ypos@offset=\count279
+\beamer@showpartnumber=\count280
+\beamer@currentsubsection=\count281
+\beamer@coveringdepth=\count282
+\beamer@sectionadjust=\count283
+\beamer@toclastsection=\count284
+\beamer@tocsectionnumber=\count285
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbaseoption
 s.sty
@@ -124,9 +124,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count284
-\Gm@cntv=\count285
-\c@Gm@tempcnt=\count286
+\Gm@cnth=\count286
+\Gm@cntv=\count287
+\c@Gm@tempcnt=\count288
 \Gm@bindingoffset=\dimen156
 \Gm@wd@mp=\dimen157
 \Gm@odd@mp=\dimen158
@@ -178,15 +178,15 @@ code.tex
 \pgf@ya=\dimen171
 \pgf@yb=\dimen172
 \pgf@yc=\dimen173
-\c@pgf@counta=\count287
-\c@pgf@countb=\count288
-\c@pgf@countc=\count289
-\c@pgf@countd=\count290
+\c@pgf@counta=\count289
+\c@pgf@countb=\count290
+\c@pgf@countc=\count291
+\c@pgf@countd=\count292
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathparse
 r.code.tex
 \pgfmath@dimen=\dimen174
-\pgfmath@count=\count291
+\pgfmath@count=\count293
 \pgfmath@box=\box62
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
@@ -214,10 +214,10 @@ ions.integerarithmetics.code.tex)
 code.tex)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count292
+\c@pgfmathroundto@lastzeros=\count294
 )))
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/base/size11.clo
-File: size11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from C:/Users/gener/AppData/Local/M
 iKTeX/luatex-cache/generic/names/luaotfload-names.luc.gz)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/pgf/basiclayer/pgfcore.
@@ -226,7 +226,7 @@ sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty
-Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
@@ -260,14 +260,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen186
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count293
-\c@pgf@countb=\count294
-\c@pgf@countc=\count295
-\c@pgf@countd=\count296
+\c@pgf@counta=\count295
+\c@pgf@countb=\count296
+\c@pgf@countc=\count297
+\c@pgf@countd=\count298
 \t@pgf@toka=\toks26
 \t@pgf@tokb=\toks27
 \t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count297
+\pgf@sys@id@count=\count299
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgf.c
 fg
@@ -286,30 +286,30 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count298
-\pgfsyssoftpath@bigbuffer@items=\count299
+\pgfsyssoftpath@smallbuffer@items=\count300
+\pgfsyssoftpath@bigbuffer@items=\count301
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
 sprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: luatex.def on input line 274.
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 e.code.tex
@@ -353,7 +353,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box63
 \pgf@hbox=\box64
 \pgf@layerbox@main=\box65
-\pgf@picture@serial@count=\count300
+\pgf@picture@serial@count=\count302
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 egraphicstate.code.tex
@@ -388,8 +388,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 eshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count301
-\pgf@shadingcount=\count302
+\pgf@sys@shading@range@num=\count303
+\pgf@shadingcount=\count304
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 eimage.code.tex
@@ -419,15 +419,15 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/pgf/utilities/xxcolor.s
 ty
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count303
-\XC@countmixins=\count304
+\XC@nummixins=\count305
+\XC@countmixins=\count306
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -473,7 +473,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count305
+\c@section@level=\count307
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/stringenc/stringenc.s
 ty
@@ -481,16 +481,16 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \@linkdim=\dimen267
-\Hy@linkcounter=\count306
-\Hy@pagecounter=\count307
+\Hy@linkcounter=\count308
+\Hy@pagecounter=\count309
  (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
 ) (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count308
+\Hy@SavedSpaceFactor=\count310
  (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `bookmarks' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 4040.
@@ -502,7 +502,7 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count309
+\c@Hy@tempcnt=\count311
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -519,7 +519,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count310
+\Fld@menulength=\count312
 \Field@Width=\dimen269
 \Fld@charsize=\dimen270
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -529,7 +529,7 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring OFF on input line 6062.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode OFF on input line 6072.
-\Hy@abspage=\count311
+\Hy@abspage=\count313
 
 
 Package hyperref Message: Stopped early.
@@ -537,15 +537,15 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
+File: hluatex.def 2024-11-05 v7.01l Hyperref driver for luaTeX
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count312
-\c@bookmark@seq@number=\count313
+\Fld@listcount=\count314
+\c@bookmark@seq@number=\count315
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfil
 echeck.sty
@@ -602,36 +602,36 @@ ty)
 eens.sty)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbaseoverla
 y.sty
-\beamer@argscount=\count314
+\beamer@argscount=\count316
 \beamer@lastskipcover=\skip52
-\beamer@trivlistdepth=\count315
+\beamer@trivlistdepth=\count317
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbasetitle.
 sty)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbasesectio
 n.sty
-\c@lecture=\count316
-\c@part=\count317
-\c@section=\count318
-\c@subsection=\count319
-\c@subsubsection=\count320
+\c@lecture=\count318
+\c@part=\count319
+\c@section=\count320
+\c@subsection=\count321
+\c@subsubsection=\count322
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbaseframe.
 sty
 \beamer@framebox=\box67
 \beamer@frametitlebox=\box68
 \beamer@zoombox=\box69
-\beamer@zoomcount=\count321
-\beamer@zoomframecount=\count322
+\beamer@zoomcount=\count323
+\beamer@zoomframecount=\count324
 \beamer@frametextheight=\dimen271
-\c@subsectionslide=\count323
+\c@subsectionslide=\count325
 \beamer@frametopskip=\skip53
 \beamer@framebottomskip=\skip54
 \beamer@frametopskipautobreak=\skip55
 \beamer@framebottomskipautobreak=\skip56
 \beamer@envbody=\toks31
 \framewidth=\dimen272
-\c@framenumber=\count324
+\c@framenumber=\count326
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbaseverbat
 im.sty
@@ -640,7 +640,7 @@ im.sty
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbaseframes
 ize.sty
 \beamer@splitbox=\box70
-\beamer@autobreakcount=\count325
+\beamer@autobreakcount=\count327
 \beamer@autobreaklastheight=\dimen273
 \beamer@frametitletoks=\toks32
 \beamer@framesubtitletoks=\toks33
@@ -684,8 +684,8 @@ Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
 \@enLab=\toks35
 )
 \beamer@bibiconwidth=\skip57
-\c@figure=\count326
-\c@table=\count327
+\c@figure=\count328
+\c@table=\count329
 \abovecaptionskip=\skip58
 \belowcaptionskip=\skip59
 )
@@ -698,7 +698,7 @@ tionsymbols.tex)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbasetheore
 ms.sty
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/05/23 v2.17q AMS math features
+Package: amsmath 2024/11/05 v2.17t AMS math features
 \@mathmargin=\skip60
 
 For additional information on amsmath, use the `?' option.
@@ -717,14 +717,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count328
+\inf@bad=\count330
 LaTeX Info: Redefining \frac on input line 235.
-\uproot@=\count329
-\leftroot@=\count330
+\uproot@=\count331
+\leftroot@=\count332
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count331
-\DOTSCASE@=\count332
+\classnum@=\count333
+\DOTSCASE@=\count334
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -737,20 +737,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen285
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count333
+\macc@depth=\count335
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count334
+\c@MaxMatrixCols=\count336
 \dotsspace@=\muskip18
-\c@parentequation=\count335
-\dspbrk@lvl=\count336
+\c@parentequation=\count337
+\dspbrk@lvl=\count338
 \tag@help=\toks37
-\row@=\count337
-\column@=\count338
-\maxfields@=\count339
+\row@=\count339
+\column@=\count340
+\maxfields@=\count341
 \andhelp@=\toks38
 \eqnshift@=\dimen286
 \alignsep@=\dimen287
@@ -777,7 +777,7 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip65
 \dth@everypar=\toks46
 )
-\c@theorem=\count340
+\c@theorem=\count342
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamerbasethemes
 .sty))
@@ -798,15 +798,15 @@ default.sty)))
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/tools/multicol.sty
-Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
-\c@tracingmulticols=\count341
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count343
 \mult@box=\box77
 \multicol@leftmargin=\dimen294
-\c@unbalance=\count342
-\c@collectmore=\count343
-\doublecol@number=\count344
-\multicoltolerance=\count345
-\multicolpretolerance=\count346
+\c@unbalance=\count344
+\c@collectmore=\count345
+\doublecol@number=\count346
+\multicoltolerance=\count347
+\multicolpretolerance=\count348
 \full@width=\dimen295
 \page@free=\dimen296
 \premulticols=\dimen297
@@ -857,15 +857,15 @@ Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
 \@tempa=\box118
 \@tempa=\box119
 \@tempa=\box120
-\c@minrows=\count347
-\c@columnbadness=\count348
-\c@finalcolumnbadness=\count349
+\c@minrows=\count349
+\c@columnbadness=\count350
+\c@finalcolumnbadness=\count351
 \last@try=\dimen300
 \multicolovershoot=\dimen301
 \multicolundershoot=\dimen302
 \mult@nat@firstbox=\box121
 \colbreak@box=\box122
-\mc@col@check@num=\count350
+\mc@col@check@num=\count352
 )
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 2
 1.
@@ -903,7 +903,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks47
 \XKV@tempa@toks=\toks48
 )
-\XKV@depth=\count351
+\XKV@depth=\count353
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
@@ -912,34 +912,34 @@ Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xpars
 e.sty
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-11-02 L3 programming layer (loader) 
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-lua
 tex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count352
+\l__color_backend_stack_int=\count354
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box123
 ))
-Package: xparse 2024-05-08 L3 Experimental document command parser
+Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2024/05/11 2.9e Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec-luate
 x.sty
 Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaT
 eX
-\l__fontspec_script_int=\count353
-\l__fontspec_language_int=\count354
-\l__fontspec_strnum_int=\count355
-\l__fontspec_tmp_int=\count356
-\l__fontspec_tmpa_int=\count357
-\l__fontspec_tmpb_int=\count358
-\l__fontspec_tmpc_int=\count359
-\l__fontspec_em_int=\count360
-\l__fontspec_emdef_int=\count361
-\l__fontspec_strong_int=\count362
-\l__fontspec_strongdef_int=\count363
+\l__fontspec_script_int=\count355
+\l__fontspec_language_int=\count356
+\l__fontspec_strnum_int=\count357
+\l__fontspec_tmp_int=\count358
+\l__fontspec_tmpa_int=\count359
+\l__fontspec_tmpb_int=\count360
+\l__fontspec_tmpc_int=\count361
+\l__fontspec_em_int=\count362
+\l__fontspec_emdef_int=\count363
+\l__fontspec_strong_int=\count364
+\l__fontspec_strongdef_int=\count365
 \l__fontspec_tmpa_dim=\dimen303
 \l__fontspec_tmpb_dim=\dimen304
 \l__fontspec_tmpc_dim=\dimen305
@@ -1809,7 +1809,7 @@ Package: newtxsf 2024/01/25 v1.056
 `newtxsf' v1.056, 2024/01/25 Math macros based on STIX sans serif and txfonts (
 msharpe)
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/generic/binhex/binhex.tex)
-\tx@Isdigit=\count364
+\tx@Isdigit=\count366
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/FiraSans(0)/m/n on input line 58.
@@ -1922,33 +1922,33 @@ LaTeX Info: Redefining \textsquare on input line 1807.
 LaTeX Info: Redefining \openbox on input line 1809.
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.sty
-\lst@mode=\count365
+\lst@mode=\count367
 \lst@gtempboxa=\box124
 \lst@token=\toks49
-\lst@length=\count366
+\lst@length=\count368
 \lst@currlwidth=\dimen306
-\lst@column=\count367
-\lst@pos=\count368
+\lst@column=\count369
+\lst@pos=\count370
 \lst@lostspace=\dimen307
 \lst@width=\dimen308
-\lst@newlines=\count369
-\lst@lineno=\count370
+\lst@newlines=\count371
+\lst@lineno=\count372
 \lst@maxwidth=\dimen309
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2024/05/25 1.10b (Carsten Heinz)
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
-\c@lstnumber=\count371
-\lst@skipnumbers=\count372
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count373
+\lst@skipnumbers=\count374
 \lst@framebox=\box125
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.cfg
-File: listings.cfg 2024/05/25 1.10b listings configuration
+File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
-Package: listings 2024/05/25 1.10b (Carsten Heinz)
-\c@question=\count373
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+\c@question=\count375
 (./lecture06.aux)
 \openout1 = lecture06.aux
 
@@ -1968,12 +1968,6 @@ LaTeX Font Info:    ... okay on input line 168.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
 LaTeX Font Info:    ... okay on input line 168.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 168.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-68.
-
-(C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
 LaTeX Font Info:    ... okay on input line 168.
 LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 168.
 LaTeX Font Info:    ... okay on input line 168.
@@ -2040,16 +2034,16 @@ LaTeX Font Info:    ... okay on input line 168.
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count374
+\scratchcounter=\count376
 \scratchdimen=\dimen310
 \scratchbox=\box126
-\nofMPsegments=\count375
-\nofMParguments=\count376
+\nofMPsegments=\count377
+\nofMParguments=\count378
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count377
+\MPscratchCnt=\count379
 \MPscratchDim=\dimen311
-\MPnumerator=\count378
-\makeMPintoPDFobject=\count379
+\MPnumerator=\count380
+\makeMPintoPDFobject=\count381
 \everyMPtoPDFconversion=\toks51
 )
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
@@ -2210,7 +2204,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
  168.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 168.
-\c@lstlisting=\count380
+\c@lstlisting=\count382
  (./lecture06.nav)
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 (Font)              scaled to size 5.10004pt on input line 168.
@@ -2273,7 +2267,7 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 (Font)              scaled to size 5.18503pt on input line 200.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/05/25 1.10b listings language file
+File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 200.
@@ -2412,11 +2406,11 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 
 [27
 
-] (./lecture06.toc)
+]
 
 [28
 
-]
+] (./lecture06.toc)
 
 [29
 
@@ -2429,70 +2423,70 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 [31
 
 ]
-<../../Images/CollegeTop25ontoTop10_deg1.png, id=202, 401.8212pt x 314.3745pt>
+
+[32
+
+]
+
+[33
+
+]
+<../../Images/CollegeTop25ontoTop10_deg1.png, id=212, 401.8212pt x 314.3745pt>
 File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
 <use ../../Images/CollegeTop25ontoTop10_deg1.png>
 Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 346.
+nput line 354.
 (luatex.def)             Requested size: 120.40627pt x 94.20296pt.
 
 
-[32
+[34
 
 <../../Images/CollegeTop25ontoTop10_deg1.png>]
 File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
 <use ../../Images/CollegeTop25ontoTop10_deg1.png>
 Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 346.
+nput line 354.
 (luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-
-
-[33
-
-]
-File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg1.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 362.
-(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-<../../Images/CollegeTop25ontoTop10_deg2.png, id=214, 401.8212pt x 317.2653pt>
-File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg2.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
-nput line 362.
-(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
-
-Overfull \vbox (3.49263pt too high) detected at line 362
- []
-
-
-
-[34
-
-<../../Images/CollegeTop25ontoTop10_deg2.png>]
-File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg1.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 362.
-(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg2.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
-nput line 362.
-(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
-
-Overfull \vbox (3.49263pt too high) detected at line 362
- []
-
 
 
 [35
 
 ]
+File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg1.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
+nput line 370.
+(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
+<../../Images/CollegeTop25ontoTop10_deg2.png, id=224, 401.8212pt x 317.2653pt>
+File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg2.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
+nput line 370.
+(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
+
+Overfull \vbox (3.49263pt too high) detected at line 370
+ []
+
+
 
 [36
 
-]
+<../../Images/CollegeTop25ontoTop10_deg2.png>]
+File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg1.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
+nput line 370.
+(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
+File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg2.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
+nput line 370.
+(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
+
+Overfull \vbox (3.49263pt too high) detected at line 370
+ []
+
+
 
 [37
 
@@ -2509,6 +2503,14 @@ Overfull \vbox (3.49263pt too high) detected at line 362
 [40
 
 ]
+
+[41
+
+]
+
+[42
+
+]
 \tf@nav=\write6
 
 \openout6 = lecture06.nav
@@ -2520,8 +2522,8 @@ Overfull \vbox (3.49263pt too high) detected at line 362
 \openout8 = lecture06.snm
  (./lecture06.aux)
  ***********
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
  ***********
 
 
@@ -2533,14 +2535,14 @@ Package rerunfilecheck Info: File `lecture06.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28424 strings out of 475915
- 100000,1977958 words of node,token memory allocated
- 11748 words of node memory still in use:
-   92 hlist, 13 vlist, 7 rule, 44 disc, 8 local_par, 54 math, 284 glue, 131 kern
-, 44 penalty, 791 glyph, 216 attribute, 64 glue_spec, 216 attribute_list, 4 writ
+ 28415 strings out of 475630
+ 100000,1373583 words of node,token memory allocated
+ 11713 words of node memory still in use:
+   95 hlist, 13 vlist, 7 rule, 43 disc, 9 local_par, 54 math, 284 glue, 127 kern
+, 45 penalty, 779 glyph, 227 attribute, 64 glue_spec, 227 attribute_list, 4 writ
 e, 40 pdf_literal, 34 pdf_colorstack nodes
-   avail lists: 2:356,3:177,4:230,5:480,6:21,7:2617,8:33,9:303,10:20,11:223
- 49908 multiletter control sequences out of 65536+600000
+   avail lists: 2:418,3:179,4:230,5:576,6:20,7:2892,8:33,9:429,10:20,11:239
+ 50160 multiletter control sequences out of 65536+600000
  309 fonts using 47341959 bytes
  128i,11n,121p,577b,802s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10
@@ -2560,9 +2562,9 @@ type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/font
 s/type1/public/newtx/txsys.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/newtxsf/zsfmi-reg.pfb>
-Output written on lecture06.pdf (40 pages, 237055 bytes).
+Output written on lecture06.pdf (42 pages, 247492 bytes).
 
-PDF statistics: 323 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 131072)
+PDF statistics: 334 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 131072)
  32 words of extra memory for PDF output out of 10000 (max. 100000000)
 
