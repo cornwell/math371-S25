@@ -16,16 +16,16 @@ ads = pd.read_csv('./DataSets/Advertising.csv')
 ads.describe()
 ```
 
-|       |   Unnamed: 0 |       TV |    Radio |   Newspaper |     Sales |
-|:------|-------------:|---------:|---------:|------------:|----------:|
-| count |     200      | 200      | 200      |    200      | 200       |
-| mean  |     100.5    | 147.042  |  23.264  |     30.554  |  14.0225  |
-| std   |      57.8792 |  85.8542 |  14.8468 |     21.7786 |   5.21746 |
-| min   |       1      |   0.7    |   0      |      0.3    |   1.6     |
-| 25%   |      50.75   |  74.375  |   9.975  |     12.75   |  10.375   |
-| 50%   |     100.5    | 149.75   |  22.9    |     25.75   |  12.9     |
-| 75%   |     150.25   | 218.825  |  36.525  |     45.1    |  17.4     |
-| max   |     200      | 296.4    |  49.6    |    114      |  27       |
+|       |       TV |    Radio |   Newspaper |     Sales |
+|:------|---------:|---------:|------------:|----------:|
+| count | 200      | 200      |    200      | 200       |
+| mean  | 147.042  |  23.264  |     30.554  |  14.0225  |
+| std   |  85.8542 |  14.8468 |     21.7786 |   5.21746 |
+| min   |   0.7    |   0      |      0.3    |   1.6     |
+| 25%   |  74.375  |   9.975  |     12.75   |  10.375   |
+| 50%   | 149.75   |  22.9    |     25.75   |  12.9     |
+| 75%   | 218.825  |  36.525  |     45.1    |  17.4     |
+| max   | 296.4    |  49.6    |    114      |  27       |
 
 ## Auto Data
 The gas mileage, number of cylinders, weight, and other information for 392 vehicles. This data was taken from the [StatLib library](https://lib.stat.cmu.edu/datasets/) maintained at Carnegie Melon University, and was also used in the book _An Introduction to Statistical Learning_.
