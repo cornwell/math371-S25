@@ -304,16 +304,32 @@ The value of $R^2$ with all three predictor (independent) variables is: 0.89721.
     \begin{itemize}
         \item In example, if using simple linear regression on \ttt{Newspaper}, would get the variable is significant. However, using multiple regression with \ttt{TV}, \ttt{Radio}, and \ttt{Newspaper}, get very large $p$-value $\to$ so, not significant.
     \end{itemize}
+    \vfill
 
     \pause 
     Alternatively: if sample regression coeff.\ varies a lot (relative to size) compared to coeff.s of the other var's, that variable is not significant.  
+    \pause
     \begin{itemize}
         \item $p$-value large when $t$-statistic is small, which is when $SE$ is large \emph{relative to size of }$\hat{p}_i$.\qquad\footnote{Recall, $SE$ how far $\hat{p}_i$ is from population coeff.\ $p_i$, on average.}
     \end{itemize}
-    \pause 
-    So: Take (\emph{many}) random subsamples of data (fraction of whole set); compute $\hat{p}_i$ for those. Standard deviation of them $\approx$ $SE$. \newline 
-    \pause
-    Then: use regression coeff.\ from whole data set, $\approx p_i$. If standard deviation divided by this coeff.\ is (order(s) of magnitude) larger than the same for other var's $\to$ variable is not significant.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Intuitive estimate of significance}
+    Checking whether fluctuation of regression coefficient for an independent variable, relative to coeff.'s size, is large.
+
+    \begin{enumerate}
+        \pause
+        \item Take around 100 random subsamples\footnote{$^\ast$Some evidence in literature (Goodhue-Lewis, 2012) that not much precision is to be gained with more than 100 samples, for bootstrapping standard errors.} of data (or, resamplings with replacement); compute $\hat{p}_i$ for those. Standard deviation of them $\approx$ $SE$.
+        \pause
+        \item Use regression coeff.\ from whole data set, $\approx p_i$. If standard dev.\ found in {\color{strings}1.}, divided by this coeff., is larger than about 0.5, variable is not significant.
+        \begin{itemize}
+            \item Since we are \emph{estimating some things} here, don't use as a hard cutoff. Getting 0.48, versus 0.59, would perhaps both be \emph{weakly} significant. However, if larger than 1.5, say, definitely not significant.
+        \end{itemize}
+    \end{enumerate}
+    
+    \footnote{This is an example of a bootstrapping procedure: the whole sample is used as a proxy for the population and the subsamples, or resamplings, are simulating samples from the population.}
 \end{frame}
 
 \section{Polynomial fitting}

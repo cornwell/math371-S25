@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  18 FEB 2025 13:53
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  19 FEB 2025 10:36
  restricted system commands enabled.
 **lecture06
 (./lecture06.tex
@@ -2410,7 +2410,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 
 [28
 
-] (./lecture06.toc)
+]
 
 [29
 
@@ -2418,7 +2418,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 
 [30
 
-]
+] (./lecture06.toc)
 
 [31
 
@@ -2431,70 +2431,70 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 [33
 
 ]
-<../../Images/CollegeTop25ontoTop10_deg1.png, id=212, 401.8212pt x 314.3745pt>
+
+[34
+
+]
+
+[35
+
+]
+<../../Images/CollegeTop25ontoTop10_deg1.png, id=222, 401.8212pt x 314.3745pt>
 File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
 <use ../../Images/CollegeTop25ontoTop10_deg1.png>
 Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 354.
+nput line 370.
 (luatex.def)             Requested size: 120.40627pt x 94.20296pt.
 
 
-[34
+[36
 
 <../../Images/CollegeTop25ontoTop10_deg1.png>]
 File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
 <use ../../Images/CollegeTop25ontoTop10_deg1.png>
 Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 354.
-(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-
-
-[35
-
-]
-File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg1.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
 nput line 370.
 (luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-<../../Images/CollegeTop25ontoTop10_deg2.png, id=224, 401.8212pt x 317.2653pt>
-File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg2.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
-nput line 370.
-(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
-
-Overfull \vbox (3.49263pt too high) detected at line 370
- []
-
-
-
-[36
-
-<../../Images/CollegeTop25ontoTop10_deg2.png>]
-File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg1.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
-nput line 370.
-(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
-File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
-<use ../../Images/CollegeTop25ontoTop10_deg2.png>
-Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
-nput line 370.
-(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
-
-Overfull \vbox (3.49263pt too high) detected at line 370
- []
-
 
 
 [37
 
 ]
+File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg1.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
+nput line 386.
+(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
+<../../Images/CollegeTop25ontoTop10_deg2.png, id=234, 401.8212pt x 317.2653pt>
+File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg2.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
+nput line 386.
+(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
+
+Overfull \vbox (3.49263pt too high) detected at line 386
+ []
+
+
 
 [38
 
-]
+<../../Images/CollegeTop25ontoTop10_deg2.png>]
+File: ../../Images/CollegeTop25ontoTop10_deg1.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg1.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg1.png  used on i
+nput line 386.
+(luatex.def)             Requested size: 120.40627pt x 94.20296pt.
+File: ../../Images/CollegeTop25ontoTop10_deg2.png Graphic file (type png)
+<use ../../Images/CollegeTop25ontoTop10_deg2.png>
+Package luatex.def Info: ../../Images/CollegeTop25ontoTop10_deg2.png  used on i
+nput line 386.
+(luatex.def)             Requested size: 119.30876pt x 94.20296pt.
+
+Overfull \vbox (3.49263pt too high) detected at line 386
+ []
+
+
 
 [39
 
@@ -2509,6 +2509,14 @@ Overfull \vbox (3.49263pt too high) detected at line 370
 ]
 
 [42
+
+]
+
+[43
+
+]
+
+[44
 
 ]
 \tf@nav=\write6
@@ -2535,14 +2543,14 @@ Package rerunfilecheck Info: File `lecture06.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28415 strings out of 475630
+ 28432 strings out of 475630
  100000,1373583 words of node,token memory allocated
  11713 words of node memory still in use:
    95 hlist, 13 vlist, 7 rule, 43 disc, 9 local_par, 54 math, 284 glue, 127 kern
 , 45 penalty, 779 glyph, 227 attribute, 64 glue_spec, 227 attribute_list, 4 writ
 e, 40 pdf_literal, 34 pdf_colorstack nodes
-   avail lists: 2:418,3:179,4:230,5:576,6:20,7:2892,8:33,9:429,10:20,11:239
- 50160 multiletter control sequences out of 65536+600000
+   avail lists: 2:418,3:179,4:230,5:458,6:20,7:2658,8:33,9:429,10:20,11:242
+ 50173 multiletter control sequences out of 65536+600000
  309 fonts using 47341959 bytes
  128i,11n,121p,577b,802s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10
@@ -2562,9 +2570,9 @@ type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/font
 s/type1/public/newtx/txsys.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/newtxsf/zsfmi-reg.pfb>
-Output written on lecture06.pdf (42 pages, 247492 bytes).
+Output written on lecture06.pdf (44 pages, 251106 bytes).
 
-PDF statistics: 334 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 131072)
+PDF statistics: 344 PDF objects out of 1000 (max. 8388607)
+ 91 named destinations out of 1000 (max. 131072)
  32 words of extra memory for PDF output out of 10000 (max. 100000000)
 
