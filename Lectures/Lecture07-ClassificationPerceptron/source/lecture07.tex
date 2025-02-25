@@ -368,13 +368,13 @@ return W
     \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
     \end{center}
 
-    Begin with $W^{(1)} = (0,0,0)$. On next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
+    Beginning with $W^{(1)} = (0,0,0)$, next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
 
     Next: since $y_1W^{(2)}\cdot X_1 > 0$, check $y_2W^{(2)}\cdot X_2 = -1\ast(-1 + 3 -1) = -1$. So, 
         \[W^{(3)} = W^{(2)} + y_2X_2 = (2, -2, -2).\]
-    Continue in this way {--} on each step check dot products (in order) with $X_1, X_2, X_3, X_4$. Eventually you get, 
-        \[W^{(10)} = (4, -0.5, 1)\]
-    and this vector is returned, meaning that $H = \{(x_1,x_2)\in \mathbb R^2:\ 4x_1-0.5x_2 + 1 = 0\}$ separates the points.
+    Continue in this way {--} on each step check dot products (in order) with $y_1X_1, y_2X_2, y_3X_3, y_4X_4$. Eventually you return the vector $W^{(10)} = (4, -0.5, 1)$. 
+    
+    i.e., $H = \{(x_1,x_2)\in \mathbb R^2:\ 4x_1-0.5x_2 + 1 = 0\}$ separates the points.
 \end{frame}
 
 %%%%
@@ -395,4 +395,23 @@ return W
     Now, by Cauchy-Schwarz inequality, $T \le BR\sqrt{T}$, which we can rearrange to $T\le (BR)^2$.
 \end{frame}
 
+%%%%
+\begin{frame}
+    \frametitle{Another example, the Iris data set}
+    First discussed by R.A.\ Fisher in a 1936 paper, Iris data set commonly used in explanations. It contains 150 points in $\mathbb R^4$, each for an individual iris flower from one of 3 species: Iris setosa, Iris virginica, and Iris versicolor.
+
+    The 4 coordinates are measurements of sepal length, sepal width, petal length, and petal width (in cm).
+
+    Iris setosa points are linearly separable from the other two. \newline 
+    Labels: \textit{Iris setosa} $\leftarrow$ 1; \textit{Other species} $\leftarrow$ -1.
+
+    Begin by opening the notebook \lstinline[language=Python,stringstyle=\ttfamily\color{strings}]{'perceptron-iris-notebook.ipynb'} \ldots 
+    After completing the algorithm, should get ${\bf w} = (1.3,4.1,-5.2,-2.2)$ and $b = 1$.
+
+    %\vfill
+    \begin{figure}
+    \includegraphics[height=0.2\textheight]{../../Images/iris-3species.jpg}
+    \caption{Images by G.\ Robertson, E.\ Hunt, Radomil \copyright CC BY-SA 3.0}
+    \end{figure}
+\end{frame}
 \end{document}
