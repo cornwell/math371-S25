@@ -224,11 +224,12 @@ $\hat{y} = y$ as often as possible.
 %%%%
 \begin{frame}
 \frametitle{A linear model for classification}
-    Assume data is from $\mathbb R^d$ for some $d>0$ and we only have two labels, $\{1, -1\}$. %(e.g., this is Spam (\texttt{S}) or it is Not spam (\texttt{N})). 
+    \textbf{Binary classification:} Data is from $\mathbb R^d$ for some $d>0$ and we only have two labels, $\{1, -1\}$. %(e.g., this is Spam (\texttt{S}) or it is Not spam (\texttt{N})). 
     \pause
 
-    A \emph{hyperplane} in $\mathbb R^d$ is an (affine) linear subspace that separates $\mathbb R^d$ in two. %Perhaps we get lucky and can find a hyperplane $H$ so that data points with label \texttt{S} are on one side of $H$ and data with label \texttt{N} are on the other side.
+    A \emph{hyperplane} in $\mathbb R^d$ is an (affine) linear subspace that has dimension $d-1$ (and separates $\mathbb R^d$ in two components). %Perhaps we get lucky and can find a hyperplane $H$ so that data points with label \texttt{S} are on one side of $H$ and data with label \texttt{N} are on the other side.
     \pause
+
     Using coordinates $(x_1,x_2, \ldots, x_d)$ in $\mathbb R^d$, a hyperplane $H$ may be determined from $d+1$ numbers $w_1,w_2,\ldots,w_d$, and $b$. It consists of solutions to 
         \[w_1x_1 + w_2x_2\ldots + w_dx_d + b = 0.\]
 
@@ -242,7 +243,7 @@ $\hat{y} = y$ as often as possible.
             \draw[thick, ->] (0, -2.1) -- (0, 2.1); 
             %\draw[very thick] (-4, 3) -- (2, -3); % node[above right]{\small $H = \{x + y + 1 = 0\}$}; 
             \draw[blue] (-2,0.8) -- (2,-0.8);
-            \draw[green!70!black] (-2,1.8) --node[at end, right]{$\{0.8x+2y-2=0\}$} (2,0.2);
+            \draw[green!70!black] (-2,1.8) --node[at end, right]{$\{0.8x_1+2x_2-2=0\}$} (2,0.2);
             \draw[red!70!black] (-2,-0.2) -- (2,-1.8);
         \end{tikzpicture}
         \caption{A few hyperplanes in $\mathbb R^2$.}
@@ -254,7 +255,7 @@ $\hat{y} = y$ as often as possible.
 %%%%
 \begin{frame}
     \frametitle{A linear model for classification}
-        Assume data is from $\mathbb R^d$ for some $d>0$ and we only have two labels, $\{1, -1\}$. %(e.g., this is Spam (\texttt{S}) or it is Not spam (\texttt{N})). 
+    \textbf{Binary classification:} Data is from $\mathbb R^d$ for some $d>0$ and we only have two labels, $\{1, -1\}$. %(e.g., this is Spam (\texttt{S}) or it is Not spam (\texttt{N})). 
         
         A \emph{hyperplane} in $\mathbb R^d$ is an (affine) linear subspace that separates $\mathbb R^d$ in two. %Perhaps we get lucky and can find a hyperplane $H$ so that data points with label \texttt{S} are on one side of $H$ and data with label \texttt{N} are on the other side.
         Using coordinates $(x_1,x_2, \ldots, x_d)$ in $\mathbb R^d$, a hyperplane $H$ may be determined from $d+1$ numbers $w_1,w_2,\ldots,w_d$, and $b$. It consists of solutions to 
@@ -265,6 +266,8 @@ $\hat{y} = y$ as often as possible.
         \pause
         \item ${\bf w}$ is a vector that is orthogonal to a $(d-1)$-dimensional subspace of $\mathbb R^d$; $|b|$ corresponds to a translation away from the origin.
     \end{itemize}
+    \vfill
+
 \end{frame}
 
 %%%%
@@ -272,7 +275,7 @@ $\hat{y} = y$ as often as possible.
 \frametitle{Half-space model}
     Using the notation from last slide: 
     
-    a half-space model in $\mathbb R^d$ is determined by $d+1$ parameters $w_1,w_2,\ldots,w_d,b$; the first $d$ parameters grouped into a vector: ${\bf w} = (w_1,w_2,\ldots,w_d)$.
+    a half-space model in $\mathbb R^d$ is determined by $d+1$ parameters $w_1,w_2,\ldots,w_d,b$, which determine a hyperplane $H$; the first $d$ parameters grouped into a vector: ${\bf w} = (w_1,w_2,\ldots,w_d)$.
     
     \pause
     Given ${\bf x}\in \mathbb R^d$, the side of the hyperplane $H$ it is on is determined by the sign of ${\bf w}\cdot{\bf x} + b$. Our half-space model: $h:\mathbb R^d\setminus H \to \{1,-1\}$.
@@ -283,7 +286,7 @@ $\hat{y} = y$ as often as possible.
     \end{itemize}
 
     \pause
-    If there exists a hyperplane, given by some ${\bf w}, b$, so that ${\bf x}$ has one of the labels if and only if it is on the positive side, the labeled data are called \textbf{linearly separable}. 
+    Given data with $\{\pm1\}$ labels, if there exists a hyperplane $H$ so that ${\bf x}$ has label $1$ if and only if it is on the positive side, the labeled data are called \textbf{linearly separable}. 
 
 \end{frame}
 
@@ -306,7 +309,7 @@ $\hat{y} = y$ as often as possible.
             \fill[red!70!black] (-3.5, -1)node[left]{$-1$} circle (2pt); 
             \fill[red!70!black] (-2, -1.5)node[left]{$-1$} circle (2pt); 
         \end{tikzpicture}
-        \caption{The hyperplane $H = \{(x,y)\in \mathbb R^2: x+ y+ 1 = 0\}$, corresponding positive and negative regions, ${\bf w} = (1, 1)$, $b = 1$}
+        \caption{The hyperplane $H = \{(x_1,x_2)\in \mathbb R^2: x_1+ x_2+ 1 = 0\}$, corresponding positive and negative regions, ${\bf w} = (1, 1)$, $b = 1$}
         \label{figure:R2HyperplaneLabeled}
     \end{figure}
 \end{frame}
@@ -341,7 +344,9 @@ $\hat{y} = y$ as often as possible.
 %%%%
 \begin{frame}
     \frametitle{Setup for Perceptron algorithm}
-    Assuming that $({\bf x}_1, y_1), \ldots, ({\bf x}_n, y_n)$ is linearly separable, the Perceptron algorithm is a procedure that is guaranteed to find a hyperplane that separates the data.
+    Labeled data: $({\bf x}_1, y_1), \ldots, ({\bf x}_n, y_n)$, with ${\bf x}_i\in\mathbb R^d$ and $y_i\in\{\pm1\}$ for all $i$.
+
+    Assuming labeled data is linearly separable, the Perceptron algorithm is a procedure that is guaranteed to find a hyperplane that separates the data.\footnote{Introduced in \textit{The perceptron: A probabilistic model for information storage and organization in the brain}, F.~Rosenblatt, Psychological Review \textbf{65} (1958), 386{--}407.}
     
     \pause
     To describe it: for each ${\bf x}_i$, use $X_i$ to denote the $(d+1)$-vector consisting of ${\bf x}_i$ with $1$ appended at the end;
@@ -351,7 +356,7 @@ $\hat{y} = y$ as often as possible.
     \pause
     Note that $W\cdot X_i = {\bf w}\cdot{\bf x}_i + b$. 
 
-    For linearly separable data, our goal is to find $W\in\mathbb R^{d+1}$ so that, for all $1\le i\le n$, $W\cdot X_i$ and $y_i$ have the same sign (are both positive or both negative).
+    For linearly separable data, our goal is to find $W\in\mathbb R^{d+1}$ so that $W\cdot X_i$ and $y_i$ have the same sign (both positive or both negative), for all $1\le i\le n$.
     \begin{itemize}
         \item Equivalently, we need $y_i W\cdot X_i > 0$ for all $1\le i\le n$.
     \end{itemize}
@@ -360,7 +365,8 @@ $\hat{y} = y$ as often as possible.
 %%%%
 \begin{frame}[fragile]
 \frametitle{Perceptron algorithm}
-Suppose the data is linearly separable. Also, \ttt{x} is an $n\times d$ array of points, with i$^{th}$ row equal to ${\bf x}_i$, and \ttt{y} is array of the labels. The Perceptron algorithm finds \ttt{W} iteratively as follows.
+Suppose the data is linearly separable. Also, \ttt{x} is an $n\times d$ array of points, with i$^{th}$ row equal to ${\bf x}_i$, and \ttt{y} is array of the labels. The Perceptron algorithm finds \ttt{W} iteratively as follows.\footnote{Recall, in pseudo-code block, left-facing arrow means \textit{assign} to variable on left.}
+\pause 
 
 \begin{pseudo}
 input: x, y  ## x is n by d, y is 1d array
@@ -398,12 +404,17 @@ return W
     \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
     \end{center}
 
-    Beginning with $W^{(1)} = (0,0,0)$, next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
-
-    Next: since $y_1W^{(2)}\cdot X_1 > 0$, check $y_2W^{(2)}\cdot X_2 = -1\ast(-1 + 3 -1) = -1$. So, 
+    Use $W^{(t)}$ for value of $W$ on step $t$. Start: $W^{(1)} = (0,0,0)$. \newline 
+    Next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
+    \pause
+    
+    Next: since $y_1W^{(2)}\cdot X_1 > 0$, check $y_2W^{(2)}\cdot X_2 = -1\ast(-1 + 3 -1) = -1$. \pause
+    So, 
         \[W^{(3)} = W^{(2)} + y_2X_2 = (2, -2, -2).\]
+    \pause 
     Continue in this way {--} on each step check dot products (in order) with $y_1X_1, y_2X_2, y_3X_3, y_4X_4$. Eventually you return the vector $W^{(10)} = (4, -0.5, 1)$. 
     
+    \pause
     i.e., $H = \{(x_1,x_2)\in \mathbb R^2:\ 4x_1-0.5x_2 + 1 = 0\}$ separates the points.
 \end{frame}
 
@@ -430,18 +441,25 @@ return W
     \frametitle{Another example, the Iris data set}
     First discussed by R.A.\ Fisher in a 1936 paper, Iris data set commonly used in explanations. It contains 150 points in $\mathbb R^4$, each for an individual iris flower from one of 3 species: Iris setosa, Iris virginica, and Iris versicolor.
 
+    \onslide<2->{
     The 4 coordinates are measurements of sepal length, sepal width, petal length, and petal width (in cm).
+    }
 
+    \onslide<3->{
     Iris setosa points are linearly separable from the other two. \newline 
     Labels: \textit{Iris setosa} $\leftarrow$ 1; \textit{Other species} $\leftarrow$ -1.
+    }
 
+    \onslide<4->{
     Begin by opening the notebook \lstinline[language=Python,stringstyle=\ttfamily\color{strings}]{'perceptron-iris-notebook.ipynb'} \ldots 
-    After completing the algorithm, should get ${\bf w} = (1.3,4.1,-5.2,-2.2)$ and $b = 1$.
+    After completing the algorithm, should get final $W = ({\bf w}, b)$, where ${\bf w} = (1.3,4.1,-5.2,-2.2)$ and $b = 1$.
+    }
 
-    %\vfill
+    \onslide<1->{
     \begin{figure}
     \includegraphics[height=0.2\textheight]{../../Images/iris-3species.jpg}
     \caption{Images by G.\ Robertson, E.\ Hunt, Radomil \copyright CC BY-SA 3.0}
     \end{figure}
+    }
 \end{frame}
 \end{document}

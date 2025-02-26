@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2025.1.13)  25 FEB 2025 08:24
+This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2025.1.13)  26 FEB 2025 11:47
  restricted system commands enabled.
 **lecture07
 (./lecture07.tex
@@ -1943,7 +1943,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 
 ]
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 8.50006pt on input line 252.
+(Font)              scaled to size 8.50006pt on input line 253.
  [12
 
 ] [13
@@ -1973,7 +1973,10 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 
 ] (./lecture07.toc) [25
 
-] [26
+]
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
+(Font)              scaled to size 7.65005pt on input line 363.
+ [26
 
 ] [27
 
@@ -1983,37 +1986,35 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 \openout4 = lecture07.vrb
 
 (./lecture07.vrb
-LaTeX Font Info:    Trying to load font information for TU+ccr on input line 4.
+LaTeX Font Info:    Trying to load font information for TU+ccr on input line 5.
 
-LaTeX Font Info:    No file TUccr.fd. on input line 4.
+LaTeX Font Info:    No file TUccr.fd. on input line 5.
 
 
 LaTeX Font Warning: Font shape `TU/ccr/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 4.
+(Font)              using `TU/lmr/m/n' instead on input line 5.
 
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/it' will be
-(Font)              scaled to size 6.80005pt on input line 5.
+(Font)              scaled to size 6.80005pt on input line 6.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 5.27003pt on input line 6.
+(Font)              scaled to size 5.27003pt on input line 7.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 5.27003pt on input line 6.
+(Font)              scaled to size 5.27003pt on input line 7.
 ) [29
 
+] (./lecture07.vrb) [30
+
 ]
-<../../Images/ex2_data_halfspace.png, id=209, 301.125pt x 203.76125pt>
+<../../Images/ex2_data_halfspace.png, id=214, 301.125pt x 203.76125pt>
 File: ../../Images/ex2_data_halfspace.png Graphic file (type png)
 <use ../../Images/ex2_data_halfspace.png>
 Package luatex.def Info: ../../Images/ex2_data_halfspace.png  used on input lin
-e 389.
+e 395.
 (luatex.def)             Requested size: 119.32672pt x 80.7448pt.
- [30
+ [31
 
-<../../Images/ex2_data_halfspace.png>] [31
-
-]
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 10.20007pt on input line 426.
- [32
+<../../Images/ex2_data_halfspace.png>]
+[32
 
 ] [33
 
@@ -2021,20 +2022,57 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 
 ] [35
 
+] [36
+
+]
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 10.20007pt on input line 437.
+ [37
+
+] [38
+
+] [39
+
+] [40
+
 ]
 (C:/Users/ccornwell/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.s
 ty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-<../../Images/iris-3species.jpg, id=244, 620.3175pt x 225.84375pt>
+<../../Images/iris-3species.jpg, id=269, 620.3175pt x 225.84375pt>
 File: ../../Images/iris-3species.jpg Graphic file (type jpg)
 <use ../../Images/iris-3species.jpg>
-Package luatex.def Info: ../../Images/iris-3species.jpg  used on input line 446
+Package luatex.def Info: ../../Images/iris-3species.jpg  used on input line 464
 .
 (luatex.def)             Requested size: 147.84752pt x 53.82849pt.
- [36
+ [41
 
 <../../Images/iris-3species.jpg>]
+File: ../../Images/iris-3species.jpg Graphic file (type jpg)
+<use ../../Images/iris-3species.jpg>
+Package luatex.def Info: ../../Images/iris-3species.jpg  used on input line 464
+.
+(luatex.def)             Requested size: 147.84752pt x 53.82849pt.
+ [42
+
+]
+File: ../../Images/iris-3species.jpg Graphic file (type jpg)
+<use ../../Images/iris-3species.jpg>
+Package luatex.def Info: ../../Images/iris-3species.jpg  used on input line 464
+.
+(luatex.def)             Requested size: 147.84752pt x 53.82849pt.
+ [43
+
+]
+File: ../../Images/iris-3species.jpg Graphic file (type jpg)
+<use ../../Images/iris-3species.jpg>
+Package luatex.def Info: ../../Images/iris-3species.jpg  used on input line 464
+.
+(luatex.def)             Requested size: 147.84752pt x 53.82849pt.
+ [44
+
+]
 \tf@nav=\write6
 
 \openout6 = lecture07.nav
@@ -2057,24 +2095,22 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `lecture07.out' has not changed.
 (rerunfilecheck)             Checksum: E27486B8980C0AD5CD67BBE9509A3E54;418.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31680 strings out of 476497
+ 31711 strings out of 476497
  100000,1977958 words of node,token memory allocated
- 8560 words of node memory still in use:
-   61 hlist, 9 vlist, 5 rule, 41 disc, 7 local_par, 10 math, 184 glue, 115 kern,
- 36 penalty, 614 glyph, 124 attribute, 62 glue_spec, 124 attribute_list, 4 write
-, 40 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 2:1015,3:657,4:236,5:442,6:31,7:2451,8:31,9:1255,10:20,11:127
- 52544 multiletter control sequences out of 65536+600000
- 265 fonts using 43772335 bytes
- 128i,11n,116p,409b,810s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 9072 words of node memory still in use:
+   62 hlist, 9 vlist, 5 rule, 42 disc, 7 local_par, 11 math, 194 glue, 119 kern,
+ 37 penalty, 634 glyph, 163 attribute, 62 glue_spec, 163 attribute_list, 4 write
+, 32 pdf_literal, 40 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore 
+nodes
+   avail lists: 2:1336,3:624,4:272,5:456,6:34,7:2420,8:31,9:1290,10:20,11:159
+ 52545 multiletter control sequences out of 65536+600000
+ 266 fonts using 44233943 bytes
+ 128i,11n,116p,409b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <//?/c:/users/ccornwell/appdata/local/programs/miktex/fonts/opentype/public/lm/l
 mroman10-regular.otf><//?/c:/users/ccornwell/appdata/local/programs/miktex/fonts
 /opentype/public/lm/lmroman8-regular.otf><C:/Users/ccornwell/AppData/Local/Progr
@@ -2097,9 +2133,9 @@ ta/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/ccornwell/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zsfmi-reg.pfb><C:/Users
 /ccornwell/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zsfmia-reg.p
 fb>
-Output written on lecture07.pdf (36 pages, 250375 bytes).
+Output written on lecture07.pdf (44 pages, 278890 bytes).
 
-PDF statistics: 336 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 131072)
+PDF statistics: 377 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 131072)
  40 words of extra memory for PDF output out of 10000 (max. 100000000)
 
