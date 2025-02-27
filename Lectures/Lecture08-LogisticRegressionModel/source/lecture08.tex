@@ -190,7 +190,7 @@ For model $h$, made for classification task (with data points ${\bf x}\in\mathbb
 Say $y \ne y'$ and a point is in the boundary of both $C_y$ and $C_{y'}$. We say that point is on a \textbf{decision boundary} of the model. In a half-space model (last lecture), the hyperplane determined by ${\bf w}$ and $b$ is the decision boundary.
 
 \pause
-The Perceptron algorithm might produce a model with many data points that are \emph{near} the decision boundary.
+The Perceptron algorithm might produce a model with many data points that are \textit{near} the decision boundary.
 
 \begin{figure}[h!]
     \centering
@@ -228,10 +228,11 @@ The Perceptron algorithm might produce a model with many data points that are \e
 If many points close to the decision boundary, likely for newly observed data to appear on ``wrong side'' of decision boundary. Perceptron algorithm gives us nothing to correct for this.
 
 \pause
-If ${\bf x}$ is close to decision boundary, we might feel less \emph{confident} in giving the label $h({\bf x})$ that we do. And, if ${\bf x}$ is farther from the boundary, where only one label is seen nearby, more confidence is warranted.
-
+\begin{itemize}
+    \item If ${\bf x}$ is close to decision boundary, we might feel less \textit{confident} in giving the label $h({\bf x})$ that we do. And, if ${\bf x}$ is farther from the boundary, where only one label is seen nearby, more confidence is warranted.
 \pause
-Also\ldots the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
+    \item Also\ldots the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
+\end{itemize}
 \end{frame}
 
 \section{Logistic model}
@@ -241,11 +242,15 @@ Also\ldots the immediate change of label across the boundary (a discontinuity in
 \frametitle{Incorporating a probability into half-space model}
 Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with the \textbf{logistic function}.    
     \[\sigma(z) = \frac{1}{1+e^{-z}}.\]
+
+\pause
 \begin{itemize}
     \item $0 < \sigma(z) < 1$ for all $z\in\mathbb R$;
+    \pause
     \item $\lim_{z\to\infty}\sigma(z) = 1$ and $\lim_{z\to-\infty}\sigma(z) = 0$;
     \item $\sigma(0) = 1/2$.
 \end{itemize}
+\pause 
 
 \centering
 \includegraphics[height=0.3\textheight]{../../Images/logistic_function_graph.png}
@@ -258,6 +263,7 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
     ``Logistic regression'', used for binary classification, as follows.
     
     Find hyperplane $H$, as determined by some ${\bf w}$ and $b$, that fits labeled data well; given new ${\bf x}\in\mathbb R^d$, find $z = {\bf w}\cdot{\bf x}+b$, then compute $\sigma(z)$. 
+    \pause
     \begin{itemize}
         \item (Logistic regression) $\sigma(z)$, the \textit{probability} that the label is $+1$.
     \end{itemize}
@@ -265,7 +271,9 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
     \pause
     \begin{enumerate}
         \item If ${\bf w}\cdot{\bf x}+b > 0$ is very large (${\bf x}$ far away from $H$ and on positive side), then  $\sigma(z)$ is very close to $1$.
+        \pause
         \item If ${\bf w}\cdot{\bf x}+b < 0$ has abs.\ value very large (${\bf x}$ far away from $H$ on negative side), then  $\sigma(z)$ very close to $0$.\footnote{Since $-1$ is only other label, high probability of having label $-1$.}
+        \pause
         \item If ${\bf x}$ is contained in $H$ itself, $z=0$ and $\sigma(z) = 0.5$.
     \end{enumerate}
     \pause
@@ -300,14 +308,17 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
     \frametitle{How to find ${\bf w}$ and $b$}
     Given $\{\pm1\}$ labeled data, how do we go about finding ${\bf w}$ and $b$ to use in the logistic (regression) model?
 
+    \pause
     \begin{itemize}
         \item Even if data is linearly separable, Perceptron algorithm does not try to make hyperplane be positioned ``away from'' data (Disadvantage). 
         \item If data is not linearly separable, what should be done?
     \end{itemize}
 
+    \pause
     Future lectures: Will discuss using \emph{optimization} (calculus-based) to find best parameters $w_1,w_2,\ldots,w_d,b$; process called Gradient Descent. 
+    \pause
     \begin{itemize}
-        \item Relevant: relationship between \emph{gradient} of a function and its \emph{directional derivative}.
+        \item Relevant: relationship between {gradient} of a function and its {directional derivative} (discussed in Calc III).
     \end{itemize}
 \end{frame}
 %%%%
@@ -317,11 +328,14 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
 
     For $k > 0$, define \[\sigma_k(z) = \frac{1}{1+e^{-kz}}.\]
 
+    \pause
     $0 < k < 1$: values of $\sigma_k(z)$ transition from $0$ to $1$ more slowly.\newline 
     $k > 1$: values of $\sigma_k(z)$ transition from $0$ to $1$ more quickly. (think about derivative)
 
+    \pause
     Hence, if know data has more noise, might use $0 < k < 1$ to decrease measure of confidence in prediction. In contrast, very ``clean'' data, interpretation of the model might benefit from $k>1$.
     
+    \pause
     (\textbf{Left:} graph with $k=5$; \textbf{Right:} applied to points in $\mathbb R^2$)
     \centering
     \begin{multicols}{2}
