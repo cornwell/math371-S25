@@ -183,18 +183,20 @@ keepspaces=true
 %%%%
 \begin{frame}
 \frametitle{Decision boundaries}
-For model $h$, made for classification task (with data points ${\bf x}\in\mathbb R^d$), write $C_y\subset \mathbb R^d$ for the set of points with label $y$, i.e.,
-    \[C_y = h^{-1}(y) = \{{\bf x}\in\mathbb R^d\ |\ h({\bf x}) = y\}.\]
+Suppose function $h:\mathbb R^d\to \{y_1,y_2,\ldots,y_m\}$ gives predictions for a classification task (data points ${\bf x}\in\mathbb R^d$, with $m$ labels). \newline 
+\pause
+For $i\in\{1,2,\ldots,m\}$, define $C_{y_i}$ to be the set of points with label $y_i$, i.e.,
+    \[C_{y_i} = h^{-1}(y_i) = \{{\bf x}\in\mathbb R^d\ |\ h({\bf x}) = y_i\}.\]
 
 \pause
-Say $y \ne y'$ and a point is in the boundary of both $C_y$ and $C_{y'}$. We say that point is on a \textbf{decision boundary} of the model. In a half-space model (last lecture), the hyperplane determined by ${\bf w}$ and $b$ is the decision boundary.
+For $i \ne j$, a point is in \textbf{decision boundary for $h$} when it's in the boundary of both $C_{y_i}$ and $C_{y_j}$. For half-space model (last lecture) determined by ${\bf w}$ and $b$, decision boundary is the hyperplane {--} i.e., points ${\bf x}$ such that ${\bf w}\cdot{\bf x} + b = 0$.
 
 \pause
-The Perceptron algorithm might produce a model with many data points that are \textit{near} the decision boundary.
+Perceptron algorithm might give model $h$ with many data points that are \textit{near} the decision boundary.
 
 \begin{figure}[h!]
     \centering
-    \begin{tikzpicture}[>=stealth, scale=0.5]
+    \begin{tikzpicture}[>=stealth, scale=0.4]
         \fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
         \fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
         \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
@@ -225,13 +227,15 @@ The Perceptron algorithm might produce a model with many data points that are \t
 %%%%
 \begin{frame}
 \frametitle{But\ldots data is messy}
-If many points close to the decision boundary, likely for newly observed data to appear on ``wrong side'' of decision boundary. Perceptron algorithm gives us nothing to correct for this.
+\pause
+Many points ``close'' to the decision boundary $\Rightarrow$ likely for newly observed data to appear on ``wrong side'' of decision boundary. Perceptron algorithm has nothing to correct for this.
 
 \pause
+Some thoughts:
 \begin{itemize}
-    \item If ${\bf x}$ is close to decision boundary, we might feel less \textit{confident} in giving the label $h({\bf x})$ that we do. And, if ${\bf x}$ is farther from the boundary, where only one label is seen nearby, more confidence is warranted.
+    \item When ${\bf x}$ close to decision boundary, we feel less \textit{confident} in giving the label $h({\bf x})$. In contrast, when ${\bf x}$ farther from boundary, and only one label is observed nearby, more confidence is warranted.
 \pause
-    \item Also\ldots the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
+    \item Also, the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
 \end{itemize}
 \end{frame}
 
@@ -240,7 +244,7 @@ If many points close to the decision boundary, likely for newly observed data to
 %%%%
 \begin{frame}
 \frametitle{Incorporating a probability into half-space model}
-Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with the \textbf{logistic function}.    
+Don't only capture the sign of ${\bf w}\cdot{\bf x} + b$; instead, compose ${\bf w}\cdot{\bf x} + b$ with the \textbf{logistic function}.    
     \[\sigma(z) = \frac{1}{1+e^{-z}}.\]
 
 \pause
@@ -277,9 +281,11 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
         \item If ${\bf x}$ is contained in $H$ itself, $z=0$ and $\sigma(z) = 0.5$.
     \end{enumerate}
     \pause
-    Binary classifier model from logistic regression: $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
+    Logistic model (a binary classifier): $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
     \begin{itemize}
         \item \textit{Remember that probability (certainty) in the prediction}.
+        \pause 
+        \item \textit{Logistic model helps decision boundary not be near data} (more on this later).
     \end{itemize}
 
 \end{frame}
@@ -294,12 +300,12 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
         \item (Logistic regression) $\sigma(z)$, the \textit{probability} that the label is $+1$.
     \end{itemize}
     
-    Binary classifier model from logistic regression: $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
+    Logistic model (a binary classifier): $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
     
     \pause 
     Some rationale for the use of the logistic function $\frac{1}{1+e^{-z}}$ in this process, comes from an inverse direction. 
     \begin{itemize}
-        \item If wanting to use \textit{Maximum Likelihood Estimation} to get a binary model, and making some typical simplifying assumptions on conditional probability ($P$), given model parameters, of observing some ${\bf x_i}$ $\leadsto$ $\log\left(\frac{P}{1-P}\right)$ being linear.
+        \item If wanting to use \textit{Maximum Likelihood Estimation} to get binary classification model, then some typical simplifying assumptions on conditional probability $P$, given model parameters, of observing ${\bf x_i}$ \qquad $\leadsto$ $\log\left(\frac{P}{1-P}\right)$ being linear.
     \end{itemize}
 
 \end{frame}
@@ -333,7 +339,7 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
     $k > 1$: values of $\sigma_k(z)$ transition from $0$ to $1$ more quickly. (think about derivative)
 
     \pause
-    Hence, if know data has more noise, might use $0 < k < 1$ to decrease measure of confidence in prediction. In contrast, very ``clean'' data, interpretation of the model might benefit from $k>1$.
+    Hence, if know data has more noise, might use $0 < k < 1$ to decrease measure of confidence in prediction. In contrast, very ``clean'' data, interpretation of the model might benefit from $k>1$.\footnote{I first saw the idea to introduce $k$, and interpret the model this way, from Eli Grigsby at Boston College.}
     
     \pause
     (\textbf{Left:} graph with $k=5$; \textbf{Right:} applied to points in $\mathbb R^2$)
