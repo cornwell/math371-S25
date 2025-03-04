@@ -4,7 +4,7 @@
 \usepackage{hyperref, graphicx}
 \usepackage{amsthm}
 \usepackage{etoolbox}
-%\usepackage{multicol}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage{ulem}
 
@@ -183,18 +183,20 @@ keepspaces=true
 %%%%
 \begin{frame}
 \frametitle{Decision boundaries}
-For model $h$, made for classification task (with data points ${\bf x}\in\mathbb R^d$), write $C_y\subset \mathbb R^d$ for the set of points with label $y$, i.e.,
-    \[C_y = h^{-1}(y) = \{{\bf x}\in\mathbb R^d\ |\ h({\bf x}) = y\}.\]
+Suppose function $h:\mathbb R^d\to \{y_1,y_2,\ldots,y_m\}$ gives predictions for a classification task (data points ${\bf x}\in\mathbb R^d$, with $m$ labels). \newline 
+\pause
+For $i\in\{1,2,\ldots,m\}$, define $C_{y_i}$ to be the set of points with label $y_i$, i.e.,
+    \[C_{y_i} = h^{-1}(y_i) = \{{\bf x}\in\mathbb R^d\ |\ h({\bf x}) = y_i\}.\]
 
 \pause
-Say $y \ne y'$ and a point is in the boundary of both $C_y$ and $C_{y'}$. We say that point is on a \textbf{decision boundary} of the model. In a half-space model (last lecture), the hyperplane determined by ${\bf w}$ and $b$ is the decision boundary.
+For $i \ne j$, a point is in \textbf{decision boundary for $h$} when it's in the boundary of both $C_{y_i}$ and $C_{y_j}$. For half-space model (last lecture) determined by ${\bf w}$ and $b$, decision boundary is the hyperplane {--} i.e., points ${\bf x}$ such that ${\bf w}\cdot{\bf x} + b = 0$.
 
 \pause
-The Perceptron algorithm might produce a model with many data points that are \emph{near} the decision boundary.
+Perceptron algorithm might give model $h$ with many data points that are \textit{near} the decision boundary.
 
 \begin{figure}[h!]
     \centering
-    \begin{tikzpicture}[>=stealth, scale=0.5]
+    \begin{tikzpicture}[>=stealth, scale=0.4]
         \fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
         \fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
         \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
@@ -225,13 +227,16 @@ The Perceptron algorithm might produce a model with many data points that are \e
 %%%%
 \begin{frame}
 \frametitle{But\ldots data is messy}
-If many points close to the decision boundary, likely for newly observed data to appear on ``wrong side'' of decision boundary. Perceptron algorithm gives us nothing to correct for this.
+\pause
+Many points ``close'' to the decision boundary $\Rightarrow$ likely for newly observed data to appear on ``wrong side'' of decision boundary. Perceptron algorithm has nothing to correct for this.
 
 \pause
-If ${\bf x}$ is close to decision boundary, we might feel less \emph{confident} in giving the label $h({\bf x})$ that we do. And, if ${\bf x}$ is farther from the boundary, where only one label is seen nearby, more confidence is warranted.
-
+Some thoughts:
+\begin{itemize}
+    \item When ${\bf x}$ close to decision boundary, we feel less \textit{confident} in giving the label $h({\bf x})$. In contrast, when ${\bf x}$ farther from boundary, and only one label is observed nearby, more confidence is warranted.
 \pause
-Also\ldots the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
+    \item Also, the immediate change of label across the boundary (a discontinuity in the model) \ldots perhaps not ``natural''?
+\end{itemize}
 \end{frame}
 
 \section{Logistic model}
@@ -239,13 +244,17 @@ Also\ldots the immediate change of label across the boundary (a discontinuity in
 %%%%
 \begin{frame}
 \frametitle{Incorporating a probability into half-space model}
-Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with the \textbf{logistic function}.    
+Don't only capture the sign of ${\bf w}\cdot{\bf x} + b$; instead, compose ${\bf w}\cdot{\bf x} + b$ with the \textbf{logistic function}.    
     \[\sigma(z) = \frac{1}{1+e^{-z}}.\]
+
+\pause
 \begin{itemize}
     \item $0 < \sigma(z) < 1$ for all $z\in\mathbb R$;
+    \pause
     \item $\lim_{z\to\infty}\sigma(z) = 1$ and $\lim_{z\to-\infty}\sigma(z) = 0$;
     \item $\sigma(0) = 1/2$.
 \end{itemize}
+\pause 
 
 \centering
 \includegraphics[height=0.3\textheight]{../../Images/logistic_function_graph.png}
@@ -255,193 +264,92 @@ Instead of only capturing the sign of ${\bf w}\cdot{\bf x} + b$, compose it with
 %%%%
 \begin{frame}
 \frametitle{Logistic model, continued}
-    Define logistic model as follows.
+    ``Logistic regression'', used for binary classification, as follows.
     
-    So, for ${\bf x}\in\mathbb R^d$, find $\sigma({\bf w}\cdot{\bf x}+b)$. 
-    
-    \pause
-    Given ${\bf x}\in \mathbb R^d$, the side of the hyperplane $H$ it is on is determined by the sign of ${\bf w}\cdot{\bf x} + b$. Our half-space model: $h:\mathbb R^d\setminus H \to \{1,-1\}$.
+    Find hyperplane $H$, as determined by some ${\bf w}$ and $b$, that fits labeled data well; given new ${\bf x}\in\mathbb R^d$, find $z = {\bf w}\cdot{\bf x}+b$, then compute $\sigma(z)$. 
     \pause
     \begin{itemize}
-        \item (Positive side) Say that $h({\bf x}) = 1$ if ${\bf w}\cdot{\bf x}+b > 0$.
-        \item (Negative side) Say that $h({\bf x}) = -1$ if ${\bf x}\cdot{\bf x}+b < 0$. 
+        \item (Logistic regression) $\sigma(z)$, the \textit{probability} that the label is $+1$.
+    \end{itemize}
+    
+    \pause
+    \begin{enumerate}
+        \item If ${\bf w}\cdot{\bf x}+b > 0$ is very large (${\bf x}$ far away from $H$ and on positive side), then  $\sigma(z)$ is very close to $1$.
+        \pause
+        \item If ${\bf w}\cdot{\bf x}+b < 0$ has abs.\ value very large (${\bf x}$ far away from $H$ on negative side), then  $\sigma(z)$ very close to $0$.\footnote{Since $-1$ is only other label, high probability of having label $-1$.}
+        \pause
+        \item If ${\bf x}$ is contained in $H$ itself, $z=0$ and $\sigma(z) = 0.5$.
+    \end{enumerate}
+    \pause
+    Logistic model (a binary classifier): $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
+    \begin{itemize}
+        \item \textit{Remember that probability (certainty) in the prediction}.
+        \pause 
+        \item \textit{Logistic model helps decision boundary not be near data} (more on this later).
+    \end{itemize}
+
+\end{frame}
+
+%%%%
+\begin{frame}
+\frametitle{Logistic model, continued}
+    ``Logistic regression'', used for binary classification, as follows.
+    
+    Find hyperplane $H$, as determined by some ${\bf w}$ and $b$, that fits labeled data well; given new ${\bf x}\in\mathbb R^d$, find $z = {\bf w}\cdot{\bf x}+b$, then compute $\sigma(z)$. 
+    \begin{itemize}
+        \item (Logistic regression) $\sigma(z)$, the \textit{probability} that the label is $+1$.
+    \end{itemize}
+    
+    Logistic model (a binary classifier): $h({\bf x})=1$ if $\sigma({\bf w}\cdot{\bf x}+b) \ge 0.5$, and $h({\bf x})=-1$ otherwise. 
+    
+    \pause 
+    Some rationale for the use of the logistic function $\frac{1}{1+e^{-z}}$ in this process, comes from an inverse direction. 
+    \begin{itemize}
+        \item If wanting to use \textit{Maximum Likelihood Estimation} to get binary classification model, then some typical simplifying assumptions on conditional probability $P$, given model parameters, of observing ${\bf x_i}$ \qquad $\leadsto$ $\log\left(\frac{P}{1-P}\right)$ being linear.
+    \end{itemize}
+
+\end{frame}
+%%%%
+\begin{frame}
+    \frametitle{How to find ${\bf w}$ and $b$}
+    Given $\{\pm1\}$ labeled data, how do we go about finding ${\bf w}$ and $b$ to use in the logistic (regression) model?
+
+    \pause
+    \begin{itemize}
+        \item Even if data is linearly separable, Perceptron algorithm does not try to make hyperplane be positioned ``away from'' data (Disadvantage). 
+        \item If data is not linearly separable, what should be done?
     \end{itemize}
 
     \pause
-    Given data with $\{\pm1\}$ labels, if there exists a hyperplane $H$ so that ${\bf x}$ has label $1$ if and only if it is on the positive side, the labeled data are called \textbf{linearly separable}. 
-
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Linearly separable}
-    \begin{figure}[h!]
-        \centering
-        \begin{tikzpicture}[>=stealth, scale=0.7]
-            \fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
-            \fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
-            \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
-            \draw[thick, ->] (0, -3.1) -- (0, 3.1); 
-            \draw[very thick] (-4, 3) -- (2, -3); % node[above right]{\small $H = \{x + y + 1 = 0\}$}; 
-            \fill[blue!80!black] (1, 2)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (-1, 2.5)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (1, -1)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (4, 1)node[below right]{$1$} circle (2pt); 
-            \fill[red!70!black] (-3, 0.5)node[left]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-3.5, -1)node[left]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-2, -1.5)node[left]{$-1$} circle (2pt); 
-        \end{tikzpicture}
-        \caption{The hyperplane $H = \{(x_1,x_2)\in \mathbb R^2: x_1+ x_2+ 1 = 0\}$, corresponding positive and negative regions, ${\bf w} = (1, 1)$, $b = 1$}
-        \label{figure:R2HyperplaneLabeled}
-    \end{figure}
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Not linearly separable}
-    \begin{figure}[h!]
-        \centering
-        \begin{tikzpicture}[>=stealth, scale=0.7]
-            %\fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
-            %\fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
-            \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
-            \draw[thick, ->] (0, -3.1) -- (0, 3.1); 
-            %\draw[very thick] (-4, 3) -- (2, -3); % node[above right]{\small $H = \{x + y + 1 = 0\}$}; 
-            \fill[blue!80!black] (1, 2)node[below right]{$1$} circle (2pt); 
-            \fill[red!70!black] (1, -1)node[below right]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-3, 0.5)node[left]{$-1$} circle (2pt); 
-            \fill[blue!80!black] (-2, -1.5)node[left]{$1$} circle (2pt); 
-        \end{tikzpicture}
-        \caption{A data set in $\mathbb R^2$ that is not linearly separable.}
-        \label{figure:notseparable}
-    \end{figure}
+    Future lectures: Will discuss using \emph{optimization} (calculus-based) to find best parameters $w_1,w_2,\ldots,w_d,b$; process called Gradient Descent. 
     \pause
     \begin{itemize}
-        \item A criterion (checkable, in theory) that is equivalent to ``not linearly separable''?
+        \item Relevant: relationship between {gradient} of a function and its {directional derivative} (discussed in Calc III).
     \end{itemize}
 \end{frame}
-
-\section{Perceptron algorithm}
-
 %%%%
 \begin{frame}
-    \frametitle{Setup for Perceptron algorithm}
-    Labeled data: $({\bf x}_1, y_1), \ldots, ({\bf x}_n, y_n)$, with ${\bf x}_i\in\mathbb R^d$ and $y_i\in\{\pm1\}$ for all $i$.
+    \frametitle{More messy versus less messy data}
+    Could introduce additional parameter (more flexibility).
 
-    Assuming labeled data is linearly separable, the Perceptron algorithm is a procedure that is guaranteed to find a hyperplane that separates the data.\footnote{Introduced in \textit{The perceptron: A probabilistic model for information storage and organization in the brain}, F.~Rosenblatt, Psychological Review \textbf{65} (1958), 386{--}407.}
+    For $k > 0$, define \[\sigma_k(z) = \frac{1}{1+e^{-kz}}.\]
+
+    \pause
+    $0 < k < 1$: values of $\sigma_k(z)$ transition from $0$ to $1$ more slowly.\newline 
+    $k > 1$: values of $\sigma_k(z)$ transition from $0$ to $1$ more quickly. (think about derivative)
+
+    \pause
+    Hence, if know data has more noise, might use $0 < k < 1$ to decrease measure of confidence in prediction. In contrast, very ``clean'' data, interpretation of the model might benefit from $k>1$.\footnote{I first saw the idea to introduce $k$, and interpret the model this way, from Eli Grigsby at Boston College.}
     
     \pause
-    To describe it: for each ${\bf x}_i$, use $X_i$ to denote the $(d+1)$-vector consisting of ${\bf x}_i$ with $1$ appended at the end;
-
-    Additionally, use $W$ to denote the vector ${\bf w}$ with $b$ appended at the end.
-
-    \pause
-    Note that $W\cdot X_i = {\bf w}\cdot{\bf x}_i + b$. 
-
-    For linearly separable data, our goal is to find $W\in\mathbb R^{d+1}$ so that $W\cdot X_i$ and $y_i$ have the same sign (both positive or both negative), for all $1\le i\le n$.
-    \begin{itemize}
-        \item Equivalently, we need $y_i W\cdot X_i > 0$ for all $1\le i\le n$.
-    \end{itemize}
-\end{frame}
-
-%%%%
-\begin{frame}[fragile]
-\frametitle{Perceptron algorithm}
-Suppose the data is linearly separable. Also, \ttt{x} is an $n\times d$ array of points, with i$^{th}$ row equal to ${\bf x}_i$, and \ttt{y} is array of the labels. The Perceptron algorithm finds \ttt{W} iteratively as follows.\footnote{Recall, in pseudo-code block, left-facing arrow means \textit{assign} to variable on left.}
-\pause 
-
-\begin{pseudo}
-input: x, y  ## x is n by d, y is 1d array
-X = append 1 to each row of x
-W = (0,0,...,0)  ## Initial W
-while (exists i with y[i]*dot(W, X[i]) <= 0){
-    W = W + y[i]*X[i]
-}
-return W
-\end{pseudo}
-
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Example}
-    A simple example in $\mathbb R^2$, with $n=4$ points.
-
-    \begin{center}
-    \ttt{x}: $\begin{bmatrix}-1 & 3 \\ -1 & -1 \\ 3 & -1 \\ 0 & 1.5\end{bmatrix}$  \qquad\qquad
-    \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
-    \end{center}
-
+    (\textbf{Left:} graph with $k=5$; \textbf{Right:} applied to points in $\mathbb R^2$)
     \centering
-    \includegraphics[height=0.3\textheight]{../../Images/ex2_data_halfspace.png}
-\end{frame}
+    \begin{multicols}{2}
+    \includegraphics[height=0.25\textheight]{../../Images/logistic_function_kis5.png}
 
-%%%%
-\begin{frame}
-    \frametitle{Example, continued}
-    A simple example in $\mathbb R^2$, with $n=4$ points.
-
-    \begin{center}
-    \ttt{x}: $\begin{bmatrix}-1 & 3 \\ -1 & -1 \\ 3 & -1 \\ 0 & 1.5\end{bmatrix}$  \qquad\qquad
-    \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
-    \end{center}
-
-    Use $W^{(t)}$ for value of $W$ on step $t$. Start: $W^{(1)} = (0,0,0)$. \newline 
-    Next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
-    \pause
+    \includegraphics[height=0.25\textheight]{../../Images/logistic_function_appliedtohalfspace.png}
+    \end{multicols}
     
-    Next: since $y_1W^{(2)}\cdot X_1 > 0$, check $y_2W^{(2)}\cdot X_2 = -1\ast(-1 + 3 -1) = -1$. \pause
-    So, 
-        \[W^{(3)} = W^{(2)} + y_2X_2 = (2, -2, -2).\]
-    \pause 
-    Continue in this way {--} on each step check dot products (in order) with $y_1X_1, y_2X_2, y_3X_3, y_4X_4$. Eventually you return the vector $W^{(10)} = (4, -0.5, 1)$. 
-    
-    \pause
-    i.e., $H = \{(x_1,x_2)\in \mathbb R^2:\ 4x_1-0.5x_2 + 1 = 0\}$ separates the points.
 \end{frame}
 
-%%%%
-\begin{frame}
-    \frametitle{Perceptron algorithm, stopping time}
-    Under our assumptions for Perceptron algorithm, a guarantee on eventually stopping.
-
-    \begin{theorem}Define $R = \max_i|X_i|$ and $B = \min_i\{|V|: \forall i, y_iV\cdot X_i \ge 1\}$. Then, the Perceptron algorithm stops after at most $(RB)^2$ iterations and, when it stops with output $W$, then $y_iW\cdot X_i > 0$ for all $1\le i\le n$.
-    \end{theorem}
-
-    \pause 
-    \textbf{Idea of proof:} Write $W^*$ for vector that realizes the minimum $B$. Also, write $W^{(t)}$ for the vector $W$ on the $t^{th}$ step, with $W^{(1)} = (0,0,\ldots,0)$.
-
-    \pause
-    Using how $W^{(t+1)}$ is obtained from $W^{(t)}$, can show that $W^*\cdot W^{(T+1)} \ge T$ after $T+1$ iterations. Also, using the condition on $W^{(T)}$ that necessitates an update, can show that $|W^{(T+1)}| \le \sqrt{T}R$. (Both statements, use induction.) 
-
-    \pause
-    Now, by Cauchy-Schwarz inequality, $T \le BR\sqrt{T}$, which we can rearrange to $T\le (BR)^2$.
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Another example, the Iris data set}
-    First discussed by R.A.\ Fisher in a 1936 paper, Iris data set commonly used in explanations. It contains 150 points in $\mathbb R^4$, each for an individual iris flower from one of 3 species: Iris setosa, Iris virginica, and Iris versicolor.
-
-    \onslide<2->{
-    The 4 coordinates are measurements of sepal length, sepal width, petal length, and petal width (in cm).
-    }
-
-    \onslide<3->{
-    Iris setosa points are linearly separable from the other two. \newline 
-    Labels: \textit{Iris setosa} $\leftarrow$ 1; \textit{Other species} $\leftarrow$ -1.
-    }
-
-    \onslide<4->{
-    Begin by opening the notebook \lstinline[language=Python,stringstyle=\ttfamily\color{strings}]{'perceptron-iris-notebook.ipynb'} \ldots 
-    After completing the algorithm, should get final $W = ({\bf w}, b)$, where ${\bf w} = (1.3,4.1,-5.2,-2.2)$ and $b = 1$.
-    }
-
-    \onslide<1->{
-    \begin{figure}
-    \includegraphics[height=0.2\textheight]{../../Images/iris-3species.jpg}
-    \caption{Images by G.\ Robertson, E.\ Hunt, Radomil \copyright CC BY-SA 3.0}
-    \end{figure}
-    }
-\end{frame}
 \end{document}
