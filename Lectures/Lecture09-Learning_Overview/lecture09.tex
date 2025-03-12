@@ -164,7 +164,7 @@ keepspaces=true
 \newcommand{\lsitem}[2]{\ttt{{#1}[}\ct{#2}\ttt{]}}
 
 \author{Chris Cornwell}
-\date{Mar 6, 2025}
+\date{Mar 13, 2025}
 \title{Overview of Machine Learning \newline 
     \footnotesize{in particular, Supervised Learning}}
 
@@ -185,6 +185,63 @@ keepspaces=true
 \begin{frame}
 \frametitle{What is Machine Learning?}
     % Mitchell '98 ``Well posed learning problem''
+    Definition by Tom Mitchell:\newline 
+    \begin{quote}
+        A ``computer program'' is said to \textbf{learn} from experience $E$, with respect to some task $T$ and performance measure $P$ if: its performance on $T$, as measured by $P$, improves with experience $E$.
+    \end{quote}
+    \begin{itemize}
+        \item The definition is intentionally general. Often, could think of $E$ as ``training'' (updates to how program runs), based on observed data.
+        \item ``computer program'' (for us) means a procedure or function, implemented on a computer, that produces output from given input. The output is how the program is supposed to achieve the task $T$. 
+        \item The procedures discussed in class {--} linear regression and the Perceptron algorithm for half-space model {--} fit into this paradigm\ldots \textit{kind of}.
+    \end{itemize}
+
+\end{frame}
+
+%%%%
+\begin{frame}
+\frametitle{What is Machine Learning?}
+    Definition by Tom Mitchell:\newline 
+    \begin{quote}
+        A computer program is said to \textbf{learn} from experience $E$, with respect to some task $T$ and performance measure $P$ if: its performance on $T$, as measured by $P$, improves with experience $E$.
+    \end{quote}
+    
+    {\color{mygreen}Examples:}
+    \begin{enumerate}
+        \item Linear regression.
+        \begin{itemize}
+            \item ``program'': the process taking input ($x$, potentially multiple variables), ``predicting'' a label $\hat{y}$. (with $\hat{y} = \hat{m}x + \hat{b}$.)
+            \item $T$: fit observed points $(x_1,y_1),\ldots,(x_n,y_n)$ well with predictions $(x_1,\hat{y}_1), \ldots,(x_n,\hat{y}_n)$, with expectation of good fit on \textit{unobserved} data.
+            \item $E$: ?? \newline 
+                    The data are used to get $\hat{m}$ and $\hat{b}$, but you don't really ``improve'' with repeated use of data. \newline 
+                    A \emph{closed form} for best choice of $\hat{m}, \hat{b}$: compute $(A^TA)^{-1}A^T{\bf y}$.
+            \item $P$: Mean squared error.
+        \end{itemize}
+        One should not expect nice closed form in general.
+    \end{enumerate}
+
+\end{frame}
+
+%%%%
+\begin{frame}
+\frametitle{What is Machine Learning?}
+    Definition by Tom Mitchell:\newline 
+    \begin{quote}
+        A computer program is said to \textbf{learn} from experience $E$, with respect to some task $T$ and performance measure $P$ if: its performance on $T$, as measured by $P$, improves with experience $E$.
+    \end{quote}
+    
+    {\color{mygreen}Examples:}
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item The Perceptron algorithm.
+        \begin{itemize}
+            \item ``program'': the process taking input (${\bf x}\in \mathbb R^d$, or something \textit{turned into} ${\bf x}\in\mathbb R^d$), ``predicting'' a label $+1$ or $-1$. (using $W = ({\bf w}, b)\in\mathbb R^{d+1}$ to decide label.)
+            \item $T$: predicting labels correctly\ldots including on \textit{unobserved} data.
+            \item $E$: looking through observed data $X_i = ({\bf x}_i,1)$, label $y_i$, and updating $W^{(t+1)} = W^{(t)} + y_iX_i$ when $i$ found with $W^{(t)}\cdot(y_iX_i)\le 0$.
+            \item $P$: ?? \newline 
+                    Whether its labels on all observed data are correct. But, only two results: \textit{True} or \textit{False}. \newline 
+                    If data is linearly separable, enough of experience $E$ improves this measure (changing to \textit{True}). Only happens if linearly separable.
+        \end{itemize}
+    \end{enumerate}
 
 \end{frame}
 
@@ -310,44 +367,6 @@ return W
 
 %%%%
 \begin{frame}
-    \frametitle{Example}
-    A simple example in $\mathbb R^2$, with $n=4$ points.
-
-    \begin{center}
-    \ttt{x}: $\begin{bmatrix}-1 & 3 \\ -1 & -1 \\ 3 & -1 \\ 0 & 1.5\end{bmatrix}$  \qquad\qquad
-    \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
-    \end{center}
-
-    \centering
-    \includegraphics[height=0.3\textheight]{../../Images/ex2_data_halfspace.png}
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Example, continued}
-    A simple example in $\mathbb R^2$, with $n=4$ points.
-
-    \begin{center}
-    \ttt{x}: $\begin{bmatrix}-1 & 3 \\ -1 & -1 \\ 3 & -1 \\ 0 & 1.5\end{bmatrix}$  \qquad\qquad
-    \ttt{y}: $\begin{bmatrix}-1 \\ -1 \\ 1 \\ 1\end{bmatrix}$
-    \end{center}
-
-    Use $W^{(t)}$ for value of $W$ on step $t$. Start: $W^{(1)} = (0,0,0)$. \newline 
-    Next step: $W^{(2)} = \vec{0} + y_1X_1 = -1\ast(-1,3,1) = (1,-3,-1)$.
-    \pause
-    
-    Next: since $y_1W^{(2)}\cdot X_1 > 0$, check $y_2W^{(2)}\cdot X_2 = -1\ast(-1 + 3 -1) = -1$. \pause
-    So, 
-        \[W^{(3)} = W^{(2)} + y_2X_2 = (2, -2, -2).\]
-    \pause 
-    Continue in this way {--} on each step check dot products (in order) with $y_1X_1, y_2X_2, y_3X_3, y_4X_4$. Eventually you return the vector $W^{(10)} = (4, -0.5, 1)$. 
-    
-    \pause
-    i.e., $H = \{(x_1,x_2)\in \mathbb R^2:\ 4x_1-0.5x_2 + 1 = 0\}$ separates the points.
-\end{frame}
-
-%%%%
-\begin{frame}
     \frametitle{Perceptron algorithm, stopping time}
     Under our assumptions for Perceptron algorithm, a guarantee on eventually stopping.
 
@@ -362,32 +381,5 @@ return W
 
     \pause
     Now, by Cauchy-Schwarz inequality, $T \le BR\sqrt{T}$, which we can rearrange to $T\le (BR)^2$.
-\end{frame}
-
-%%%%
-\begin{frame}
-    \frametitle{Another example, the Iris data set}
-    First discussed by R.A.\ Fisher in a 1936 paper, Iris data set commonly used in explanations. It contains 150 points in $\mathbb R^4$, each for an individual iris flower from one of 3 species: Iris setosa, Iris virginica, and Iris versicolor.
-
-    \onslide<2->{
-    The 4 coordinates are measurements of sepal length, sepal width, petal length, and petal width (in cm).
-    }
-
-    \onslide<3->{
-    Iris setosa points are linearly separable from the other two. \newline 
-    Labels: \textit{Iris setosa} $\leftarrow$ 1; \textit{Other species} $\leftarrow$ -1.
-    }
-
-    \onslide<4->{
-    Begin by opening the notebook \lstinline[language=Python,stringstyle=\ttfamily\color{strings}]{'perceptron-iris-notebook.ipynb'} \ldots 
-    After completing the algorithm, should get final $W = ({\bf w}, b)$, where ${\bf w} = (1.3,4.1,-5.2,-2.2)$ and $b = 1$.
-    }
-
-    \onslide<1->{
-    \begin{figure}
-    \includegraphics[height=0.2\textheight]{../../Images/iris-3species.jpg}
-    \caption{Images by G.\ Robertson, E.\ Hunt, Radomil \copyright CC BY-SA 3.0}
-    \end{figure}
-    }
 \end{frame}
 \end{document}
