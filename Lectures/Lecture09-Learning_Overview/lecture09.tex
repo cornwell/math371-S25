@@ -191,7 +191,7 @@ keepspaces=true
     \end{quote}
     \begin{itemize}
         \item The definition is intentionally general. Often, could think of $E$ as ``training'' (updates to how program runs), based on observed data.
-        \item ``computer program'' (for us) means a procedure or function, implemented on a computer, that produces output from given input. The output is how the program is supposed to achieve the task $T$. 
+        \item ``computer program,'' for us, means a function implemented on a computer that produces output from given input. The output is how the program achieves the task $T$. 
         \item The procedures discussed in class {--} linear regression and the Perceptron algorithm for half-space model {--} fit into this paradigm\ldots \textit{kind of}.
     \end{itemize}
 
@@ -209,14 +209,14 @@ keepspaces=true
     \begin{enumerate}
         \item Linear regression.
         \begin{itemize}
-            \item ``program'': the process taking input ($x$, potentially multiple variables), ``predicting'' a label $\hat{y}$. (with $\hat{y} = \hat{m}x + \hat{b}$.)
-            \item $T$: fit observed points $(x_1,y_1),\ldots,(x_n,y_n)$ well with predictions $(x_1,\hat{y}_1), \ldots,(x_n,\hat{y}_n)$, with expectation of good fit on \textit{unobserved} data.
+            \item Output of $\hat{y}$ on input $x$ (potentially multiple variables).
+            \item $T$: fit observed points $\{(x_i,y_i)\}_{i=1}^n$ well with predictions $\{(x_i,\hat{y}_i)\}$, where $\hat{y}_i=mx_i+b$ for some $m,b$ (an expectation of $(x,\hat{y})$ being good fit on \textit{unobserved} data. 
             \item $E$: ?? \newline 
-                    The data are used to get $\hat{m}$ and $\hat{b}$, but you don't really ``improve'' with repeated use of data. \newline 
-                    A \emph{closed form} for best choice of $\hat{m}, \hat{b}$: compute $(A^TA)^{-1}A^T{\bf y}$.
+                    The data are used to get $m$ and $b$, but you don't really ``improve'' with repeated use of data. \newline 
+                    \emph{Closed form} for best choice of $m, b$, computing $(A^TA)^{-1}A^T{\bf y}$.
             \item $P$: Mean squared error.
         \end{itemize}
-        One should not expect nice closed form in general.
+        Having closed form, result of simplicity of the form of $\hat{y}_i$.
     \end{enumerate}
 
 \end{frame}
@@ -234,8 +234,9 @@ keepspaces=true
         \setcounter{enumi}{1}
         \item The Perceptron algorithm.
         \begin{itemize}
-            \item ``program'': the process taking input (${\bf x}\in \mathbb R^d$, or something \textit{turned into} ${\bf x}\in\mathbb R^d$), ``predicting'' a label $+1$ or $-1$. (using $W = ({\bf w}, b)\in\mathbb R^{d+1}$ to decide label.)
-            \item $T$: predicting labels correctly\ldots including on \textit{unobserved} data.
+            \item Output of label $\pm 1$ on input ${\bf x}\in \mathbb R^d$ (or something \textit{turned into} ${\bf x}\in\mathbb R^d$).
+            \item $T$: predict labels correctly, using $W = ({\bf w}, b)\in\mathbb R^{d+1}$ to decide label, $y = \textrm{sign}({\bf w}\cdot{\bf x} + b)$ \newline 
+            \ldots hopefull works on \textit{unobserved} data.
             \item $E$: looking through observed data $X_i = ({\bf x}_i,1)$, label $y_i$, and updating $W^{(t+1)} = W^{(t)} + y_iX_i$ when $i$ found with $W^{(t)}\cdot(y_iX_i)\le 0$.
             \item $P$: ?? \newline 
                     Whether its labels on all observed data are correct. But, only two results: \textit{True} or \textit{False}. \newline 
@@ -247,14 +248,25 @@ keepspaces=true
 
 %%%%
 \begin{frame}
-\frametitle{What types of \emph{tasks} and \emph{algorithms} in machine learning?}
-% Supervised learning 
+\frametitle{What are the general types of \emph{tasks} in machine learning?}
+Supervised learning: the program learns from sample data that has labels. Goal: determine underlying function from sample data.
     % examples
-% Unsupervised learning 
+    \begin{itemize}
+        \item Housing price prediction
+        \item Whether emails are phishing or not phishing.
+        \item Determine if a satellite image of ocean has floating trash.
+        \item Try to auto-complete a sentence being typed.
+    \end{itemize}
+Unsupervised learning: there is sample data, but the data does not have any labels. Goal: discover something (a pattern, grouping, or some insight) about the data.
     % examples
-% Reinforcement learning
+    \begin{itemize}
+        \item Business application: Market segmentation.
+        \item News feed (grouping similar news articles).
+        \item Separate audio sources in a mixed signal.
+        \item Organize computing clusters.
+    \end{itemize}
+Reinforcement learning.
     %example
-% some others
 \end{frame}
 
 \section{Supervised learning}
@@ -262,90 +274,34 @@ keepspaces=true
 %%%%
 \begin{frame}
 \frametitle{The goal of supervised learning}
-% an ``input space'' $\mathbb R^{d}$ (could be more general space) and output space, or label space, $Y$; it may be that $Y\subseteq \mathbb R^m$ for some $m$ -- change it to this?.
-% get a sample $\mathcal S = \{({\bf x}_i, y_i)\}_{i=1}^n$ that is drawn from an (unknown) probability distribution on $\mathbb R^{d}\times Y$, $P_{X,Y}:\mathbb R^{d}\times Y \to [0, \infty)$ 
-% goal: learn from $\mathcal S$ a function that predicts $y$ from ${\bf x}\in\mathbb R^d$ (well) 
+Have an ``input space'' $\mathbb R^{d}$ (could be more general space) and output space, or label space, $Y$. 
+
+From a sample $\mathcal S = \{({\bf x}_i, y_i)\}_{i=1}^n$, with ${\bf x}_i\in\mathbb R^d$ and $y_i\in Y$, drawn from an (unknown) probability distribution $P_{X,Y}:\mathbb R^{d}\times Y \to [0, \infty)$. 
+
+Goal is to learn, from $\mathcal S$, a function $f:\mathbb R^d\to Y$ that ``fits'' (\textit{approximates}) well the distribution $P_{X,Y}$. You might not be able to have the graph of $f$ be such that it is typically very ``close'' to samples from $P_{X,Y}$. However, ideally, for an ${\bf x}\in\mathbb R^d$ the point on the graph is approximately the expected value, given ${\bf x}$.
 
 \end{frame}
 
 %%%%
 \begin{frame}
 \frametitle{How to achieve the goal}
-    % choose a parameterized function class; your predictor function will come from that class
+Most often, you choose a \textit{parameterized class} of functions; i.e., there is a parameter space $\Omega$, and an $\omega\in\Omega$ determines a function $f_{\omega}:\mathbb R^d \to Y$. To learn a function that fits well, you find a set of parameters.
+
+The performance measure: \textbf{(empirical) loss function} $\mathcal L_{\mathcal S}:\Omega \to \mathbb R$. (The definition of the empirical loss function uses $\mathcal S$ in its definition.)
+% Half-space model: $\Omega = \mathbb R^{d+1}$ (where $d$ is dimension so ${\bf x}\in\mathbb R^d$). For $\omega = (w_1,w_2,\ldots,w_d,b)$, $f_{\omega}({\bf x}) = \textrm{sign}(w_1x_1+\ldots+w_dx_d+b)$. On sample, looking for $f_\omega({\bf x}_i)$ to match $y_i$.
 
 \end{frame}
 
 %%%%
 \begin{frame}
-    \frametitle{Linearly separable}
-    \begin{figure}[h!]
-        \centering
-        \begin{tikzpicture}[>=stealth, scale=0.7]
-            \fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
-            \fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
-            \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
-            \draw[thick, ->] (0, -3.1) -- (0, 3.1); 
-            \draw[very thick] (-4, 3) -- (2, -3); % node[above right]{\small $H = \{x + y + 1 = 0\}$}; 
-            \fill[blue!80!black] (1, 2)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (-1, 2.5)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (1, -1)node[below right]{$1$} circle (2pt); 
-            \fill[blue!80!black] (4, 1)node[below right]{$1$} circle (2pt); 
-            \fill[red!70!black] (-3, 0.5)node[left]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-3.5, -1)node[left]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-2, -1.5)node[left]{$-1$} circle (2pt); 
-        \end{tikzpicture}
-        \caption{The hyperplane $H = \{(x_1,x_2)\in \mathbb R^2: x_1+ x_2+ 1 = 0\}$, corresponding positive and negative regions, ${\bf w} = (1, 1)$, $b = 1$}
-        \label{figure:R2HyperplaneLabeled}
-    \end{figure}
+    \frametitle{For linear regression}
+    Have sample data $\mathcal S$, with data points $x_i$ in $\mathbb R$ (so, $d=1$). The parameter space $\Omega = \mathbb R^2 = \{(m,b)\ |\ m\in\mathbb R, b\in\mathbb R\}$, and if $\omega_0 = (m_0,b_0)$ then
+        \[f_{\omega_0}(x) = m_0x + b_0.\]
+    Loss function, use the MSE. That is, set 
+        \[\mathcal L_{\mathcal S}(m,b) = \frac1{n}\sum_{i=1}^n (mx_i + b - y_i)^2.\]
 \end{frame}
 
-%%%%
-\begin{frame}
-    \frametitle{Not linearly separable}
-    \begin{figure}[h!]
-        \centering
-        \begin{tikzpicture}[>=stealth, scale=0.7]
-            %\fill[blue!35!white, opacity = 0.2] (-4, 3) -- (5, 3) -- (5, -3) -- (2, -3)-- cycle;
-            %\fill[red!35!white, opacity = 0.2] (-4, 3) -- (-5, 3) -- (-5, -3) -- (2, -3)-- cycle;
-            \draw[thick, ->] (-5.1, 0)-- (5.1, 0); 
-            \draw[thick, ->] (0, -3.1) -- (0, 3.1); 
-            %\draw[very thick] (-4, 3) -- (2, -3); % node[above right]{\small $H = \{x + y + 1 = 0\}$}; 
-            \fill[blue!80!black] (1, 2)node[below right]{$1$} circle (2pt); 
-            \fill[red!70!black] (1, -1)node[below right]{$-1$} circle (2pt); 
-            \fill[red!70!black] (-3, 0.5)node[left]{$-1$} circle (2pt); 
-            \fill[blue!80!black] (-2, -1.5)node[left]{$1$} circle (2pt); 
-        \end{tikzpicture}
-        \caption{A data set in $\mathbb R^2$ that is not linearly separable.}
-        \label{figure:notseparable}
-    \end{figure}
-    \pause
-    \begin{itemize}
-        \item A criterion (checkable, in theory) that is equivalent to ``not linearly separable''?
-    \end{itemize}
-\end{frame}
-
-\section{Perceptron algorithm}
-
-%%%%
-\begin{frame}
-    \frametitle{Setup for Perceptron algorithm}
-    Labeled data: $({\bf x}_1, y_1), \ldots, ({\bf x}_n, y_n)$, with ${\bf x}_i\in\mathbb R^d$ and $y_i\in\{\pm1\}$ for all $i$.
-
-    Assuming labeled data is linearly separable, the Perceptron algorithm is a procedure that is guaranteed to find a hyperplane that separates the data.\footnote{Introduced in \textit{The perceptron: A probabilistic model for information storage and organization in the brain}, F.~Rosenblatt, Psychological Review \textbf{65} (1958), 386{--}407.}
-    
-    \pause
-    To describe it: for each ${\bf x}_i$, use $X_i$ to denote the $(d+1)$-vector consisting of ${\bf x}_i$ with $1$ appended at the end;
-
-    Additionally, use $W$ to denote the vector ${\bf w}$ with $b$ appended at the end.
-
-    \pause
-    Note that $W\cdot X_i = {\bf w}\cdot{\bf x}_i + b$. 
-
-    For linearly separable data, our goal is to find $W\in\mathbb R^{d+1}$ so that $W\cdot X_i$ and $y_i$ have the same sign (both positive or both negative), for all $1\le i\le n$.
-    \begin{itemize}
-        \item Equivalently, we need $y_i W\cdot X_i > 0$ for all $1\le i\le n$.
-    \end{itemize}
-\end{frame}
+\section{fdf}
 
 %%%%
 \begin{frame}[fragile]
@@ -365,21 +321,4 @@ return W
 
 \end{frame}
 
-%%%%
-\begin{frame}
-    \frametitle{Perceptron algorithm, stopping time}
-    Under our assumptions for Perceptron algorithm, a guarantee on eventually stopping.
-
-    \begin{theorem}Define $R = \max_i|X_i|$ and $B = \min_i\{|V|: \forall i, y_iV\cdot X_i \ge 1\}$. Then, the Perceptron algorithm stops after at most $(RB)^2$ iterations and, when it stops with output $W$, then $y_iW\cdot X_i > 0$ for all $1\le i\le n$.
-    \end{theorem}
-
-    \pause 
-    \textbf{Idea of proof:} Write $W^*$ for vector that realizes the minimum $B$. Also, write $W^{(t)}$ for the vector $W$ on the $t^{th}$ step, with $W^{(1)} = (0,0,\ldots,0)$.
-
-    \pause
-    Using how $W^{(t+1)}$ is obtained from $W^{(t)}$, can show that $W^*\cdot W^{(T+1)} \ge T$ after $T+1$ iterations. Also, using the condition on $W^{(T)}$ that necessitates an update, can show that $|W^{(T+1)}| \le \sqrt{T}R$. (Both statements, use induction.) 
-
-    \pause
-    Now, by Cauchy-Schwarz inequality, $T \le BR\sqrt{T}$, which we can rearrange to $T\le (BR)^2$.
-\end{frame}
 \end{document}
