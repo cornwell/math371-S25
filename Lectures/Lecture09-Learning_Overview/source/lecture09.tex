@@ -340,9 +340,92 @@ Select a performance measure: \textbf{(empirical) loss function} $\mathcal L_{\m
 %%%%
 \begin{frame}
 \frametitle{Gradient descent with simple linear regression}
-For $\omega = (m, b)$, have $f_{\omega} = mx + b$.
+For $\omega = (m, b)$, have $f_{\omega}(x) = mx + b$. Given sample data $\mathcal S=\{({\bf x}_i, y_i)\}_{i=1}^n$, note that the empirical loss function $\mathcal L_{\mathcal S}$ is a function of $m$ and $b$ (while $\mathcal S$ is \textit{used} in its definition, the points ${\bf x}_i$ are not inputs to $\mathcal L_{\mathcal S}$).
 \pause 
+
+Recall the definition $\mathcal L_{\mathcal S}(m,b) = \frac1{n}\sum_{i=1}^n (mx_i + b - y_i)^2$.
+\begin{itemize}
+    \item The \textbf{gradient} of $\mathcal L_{\mathcal S}$ is the vector of partial derivatives: $\nabla\mathcal L_{\mathcal S} = \left( \frac{d}{dm}\mathcal L_{\mathcal S}, \frac{d}{db}\mathcal L_{\mathcal S} \right)$.
+    \pause
+    \item Get partial derivatives using the Chain rule: 
+            \[\frac{d}{dm}\mathcal L_{\mathcal S} = \frac{2}{n}\sum_{i=1}^n(mx_i + b - y_i)x_i;\]
+        and 
+            \[\frac{d}{db}\mathcal L_{\mathcal S} = \frac{2}{n}\sum_{i=1}^n(mx_i + b - y_i).\]
+\end{itemize}
 
 \end{frame}
 
+%%%%
+\begin{frame}
+    \frametitle{Aside: Recovering the normal equations}
+    By utilizing the fact that a minimum of $\mathcal L_{\mathcal S}$ only occurs when $\frac{d}{dm}\mathcal L_{\mathcal S} = 0$ and $\frac{d}{db}\mathcal L_{\mathcal S} = 0$,
+    we can recover the normal equations.
+    
+    \pause
+    To simplify it (and still be able to generalize), say that we have $n=3$ (in other words, $\mathcal S$ has just three points). Then, setting ${\bf x} = (x_1,x_2,x_3)$ and ${\bf y} = (y_1,y_2,y_3)$, and $\bar{x}$ equal to the average of $x_1,x_2,x_3$,
+    \pause
+    {\small
+        \begin{align*}
+            \frac{d}{dm}\mathcal L_{\mathcal S}     &= \frac{2}{3}\left((mx_1^2 + bx_1 - x_1y_1) + (mx_2^2 + bx_2 - x_2y_2) + (mx_3^2 + bx_3 - x_3y_3) \right) \\ 
+                                                    &= \frac{2}{3}\left(m(x_1^2+x_2^2+x_3^2) + b(x_1+x_2+x_3) - (x_1y_1+x_2y_2+x_3y_3) \right) \\ 
+                                                    &= \frac{2}{3}\left(m{\bf x}\cdot{\bf x} + b(3\bar{x}) - {\bf x}\cdot{\bf y}\right).
+        \end{align*}
+    }
+    
+    \pause
+    And so, setting $\frac{d}{dm}\mathcal L_{\mathcal S} = 0$ amounts to the equation $m({\bf x}\cdot{\bf x}) + b(3\bar{x}) = {\bf x}\cdot{\bf y}$. 
+
+    \pause
+    A similar computation will show that setting $\frac{d}{db}\mathcal L_{\mathcal S} = 0$ will give the equation $m(3\bar{x}) + b(3) = 3\bar{y}$. (With $\bar{y}$ being the average of $y_1,y_2,y_3$). 
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Aside: Recovering the normal equations}
+    The computation above generalizes to imply that $\nabla\mathcal L_{\mathcal S} = (\frac{d}{dm}\mathcal L_{\mathcal S}, \frac{d}{db}\mathcal L_{\mathcal S}) = (0,0)$ requires the equations 
+        \begin{align*}
+            m({\bf x}\cdot{\bf x}) + b(n\bar{x})    &= {\bf x}\cdot{\bf y} \\ 
+            m(n\bar{x}) + b(n)                      &= n\bar{y}.
+        \end{align*}
+    
+    \pause 
+    If you recall the entries in $A^TA$ and $A^T{\bf y}$ (where $A$ is the matrix built in the simple linear regression procedure), these are precisely the normal equations.
+
+    Solving for $m$ and $b$ gives us $m = \frac{{\bf x}\cdot{\bf y} - n\bar{x}\bar{y}}{{\bf x}\cdot{\bf x} - n\bar{x}^2} = \frac{\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n(x_i - \bar{x})^2}$, and $b = \bar{y} - m\bar{x}$.
+
+    \pause 
+    \begin{itemize}
+        \item We are able to nicely represent the minimizer of $\mathcal L_{\mathcal S}$ precisely because of the linear nature of the class of functions $f_{\omega}(x) = mx+b$.
+    \end{itemize}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Returning to Gradient Descent}
+    In anticipation that, in other settings, we not be able to nicely represent a minimizer of $\mathcal L_{\mathcal S}$, we consider another optimization approach. 
+
+    \pause
+    \begin{itemize}
+        \item Say that the (current) value of $\omega$ is $(m_0, b_0)$. Then, recalling from Calculus III, the direction of \textit{steepest descent}, that will produce the most rapid decrease in the value of $\mathcal L_{\mathcal S}$, is the direction of $-\nabla\mathcal L_{\mathcal S}(m_0,b_0)$.
+        \item This indicates that we might be able to get closer to a minimizer by subtracting the gradient from $(m_0,b_0)$ or, to make our step ``small'' perhaps, subtracting a small multiple of the gradient.
+    \end{itemize}
+
+    \pause
+    \textbf{Gradient descent:} Choosing a constant $\gamma > 0$ and given some current value of $\omega_i = (m_i,b_i)$, we attempt to get closer to the minimizer, $\omega^*$, of the loss function by the update 
+        \[\omega_{i+1} = \omega_i - \gamma\ast\nabla\mathcal L_{\mathcal S}(m_i,b_i).\]
+    The constant $\gamma$ is called the \textbf{learning rate}.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Sources}
+    The content of these slides has been combined from two references. 
+
+    \begin{enumerate}
+        \item Notes taken from Machine Learning course, taught by Andrew Ng, Stanford U.
+        \item Notes from a lecture series on Deep Learning at Harvard, taught by Eli Grigsby.
+    \end{enumerate}
+
+    \vfill
+\end{frame}
 \end{document}

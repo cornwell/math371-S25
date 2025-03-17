@@ -31,10 +31,18 @@
 \headcommand {\sectionentry {3}{First look at Gradient Descent}{36}{First look at Gradient Descent}{0}}
 \headcommand {\slideentry {3}{0}{1}{36/36}{}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\slideentry {3}{0}{2}{37/38}{}{0}}
-\headcommand {\beamer@framepages {37}{38}}
-\headcommand {\beamer@partpages {1}{38}}
-\headcommand {\beamer@subsectionpages {36}{38}}
-\headcommand {\beamer@sectionpages {36}{38}}
-\headcommand {\beamer@documentpages {38}}
-\headcommand {\gdef \inserttotalframenumber {13}}
+\headcommand {\slideentry {3}{0}{2}{37/39}{}{0}}
+\headcommand {\beamer@framepages {37}{39}}
+\headcommand {\slideentry {3}{0}{3}{40/44}{}{0}}
+\headcommand {\beamer@framepages {40}{44}}
+\headcommand {\slideentry {3}{0}{4}{45/47}{}{0}}
+\headcommand {\beamer@framepages {45}{47}}
+\headcommand {\slideentry {3}{0}{5}{48/50}{}{0}}
+\headcommand {\beamer@framepages {48}{50}}
+\headcommand {\slideentry {3}{0}{6}{51/51}{}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\beamer@partpages {1}{51}}
+\headcommand {\beamer@subsectionpages {36}{51}}
+\headcommand {\beamer@sectionpages {36}{51}}
+\headcommand {\beamer@documentpages {51}}
+\headcommand {\gdef \inserttotalframenumber {17}}
