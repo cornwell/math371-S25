@@ -423,7 +423,7 @@ return W
     \frametitle{Perceptron algorithm, stopping time}
     Under our assumptions for Perceptron algorithm, a guarantee on eventually stopping.
 
-    \begin{theorem}Define $R = \max_i|X_i|$ and $B = \min_i\{|V|: \forall i, y_iV\cdot X_i \ge 1\}$. Then, the Perceptron algorithm stops after at most $(RB)^2$ iterations and, when it stops with output $W$, then $y_iW\cdot X_i > 0$ for all $1\le i\le n$.
+    \begin{theorem}Define $R = \max_i|X_i|$ and $B = \min\{|V|: V \textrm{ satisfies }, y_iV\cdot X_i \ge 1, \forall i\}$. Then, the Perceptron algorithm stops after at most $(RB)^2$ iterations and, when it stops with output $W$, then $y_iW\cdot X_i > 0$ for all $1\le i\le n$.
     \end{theorem}
 
     \pause 

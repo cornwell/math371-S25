@@ -305,7 +305,8 @@ Don't only capture the sign of ${\bf w}\cdot{\bf x} + b$; instead, compose ${\bf
     \pause 
     Some rationale for the use of the logistic function $\frac{1}{1+e^{-z}}$ in this process, comes from an inverse direction. 
     \begin{itemize}
-        \item If wanting to use \textit{Maximum Likelihood Estimation} to get binary classification model, then some typical simplifying assumptions on conditional probability $P$, given model parameters, of observing ${\bf x_i}$ \qquad $\leadsto$ $\log\left(\frac{P}{1-P}\right)$ being linear.
+        \item In using \textit{Maximum Likelihood Estimation} to get binary classification model, some typical simplifying assumptions on conditional probability $P$, of label 1 given input ${\bf x_i}$ \qquad $\leadsto$ linear function for $\log\left(\frac{P}{1-P}\right)$. \newline 
+        \item $\log\left(\frac{P}{1-P}\right)$ \textit{is called the } \textbf{log odds } \textit{or } \textbf{logit}.
     \end{itemize}
 
 \end{frame}
