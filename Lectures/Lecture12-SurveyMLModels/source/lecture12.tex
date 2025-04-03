@@ -246,51 +246,47 @@ This optimization problem only depends on knowing $\x_i\cdot\x_j$ for each $(i,j
     \[\mathcal L_{\mathcal S}(\textbf{w}, b) = \frac12|\textbf{w}|^2 + \frac{1}{n}\sum_{i=1}^nC\left(\tilde{\ix y}_i\text{cost}_1(\textbf{w}\cdot\x_i + b) + (1 - \tilde{\ix y}_i)\text{cost}_0(\textbf{w}\cdot\x_i + b)\right).\]
 \end{frame}
 
+\section{Neural Networks}
+
 %%%%
 \begin{frame}
-    \frametitle{Similarity to Perceptron algorithm updates}
-    Consider the \textbf{per-example loss}: given one $({\bf x}_i, y_i) \in\mathcal S$, have the term $-\tilde y_i\log(f_{\omega}({\bf x}_i)) - (1 - \tilde y_i)\log(1 - f_{\omega}({\bf x}))$.
-
-    Its partial w.r.t.\ $w_j$ is 
-        \[-\tilde y_ix_{i,j}\ast(1-f_{\omega}({\bf x}_i)) + (1-\tilde y_i)x_{i,j}f_{\omega}({\bf x}_i).\]
-
+    \frametitle{Single Layer}
+    Fix a dimension $d$ and a function $\sigma:\mathbb R\to\mathbb R$ (feel free to think of this as the logistic function, for now). For any $\omega = (\textbf{w}, b) \in \mathbb R^{d+1}$, set $f_{\omega}(\x) = \sigma(\textbf{w}\cdot\x + b)$.
     \pause
-    If $\tilde y_i=1$, but $f_{\omega}({\bf x}_i)$ is close to 0, then this is \textit{almost} $-x_{i,j} = -y_i x_{i,j}$. Were we to do an update with $\eta=1$ then we would have $w_j^{(t)} \approx w_j^{(t-1)} + y_i x_{i,j}$. (The Perceptron update in the $j^{th}$ coordinate.)
 
-    \pause
-    Likewise, if $\tilde y_i=0$, but $f_{\omega}({\bf x}_i)$ is close to $1$, then the partial is approximately $x_{i,j}$; so, using $\eta=1$, we would get $w_j^{(t)} \approx w_j^{(t-1)} - x_{i,j} = w_j^{(t-1)} + y_ix_{i,j}$. (Like the Perceptron algorithm update again.)
+    Given some collection $\omega_1=(\textbf{w}_1,b_1), \omega_2=(\textbf{w}_2,b_2), \ldots, \omega_{m}=(\textbf{w}_m,b_m)$, define $F:\mathbb R^d \to \mathbb R^m$ by setting 
+            \[F(\x) = (f_{\omega_1}(\x), f_{\omega_2}(\x), \ldots, f_{\omega_m}(\x)).\]
+    Such a function $F$ represents a single ``layer map'' of a neural network, with {\bf activation function} $\sigma$. 
+    \pause 
+
+    If we use $W$ to denote the $m\times d$ matrix with $\textbf{w}_i$ as row $i$, and $\textbf{b} = (b_1,\ldots,b_m)$, then we can write $F(\x) = \sigma(W\x + \textbf{b})$ (\textit{if we allow $\sigma$ to be applied to a vector by applying the function to each component of the vector}).
+
+    $W$: called the ``weight matrix'' for the layer map; $\textbf{b}$ is called the ``bias vector.''
 \end{frame}
 
 %%%%
 \begin{frame}
-    \frametitle{Example with Logistic model}
-    Given $\pm1$-labeled sample data $\mathcal S= \{({\bf x}_i, y_i)\}_{i=1}^n$, we found an expression for each partial derivative of $\mathcal L_{\mathcal S}$. In fact, if we call $w_{d+1} = b$ and $x_{i,d+1} = 1$ for every $1\le i\le n$, then 
-        {\small 
-        \[\frac{\partial}{\partial w_{j}}\mathcal L_{\mathcal S} = \frac1n\sum_{i=1}^n-\tilde y_ix_{i,j}(1-f_{\omega}({\bf x}_i)) + (1-\tilde y_i)x_{i,j}f_{\omega}({\bf x}_i)\]
-        }
-    for every $1\le j\le d+1$.
-
+    \frametitle{Composing layers}
+    A neural network is the result of composing some number of layer maps. That is, let $m_0, m_1,\ldots, m_L$ be positive integers and say that $F_1, F_2,\ldots, F_L$ are each layer maps (as in the previous slide), with $F_i:\mathbb R^{m_{i-1}}\to \mathbb R^{m_i}$.
+    \begin{itemize}
+        \item so, for each $1\le i\le L$, there is a weight matrix $W_i$ (which is $m_i\times m_{i-1}$) and bias vector $\textbf{b}_i \in \mathbb R^{m_i}$.
+    \end{itemize}
     \pause
-    \textbf{Example:} consider simulated sample data below, drawn uniformly from a subset of $[-1,1]^2$, consisting of points at least a fixed distance from $H = \{(x_1,x_2)\in\mathbb R^2\ |\ 2x_1 - \frac23x_2 - \frac15=0\}$. Positively labeled points are in blue. 
-    \vspace*{11pt}
 
-    \centering
-    \includegraphics[height=0.3\textheight]{../../Images/simulated-logregression-data.png}
+    The \textit{fully connected} neural network, with activation function $\sigma$, associated to this collection of weight matrices and bias vectors is the parameterized function 
+        \[f(\x) = F_L\circ F_{L-1}\circ \ldots \circ F_2\circ F_1(\x).\]
+    The parameters for the function are $(W_1,\textbf{b}_1, W_2, \textbf{b}_2, \ldots, W_L, \textbf{b}_L)$ (flattened out as a vector). Layers $1,2,\ldots, L-1$ are often called ``hidden layers,'' $m_i$ is the width of layer $i$, and $L$ is the ``depth'' of the network.
 \end{frame}
 
 %%%%
 \begin{frame}
-    \frametitle{Example with Logistic model}
-    Given $\pm1$-labeled sample data $\mathcal S= \{({\bf x}_i, y_i)\}_{i=1}^n$, we found an expression for each partial derivative of $\mathcal L_{\mathcal S}$. In fact, if we call $w_{d+1} = b$ and $x_{i,d+1} = 1$ for every $1\le i\le n$, then 
-        {\small 
-        \[\frac{\partial}{\partial w_{j}}\mathcal L_{\mathcal S} = \frac1n\sum_{i=1}^n-\tilde y_ix_{i,j}(1-f_{\omega}({\bf x}_i)) + (1-\tilde y_i)x_{i,j}f_{\omega}({\bf x}_i)\]
-        }
-    for every $1\le j\le d+1$.
+    \frametitle{Variety of tasks for Neural Networks}
+    Depending on choices that are made, neural networks have the ability to be used for a very wide variety of tasks. 
 
-    \textbf{Example (cont'd):} Batch gradient descent, with learning rate $0.5$, stopping with threshhold $0.0005$, gives (approximately) parameters for: 
-        \[\hat{H} = \{(x_1,x_2)\in\mathbb R^2\ |\ 2.01x_1 - 0.63x_2-0.26=0\}.\]
-    \centering
-    \includegraphics[height=0.3\textheight]{../../Images/Hfit-simulated-logregression-data.png}
+    \begin{itemize}
+        \item Regression tasks: Say that $m_L = 1$. By not using the activation function on the final layer map $F_L$ (or using a different function), can find parameters to fit data for a regression task on points in $\mathbb R^{m_0+1}$.
+        \item Classification tasks, with any number of possible labels: In place of applying the activation function to last layer, use something called the \textbf{softmax} function - makes the output of $f(\x)$ be a probability vector $\leadsto\ m_L$ different possible classes. 
+    \end{itemize}
 \end{frame}
 
 %%%%

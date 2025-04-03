@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  31 MAR 2025 23:37
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  2 APR 2025 21:59
  restricted system commands enabled.
 **lecture12
 (./lecture12.tex
@@ -2320,7 +2320,7 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 
 [7
 
-]
+] (./lecture12.toc)
 
 [8
 
@@ -2333,33 +2333,24 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 [10
 
 ]
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 279.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 279.
-<../../Images/simulated-logregression-data.png, id=85, 404.712pt x 298.4751pt>
-File: ../../Images/simulated-logregression-data.png Graphic file (type png)
-<use ../../Images/simulated-logregression-data.png>
-Package luatex.def Info: ../../Images/simulated-logregression-data.png  used on
- input line 279.
-(luatex.def)             Requested size: 109.48366pt x 80.7448pt.
-
 
 [11
 
-<../../Images/simulated-logregression-data.png>]
-File: ../../Images/simulated-logregression-data.png Graphic file (type png)
-<use ../../Images/simulated-logregression-data.png>
-Package luatex.def Info: ../../Images/simulated-logregression-data.png  used on
- input line 279.
-(luatex.def)             Requested size: 109.48366pt x 80.7448pt.
-
+]
 
 [12
 
 ]
-<../../Images/Hfit-simulated-logregression-data.png, id=99, 404.712pt x 298.475
-1pt>
+
+[13
+
+]
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 294.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 7.65005pt on input line 294.
+<../../Images/Hfit-simulated-logregression-data.png, id=109, 404.712pt x 298.47
+51pt>
 File: ../../Images/Hfit-simulated-logregression-data.png Graphic file (type png
 )
 <use ../../Images/Hfit-simulated-logregression-data.png>
@@ -2368,20 +2359,10 @@ ed on input line 294.
 (luatex.def)             Requested size: 109.48366pt x 80.7448pt.
 
 
-[13
-
-<../../Images/Hfit-simulated-logregression-data.png>]
-<../../Images/HalfSp_2DIrisData.png, id=106, 395.3169pt x 298.4751pt>
-File: ../../Images/HalfSp_2DIrisData.png Graphic file (type png)
-<use ../../Images/HalfSp_2DIrisData.png>
-Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
- 311.
-(luatex.def)             Requested size: 124.76675pt x 94.20296pt.
-
-
 [14
 
-<../../Images/HalfSp_2DIrisData.png>]
+<../../Images/Hfit-simulated-logregression-data.png>]
+<../../Images/HalfSp_2DIrisData.png, id=118, 395.3169pt x 298.4751pt>
 File: ../../Images/HalfSp_2DIrisData.png Graphic file (type png)
 <use ../../Images/HalfSp_2DIrisData.png>
 Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
@@ -2391,7 +2372,7 @@ Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
 
 [15
 
-]
+<../../Images/HalfSp_2DIrisData.png>]
 File: ../../Images/HalfSp_2DIrisData.png Graphic file (type png)
 <use ../../Images/HalfSp_2DIrisData.png>
 Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
@@ -2402,17 +2383,17 @@ Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
 [16
 
 ]
-<../../Images/GDon2DIrisData.png, id=123, 395.3169pt x 298.4751pt>
-File: ../../Images/GDon2DIrisData.png Graphic file (type png)
-<use ../../Images/GDon2DIrisData.png>
-Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
-6.
+File: ../../Images/HalfSp_2DIrisData.png Graphic file (type png)
+<use ../../Images/HalfSp_2DIrisData.png>
+Package luatex.def Info: ../../Images/HalfSp_2DIrisData.png  used on input line
+ 311.
 (luatex.def)             Requested size: 124.76675pt x 94.20296pt.
 
 
 [17
 
-<../../Images/GDon2DIrisData.png>]
+]
+<../../Images/GDon2DIrisData.png, id=135, 395.3169pt x 298.4751pt>
 File: ../../Images/GDon2DIrisData.png Graphic file (type png)
 <use ../../Images/GDon2DIrisData.png>
 Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
@@ -2422,7 +2403,7 @@ Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
 
 [18
 
-]
+<../../Images/GDon2DIrisData.png>]
 File: ../../Images/GDon2DIrisData.png Graphic file (type png)
 <use ../../Images/GDon2DIrisData.png>
 Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
@@ -2441,6 +2422,16 @@ Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
 
 
 [20
+
+]
+File: ../../Images/GDon2DIrisData.png Graphic file (type png)
+<use ../../Images/GDon2DIrisData.png>
+Package luatex.def Info: ../../Images/GDon2DIrisData.png  used on input line 33
+6.
+(luatex.def)             Requested size: 124.76675pt x 94.20296pt.
+
+
+[21
 
 ]
 \tf@nav=\write6
@@ -2463,19 +2454,19 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `lecture12.out' has not changed.
-(rerunfilecheck)             Checksum: 72649BF568C0E9E4FDEDB765DF1FE6F1;164.
+(rerunfilecheck)             Checksum: BDC292184908C3673C67E16A84ACBA36;285.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31067 strings out of 475915
+ 31080 strings out of 475915
  100000,1977958 words of node,token memory allocated
  7319 words of node memory still in use:
    48 hlist, 9 vlist, 8 rule, 40 disc, 8 local_par, 16 math, 153 glue, 94 kern, 
 22 penalty, 481 glyph, 140 attribute, 61 glue_spec, 140 attribute_list, 4 write,
  40 pdf_literal, 22 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore n
 odes
-   avail lists: 2:770,3:211,4:182,5:553,6:30,7:3683,8:84,9:593,10:19,11:215
- 52610 multiletter control sequences out of 65536+600000
+   avail lists: 2:770,3:211,4:182,5:555,6:30,7:3683,8:84,9:593,10:19,11:215
+ 52621 multiletter control sequences out of 65536+600000
  221 fonts using 39673015 bytes
  128i,13n,121p,449b,411s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmromande
@@ -2487,20 +2478,21 @@ ocal/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><C:/Users/gene
 r/AppData/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Regular.otf>
 <C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 10.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr6.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr7.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr9.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/txfonts/rtxmi.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/txfonts/txsyc.pfb><C:/Users/gener/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/gener/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/newtxsf/zsfmi-reg.pfb><C:/Users/gener/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/newtxsf/zsfmia-reg.pfb>
-Output written on lecture12.pdf (20 pages, 422778 bytes).
+/cm/cmr5.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr6.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/gener/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/txfonts/rtxmi.pfb><C:/Users/gener/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><C:/Users/gener/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/gener/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/newtxsf/zsfmi-reg.pfb><C:/Users/gener/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/newtxsf/zsfmia-reg.pfb>
+Output written on lecture12.pdf (21 pages, 337526 bytes).
 
-PDF statistics: 225 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 131072)
- 24 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 241 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 131072)
+ 32 words of extra memory for PDF output out of 10000 (max. 100000000)
 
