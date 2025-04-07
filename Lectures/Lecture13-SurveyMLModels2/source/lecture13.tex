@@ -1,0 +1,246 @@
+\documentclass[smaller]{beamer}
+
+\usepackage{helvet}
+\usepackage{hyperref, graphicx}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{etoolbox}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{fontspec}
+%\usepackage[T1]{fontenc}
+%\setmainfont{Cambria}
+%\usefonttheme{serif}
+
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{11} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal - use in headings
+
+% Custom colors
+\usepackage{color}
+\definecolor{TUGray}{RGB}{101,101,137}
+\definecolor{TUBlack}{RGB}{30,0,0}
+\definecolor{mygreen}{RGB}{45,111,63}
+\definecolor{keywords}{RGB}{205,114,0}
+\definecolor{comments}{RGB}{181,51,139}
+\definecolor{strings}{RGB}{58,144,81}
+\definecolor{numeric}{RGB}{66,110,176}
+\definecolor{linos}{rgb}{0.4,0.4,0.4}
+\definecolor{links}{rgb}{0,0.4,0.75}
+
+\definecolor{bggray}{RGB}{232, 233, 235}
+
+\usecolortheme[named=mygreen]{structure}
+\setbeamercolor{normal text}{fg=TUBlack}\usebeamercolor*{normal text}
+
+\setbeamercolor{codecol}{fg=TUGray!25!black,bg=bggray}
+
+\hypersetup{colorlinks, linkcolor=links, urlcolor=links}
+
+
+
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+
+\usepackage{listings}
+
+\newtoggle{InString}{}% Keep track of if we are within a string
+\togglefalse{InString}% Assume not initally in string
+
+\newcommand\digitstyle{\color{numeric}}
+\makeatletter
+\newcommand{\ProcessDigit}[1]
+{%
+  \ifnum\lst@mode=\lst@Pmode\relax%
+   {\digitstyle #1}%
+  \else
+    #1%
+  \fi
+}
+\makeatother
+
+\lstset{literate=%
+    {0}{{{\ProcessDigit{0}}}}1
+    {1}{{{\ProcessDigit{1}}}}1
+    {2}{{{\ProcessDigit{2}}}}1
+    {3}{{{\ProcessDigit{3}}}}1
+    {4}{{{\ProcessDigit{4}}}}1
+    {5}{{{\ProcessDigit{5}}}}1
+    {6}{{{\ProcessDigit{6}}}}1
+    {7}{{{\ProcessDigit{7}}}}1
+    {8}{{{\ProcessDigit{8}}}}1
+    {9}{{{\ProcessDigit{9}}}}1
+	{<=}{{\(\leq\)}}1
+	{>=}{{\(\geq\)}}1,
+	% morestring=[b]",
+    % morestring=[b]',
+    % morecomment=[l]{//},
+}
+
+\lstdefinelanguage{Pseudo}{
+    morekeywords={return, while, if, for, input},
+    morecomment=[l]{\#},
+}
+
+% Pseudocode style
+\newcommand\pseudostyle{\lstset{
+language=Pseudo,
+basicstyle=\fontfamily{ccr}\scriptsize,
+commentstyle=\it\scriptsize\color{linos},
+keywordstyle=\it\bfseries\scriptsize,
+mathescape=true,
+literate=
+    {=}{$\leftarrow{}$}{1}
+    {==}{$={}$}{1}
+    {<=}{{\(\leq\)}}1
+	{>=}{{\(\geq\)}}1,
+xleftmargin=18pt,
+xrightmargin=4pt,
+aboveskip=12pt,
+belowskip=0pt,
+frame=tB,
+keepspaces=true
+}}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttfamily\tiny,
+numbers=left,
+numberstyle=\tiny\color{linos},
+morekeywords={self, np},              % Add keywords here
+keywordstyle=\tiny\color{keywords},
+commentstyle=\it\tiny\color{comments},    % Custom highlighting style
+stringstyle=\tiny\color{strings},
+xleftmargin=18pt,
+xrightmargin=4pt,
+aboveskip=0pt,
+belowskip=0pt,
+escapeinside={(*@}{@*)},
+frame=l,                         % Any extra options here
+showstringspaces=false,
+keepspaces=true
+}}
+
+% Pseudocode environment
+\lstnewenvironment{pseudo}[1][]
+{
+    \pseudostyle
+    \lstset{
+        #1
+    }
+}
+{}
+
+% Python environment 
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{
+	#1
+	}
+}
+{}
+
+% wrap the Python environment
+\newenvironment{codeblock}
+    {\hfill\begin{beamerboxesrounded}[lower=codecol, width=0.8\textwidth]
+    \medskip
+
+    }
+    { 
+    \end{beamerboxesrounded}\hfill
+    }
+
+\theoremstyle{example}
+\newtheorem{question}{Question}
+
+\newcommand{\ct}[1]{\lstinline[language=Python]!#1!}
+\newcommand{\ttt}[1]{{\small\texttt{#1}}}
+\newcommand{\lsitem}[2]{\ttt{{#1}[}\ct{#2}\ttt{]}}
+
+\newcommand{\x}{\textbf{x}}
+\newcommand{\ix}[1]{{\it #1}}
+
+\author{Chris Cornwell}
+\date{April 7, 2025}
+\title{Survey of Machine Learning models, cont'd}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Decision Trees}
+
+%%%%
+\begin{frame}
+\frametitle{Intro}
+Decision trees are another example of a powerful model function for machine learning. They are often used for classification (binary or multi-label); however, they can be used for regression tasks as well. Similar to how neural networks are capable of producing any function, if the "size" of decision trees is unrestrained then it can, in theory, produce an arbitrarily close approximation to any desired classification of points in the input space.
+
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Construction of a decision tree}
+Decision trees are strongly related to decision stumps. In fact, a decision stump is a decision tree with depth 1 (the <em>depth</em> of a tree is defined below). In some circumstances, it is possible to think of a decision tree as a collection of nested decision stumps -- on smaller and smaller subsets of the data.
+
+Often when decision trees are discussed, the data is converted to points which have binary coordinates (either 0 or 1); however, it is not necessary. Here I will discuss data points with \( d\) numerical coordinates, in \( \mathbb R\), as I have before.  If you wish, you can translate to the binary setting by using 0 or 1 to represent whether or not the given data is larger than some threshold in each coordinate.
+
+You begin by splitting the data along some coordinate. In other words, you find a hyperplane \( x_j = b\), where \( 1\le j\le d\) and \(b\) is some number and each data point is on one side: for each \({\bf x}_i \in S\), either \( x_{i,j} &lt; b\) or \( x_{i,j} &gt; b\). This partitions the data into two subsets.
+
+The goal of the process is to recursively partition each side, and ultimately to have points in the same partition have the same label.<a href="#footnote2"><sup>2</sup></a> At each split some criterion is used to try to make that happen. Once the split is chosen, you restrict to the two subsets of data points on each side and repeat the process on each subset. Unless other initial choices are made, you continue until a subset (in some region in the original space) has only one label. This region then corresponds to a <strong>leaf</strong> of the tree, labeled with that one label of the points.<a href="#footnote3"><sup>3</sup></a>
+
+Below is a potential set of data for binary classification, with only 4 negatively-labeled points (the red points). If the first split made is along the horizontal line \( x_2 = -1.8\) (so \( j = 2\) and \(b = -1.8\)), then all but one point above the line is blue and 3 of the 12 points below the line are red.
+
+[gallery columns="2" size="medium" ids="948,949"]
+
+Call the top region above the line the positive region of the split; below the line is the negative region. Continuing with nested splits into each side, one could imagine using two more splits in the positive region to isolate the one red point. A way to isolate the three red points in the negative side is with three additional nested splits on that side (see the figure below).
+
+I have drawn the corresponding decision tree to the right, where the dashed lines in the figure correspond to branchings of the tree. The branches of the tree are labeled with + or -, corresponding the side of the line one is following (in each split for <em>this</em> tree, the negative side is the one side that contains red points).
+
+[gallery columns="2" size="medium" ids="950,952"]
+
+Each leaf of the tree is a node where there are no further splittings beyond it, labeled by the labels of points in that region. The <strong>depth</strong> of a decision tree is defined to be the maximal number of branches that can be followed from the top node to a leaf. So the depth of the example decision tree is 4.
+
+<strong>The resulting model function.</strong> Start by determining a decision tree on training data, as above. Then, given test data (not yet "seen" by the model), the decision tree model will check in which partition the test point resides. Then, it labels the test point with the label of the corresponding leaf. Often, in an effort to avoid overfitting, you decide beforehand on the depth of the tree. Since this will result in having more than one label in some of the partitions (and possibly all), the label given to a test point in each leaf is some function of the training labels in the corresponding partition — if the goal is classification, with some categorical labels, the mode could be used; if the goal is regression, with numerical labels, the mean, or the median, could be used.
+
+<sup id="footnote2">2.</sup> <span style="color: gray;">In the unrestricted case, at least.</span>
+<sup id="footnote3">3.</sup> <span style="color: gray;">This describes the basic approach in a classification problem. Notice that it is not at all necessary to have only two labels (more labels will cause the leaves to have more than two possible labels). One can also use decision trees for modeling/regression. However, for it to be sensible in that case, you should stop splitting at some point (probably before there is just one label in each partition) and use the average, perhaps, of the labels in a partition in order to give a leaf a label.</span>
+
+<hr />
+
+<strong style="color: saddlebrown;">How to decide about the splits.</strong> Deciding which split (decision stump) to use at each step in building the tree can be done in a number of ways.
+
+One method, in the setting of binary classification, uses ideas that we have already built up. You can use the <a href="http://wp.towson.edu/ccornwell/2019/03/10/weak-learnability-and-decision-stumps/">ERM procedure</a> to find the decision stump with least empirical risk at each step (on the <em>subset</em> of training points in that region). The example set of points above is a bad one for this approach, since the proportion of red points is so small compared to blue points.
+
+Another method is to calculate a quantity called the <strong>Information Gain</strong> of each possible split (the quantity \( IG\) defined below). You then choose the split that has the maximal \( IG\). Information Gain is calculated as follows.
+
+First, define a function \( e\), called <strong>the entropy function</strong>, where
+<p style="text-align: center;">\( e(r) = -r\log(r) - (1-r)\log(1-r)\)</p>
+for any number \( 0 &lt; r &lt; 1\). When \( r = 0\) or \( r = 1\) then define \( e(r) = 0\).<a href="#footnote4"><sup>4</sup></a> <a href="#footnote5"><sup>5</sup></a>
+
+Now, to define \( IG\) of a split, first let \( r = {\bf P}(y=1)\), the probability that the label is 1 (in the particular subset you have restricted to <em>before</em> the split). Let \( m\) be the number of points under consideration. In our example above, and <em>after</em> the first split along \( x_2 = -1.8\) was made, say we are in the positive side where there is 1 red point (negatively labeled), and are trying to figure out where to make the second splitting. Then \( m = 38\) (there are \( 38\) points above the horizontal line), and \(r = 37/38\).
+
+Next, for a potential splitting, let \(r_+ = {\bf P}(y=1\ |\ x\text{ on the + side})\) be the fraction of blue (+1 labeled) points on the positive side of that split. Similarly, define \(r_- = {\bf P}(y=1\ |\ x\text{ on the - side})\). Also, let \( m_{\pm}\) be the total number of points on each side. In the continuing example, say the potential split is along the line \( x_1 =-3.9\) (one of the second level splits depicted in the figure above). Then \(r_+ = 35/35 = 1\) and \(r_- = 2/3\).
+
+Now, with \(r, r_+,\) and \(r_-\) defined, the information gain of a split \( s\) is \( IG(s) = e(r) - (\frac{m_+}{m}e(r_+) + \frac{m_-}{m}e(r_-))\). Note that it actually doesn't matter which side of the line is the positive or negative side, just where the splitting line is. For the continuing example, the information gain is
+<p style="text-align: center;">\( e(37/38) - (\frac{35}{38}e(1) + \frac{3}{38}e(2/3)) \approx 0.07.\)</p>
+If you were to use \( IG\) to build a decision tree, then at each step you must find the split, on the subset of the data under consideration, that has maximal information gain.
+
+<sup id="footnote4">4.</sup> <span style="color: gray;">It is important to consider this a definition, not a consequence of the logarithmic expression given above. While you can get \( 0\) from <em>a limit</em> of that expression as \( r\to 0^+\), it is <span style="text-decoration: underline;">not</span> equal to its value. Trying to say it is might not lead to trouble if you only think this way for the purpose of the calculation of a single entropy function value. However, if you attempt to do any arithmetic and use properties of logarithms, thinking of \( 0\log 0\) as being equal to \( 0\) will easily lead to statements like \( 1 = 2\).</span>
+
+<sup id="footnote5">5.</sup> <span style="color: gray;">The logarithm function can have any base. Most of the time, in discussions of Information Gain, the base is 2 due to the area of study that the idea comes from.</span>
+
+\end{document}
