@@ -1,5 +1,4 @@
-# Final Project Description
-Spring 2025
+# Spr 2025, Final Project
 
 ## Overview
 The final project will give you an opportunity to work with other students in the class in order to analyze a real-world data set by using one of the machine learning models that we have discussed briefly in class. While projects are submitted on an individual basis and, ultimately, each student is responsible for the content in their project, it is hoped that a group of other students working with you on the same model and same data set will provide opportunities for learning from each other, as well as being able to perform a deeper analysis of the data that you have.
@@ -24,6 +23,8 @@ You may choose one of the following types of machine learning models. Depending 
 * Unless it has been first discussed with me, search for your data set from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/).
 
 ## Write-up and Project Submissions
+Each student will turn in a final project, which will include both a report/write-up and code (in a Jupyter notebook). The write-up should be a PDF file, may include figures if relevant, and may directly refer to parts of the Jupyter notebook.
+
 The write-up should include: 
 * a description of the data &ndash; including information about the variables and any initial observations about the data set; 
 * a discussion of the machine learning model being used for the analysis task;
