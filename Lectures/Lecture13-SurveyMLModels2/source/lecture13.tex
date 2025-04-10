@@ -187,7 +187,11 @@ keepspaces=true
 %%%%
 \begin{frame}
 \frametitle{Intro}
-Decision trees are another example of a powerful model function for machine learning. They are often used for classification (binary or multi-label); however, they can be used for regression tasks as well. Similar to how neural networks are capable of producing any function, if the "size" of decision trees is unrestrained then it can, in theory, produce an arbitrarily close approximation to any desired classification of points in the input space.
+Decision trees are another example of a powerful model function for machine learning. 
+\begin{itemize}
+    \item Often used for classification (binary or multi-label); however, they can be used for regression tasks as well. 
+    \item Similar to neural networks which are capable of approximating any function, if the ``size'' of the decision tree is unrestrained then it can, in theory, produce an arbitrarily close approximation to any desired classification of points.
+\end{itemize}
 
 \end{frame}
 
@@ -200,17 +204,30 @@ Let $\omega = (b, \theta, j)$ be a triple consisting of $b\in\mathbb R$, $\theta
 
 Note that a decision stump is a special type of half-space model that has normal vector with a single non-zero component (i.e., $\textbf{w} = (0,\ldots,0,-\theta,0,\ldots,0)$). 
 
-Given sample data, $\mathcal S = \{(\x_i, \ix y_i)\}_{i=1}^n$ with $\x_i\in\mathbb R^d$, the decision stump which is the best fit may be found simply by minimizing error {--} that is, find the values of $b, \theta$, and $j$ that achieves the highest accuracy on $\mathcal S$. A naive algorithm to find the best one takes on the order of $dn^2$ operations. However, there is a more efficient approach, taking only $dn\log(n)$ time.
+\centering
+\includegraphics[height=0.3\textheight]{../../Images/decision_stump.png}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Construction}
+Given sample data, $\mathcal S = \{(\x_i, \ix y_i)\}_{i=1}^n$ with $\x_i\in\mathbb R^d$, the decision stump which is the best fit may be found simply by minimizing error {--} that is, find the values of $b, \theta$, and $j$ that achieves the highest accuracy on $\mathcal S$. 
+
+If there is no point $\x_i$ between $\{x_{i,j} = b\}$ and $\{x_{i,j} = b'\}$, then the accuracy for $(b,\theta,j)$ and $(b',\theta,j)$ are the same. So, one can consider just values of $b$ that are an average of two ``consecutive'' $x_{i,j}$ (and one less than all such $j^{th}$ coordinates, and one larger than all of them). This gives a finite set of decision stumps to check.
+
+A naive algorithm to determine the most accurate among this finite set of decision stumps takes on the order of $dn^2$ operations. 
+
+However, there is a more efficient approach, taking only $dn\log(n)$ time.
 \end{frame}
 
 %%%%
 \begin{frame}
     \frametitle{Construction of a decision tree}
-A decision stump is a decision tree with ``depth'' 1. One might think of a decision tree as a collection of nested decision stumps -- on smaller and smaller subsets of the data.
+A decision stump is a decision tree with ``depth'' 1. That is, can think of a decision tree as a collection of nested decision stumps, on smaller and smaller subsets of the data.
 
-You begin by splitting the data along some coordinate. In other words, you find a hyperplane $ x_j = b$, where $ 1\le j\le d$ and $b$ is some number and each data point is on one side: for each $\x_i \in \mathcal S$, either $x_{i,j} < b$ or $ x_{i,j} > b$. This partitions the data into two subsets.
+Begin with a decision stump on all the data; i.e., find a hyperplane $ x_j = b$, where $ 1\le j\le d$ and $b$ is some number and each data point is on one side: for each $\x_i \in \mathcal S$, either $x_{i,j} < b$ or $ x_{i,j} > b$. This partitions the data into two subsets.
 
-How do you choose where to make a split? You could use the highest accuracy approach described for stumps, but this has disadvantages when the proportion of $\ix y_i$ that are positive, compared to negative, is not about the same.
+How do you choose where to make a split? You could use the highest accuracy approach described for stumps, but this has disadvantages when the proportion of $\ix y_i$ that are positive, compared to negative, are unbalanced.
 
 Often, something called \textbf{Information Gain} is used, which is defined via an entropy function $e$. That is, set $e(r) = -r\log(r) - (1-r)\log(1-r)$. Now, before making a split, set $r$ to be the proportion of $\ix y_i$ that are $1$ and $m$ the number of points. 
 
@@ -227,6 +244,9 @@ Next, define $r_+$ (resp.\ $r_-$) to be the proportion of points on the positive
 The goal of the process is to recursively partition each side. On each step, one chooses the split with maximum Information Gain, at each step restricting to the two subset of data points on one side. The process ends when points in the same part have the same label, or until some predetermined depth is reached. 
 
 An innermost region (where points have the same label) corresponds to a \textbf{leaf} of the tree.
+
+\centering 
+\includegraphics[height=0.35\textheight]{../../Images/decision_tree.png}
 \end{frame}
 
 %Below is a potential set of data for binary classification, with only 4 negatively-labeled points (the red points). If the first split made is along the horizontal line \( x_2 = -1.8\) (so \( j = 2\) and \(b = -1.8\)), then all but one point above the line is blue and 3 of the 12 points below the line are red.
@@ -244,7 +264,9 @@ An innermost region (where points have the same label) corresponds to a \textbf{
 %%%%
 \begin{frame}
     \frametitle{Decision tree model}
-    Start by determining a decision tree on training data, as above. Then, given test data (not yet "seen" by the model), the decision tree model will check in which partition the test point resides. Then, it labels the test point with the label of the corresponding leaf. Often, in an effort to avoid overfitting, you decide beforehand on the depth of the tree. Since this will result in having more than one label in some of the partitions (and possibly all), the label given to a test point in each leaf is some function of the training labels in the corresponding partition — if the goal is classification, with some categorical labels, the mode could be used; if the goal is regression, with numerical labels, the mean, or the median, could be used.
+    Start by determining a decision tree on training data, as above. Then, given test data (not yet "seen" by the model), the decision tree model will check in which partition the test point resides. Then, it labels the test point with the label of the corresponding leaf. 
+    
+    Often (to avoid overfitting), you decide beforehand on the depth of the tree (the maximal number of splits to get to a leaf). Since this will result in having more than one label in some of the partitions (and possibly all), the label given to a test point in each leaf is a function of the training labels in that partition {--} if the goal is classification, with some categorical labels, the label that has majority; if the goal is regression, with numerical labels, the mean, or the median, could be used.
 \end{frame}
 
 
@@ -259,5 +281,23 @@ An innermost region (where points have the same label) corresponds to a \textbf{
 % <sup id="footnote4">4.</sup> <span style="color: gray;">It is important to consider this a definition, not a consequence of the logarithmic expression given above. While you can get \( 0\) from <em>a limit</em> of that expression as \( r\to 0^+\), it is <span style="text-decoration: underline;">not</span> equal to its value. Trying to say it is might not lead to trouble if you only think this way for the purpose of the calculation of a single entropy function value. However, if you attempt to do any arithmetic and use properties of logarithms, thinking of \( 0\log 0\) as being equal to \( 0\) will easily lead to statements like \( 1 = 2\).</span>
 
 % <sup id="footnote5">5.</sup> <span style="color: gray;">The logarithm function can have any base. Most of the time, in discussions of Information Gain, the base is 2 due to the area of study that the idea comes from.</span>
+
+\section{Clustering}
+
+\begin{frame}
+    \frametitle{What is clustering?}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Applications of clustering}
+\end{frame}
+
+\begin{frame}
+    \frametitle{K-means}
+\end{frame}
+
+\begin{frame}
+    \frametitle{DBSCAN}
+\end{frame}
 
 \end{document}
