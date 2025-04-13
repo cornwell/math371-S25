@@ -182,6 +182,11 @@ keepspaces=true
 \titlepage
 \end{frame}
 
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
 \section{Decision Trees}
 
 %%%%
@@ -200,9 +205,10 @@ Decision trees are another example of a powerful model function for machine lear
     \frametitle{Construction of a decision tree}
 To build a decision tree, begin with a \textbf{decision stump} on $\mathbb R^d$. 
 
-Let $\omega = (b, \theta, j)$ be a triple consisting of $b\in\mathbb R$, $\theta\in\{1,-1\}$, and $j$ an integer with $1\le j\le d$. Then, define $f_{\omega}(\x) = \textrm{sign}(\theta(b - \x_j))$, where $\textrm{sign}(z)$ is 1 if $z\ge 0$ and is -1 otherwise. Such functions are called decision stumps.
-
-Note that a decision stump is a special type of half-space model that has normal vector with a single non-zero component (i.e., $\textbf{w} = (0,\ldots,0,-\theta,0,\ldots,0)$). 
+\begin{itemize}
+    \item Let $\omega = (b, \theta, j)$ be a triple consisting of $b\in\mathbb R$, $\theta\in\{1,-1\}$, and $j$ an integer with $1\le j\le d$. Then, define $f_{\omega}(\x) = \textrm{sign}(\theta(b - \x_j))$, where $\textrm{sign}(z)$ is 1 if $z\ge 0$ and is -1 otherwise. Such functions are called decision stumps.
+    \item Note that a decision stump is a special type of half-space model that has normal vector with a single non-zero component (i.e., $\textbf{w} = (0,\ldots,0,-\theta,0,\ldots,0)$). 
+\end{itemize}
 
 \centering
 \includegraphics[height=0.3\textheight]{../../Images/decision_stump.png}
@@ -211,13 +217,12 @@ Note that a decision stump is a special type of half-space model that has normal
 %%%%
 \begin{frame}
     \frametitle{Construction}
-Given sample data, $\mathcal S = \{(\x_i, \ix y_i)\}_{i=1}^n$ with $\x_i\in\mathbb R^d$, the decision stump which is the best fit may be found simply by minimizing error {--} that is, find the values of $b, \theta$, and $j$ that achieves the highest accuracy on $\mathcal S$. 
-
-If there is no point $\x_i$ between $\{x_{i,j} = b\}$ and $\{x_{i,j} = b'\}$, then the accuracy for $(b,\theta,j)$ and $(b',\theta,j)$ are the same. So, one can consider just values of $b$ that are an average of two ``consecutive'' $x_{i,j}$ (and one less than all such $j^{th}$ coordinates, and one larger than all of them). This gives a finite set of decision stumps to check.
-
-A naive algorithm to determine the most accurate among this finite set of decision stumps takes on the order of $dn^2$ operations. 
-
-However, there is a more efficient approach, taking only $dn\log(n)$ time.
+    \begin{itemize}
+        \item Given sample data, $\mathcal S = \{(\x_i, \ix y_i)\}_{i=1}^n$ with $\x_i\in\mathbb R^d$, the decision stump which is the best fit may be found simply by minimizing error {--} that is, find the values of $b, \theta$, and $j$ that achieves the highest accuracy on $\mathcal S$. 
+        \item If there is no point $\x_i$ between $\{x_{i,j} = b\}$ and $\{x_{i,j} = b'\}$, then the accuracy for $(b,\theta,j)$ and $(b',\theta,j)$ are the same. So, one can consider just values of $b$ that are an average of two ``consecutive'' $x_{i,j}$ (and one less than all such $j^{th}$ coordinates, and one larger than all of them). This gives a finite set of decision stumps to check.
+        \item A naive algorithm to determine the most accurate among this finite set of decision stumps takes on the order of $dn^2$ operations. \newline 
+        However, there is a more efficient approach, taking only $dn\log(n)$ time.
+    \end{itemize}
 \end{frame}
 
 %%%%
@@ -286,18 +291,232 @@ An innermost region (where points have the same label) corresponds to a \textbf{
 
 \begin{frame}
     \frametitle{What is clustering?}
+    Intuitively, want to group together data points into subsets, i.e., \textit{clusters}, so that \textit{similar} points are in the same cluster and dissimilar points are in different clusters. These data do not have labels. 
+    
+    \begin{itemize}
+        \item Presuming the numerical coordinates of the data have meaning, ``similar'' points could be those that are sufficiently close.
+    \end{itemize}
+    
+    \textbf{Goal:} Given sample data $\mathcal S=\{\x_i\}_{i=1}^n$, want to determine clusters $C_1,C_2,\ldots,C_k$ (for some $k$), so that $C_1\cup C_2\cup \ldots\cup C_K= \mathcal S$ and $C_i\cap C_j = \emptyset$ when $i\ne j$.
+    \vfill 
+
+    \textit{An inherent difficulty}: the clustering problem is ill-defined. 
+    \begin{itemize}
+        \item For example, you might have a sequence of data points $\x_1,\ldots,\x_m$ such that $\x_i$ and $\x_{i+1}$ are similar (close enough to be called similar) for each $1\le i\le m-1$, however $\x_1$ and $\x_m$ might be very dissimilar. While $\x_i$ and $x_{i+1}$ should be in the same cluster, this causes the problem of putting $\x_1$ and $\x_m$ ending up in the same cluster.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Applications of clustering}
+    Despite its ill-defined nature, clustering is needed (sometimes in an initial processing step) for many data analysis tasks. 
+
+    Some examples include:
+    \begin{itemize}
+        \item Market segmentation: clustering expected customers based on characteristics, either for targeted marketing or to inform product design.
+        \item Gene expression clustering: computational biologists will cluster genes based on how their expression in different experiments.
+        \item Astronomical data analysis: clustering stars or galaxies based on their proximity.
+        \item Social network analysis: for example, identifying ``communities'' (clusters of users) based on interactions on social media.
+    \end{itemize}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$k$-means}
+    Let $\mathcal S=\{\x_i\}_{i=1}^n$, with each $\x_i\in\mathbb R^d$ for some dimension $d$.
+
+    \begin{itemize}
+        \item The $k$-means algorithm is a common approach for clustering $\mathcal S$. 
+        \item You choose $k$, and your goal is to find $k$ clusters, $C_1, C_2,\ldots, C_k$ so that $\mathcal S=C_1\cup\ldots C_k$, where we want the sum $\sum_{j=1}^k\sum_{\x_i\in C_j} |\x_i - \mu_{j}|^2$ to be minimized. 
+        \item Here, $\mu_j$ is the centroid of $C_j$, meaning that $\mu_j$ is the point in $\mathbb R^d$ that minimizes, over $\mu\in\mathbb R^d$, the sum $\sum_{\x\in C_j}|\x - \mu|^2$.
+        \begin{itemize}
+            \item Note that, in fact, $\mu_j = \frac{1}{|C_j|}\sum_{\x \in C_j}\x$.
+        \end{itemize}
+    \end{itemize}
+
+    \centering
+    \includegraphics[height=0.35\textheight]{../../Images/kmeans_0.png}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$k$-means Procedure}
+    
+    The procedure to carry out $k$-means clustering is the following. First, randomly initialize $k$ centroids. Then: 
+    \begin{enumerate}
+        \item For each $i=1,2,\ldots,n$, determine $1\le j(i)\le k$, which is the index such that $\mu_{j(i)}$ is the closest centroid to $\x_i$. A point $\x_i$ is in $C_j$ when $j=j(i)$.
+        \item Update $\mu_1,\mu_2,\ldots,\mu_k$ so that, for $1\le j\le k$, the vector $\mu_j$ is the centroid of the points in $C_j$.
+        \item Iterate steps 1 and 2 until there is no $\x_i$ that ``changes its cluster'', i.e., until the assignment $i\mapsto j(i)$ that is made in 1 is the same as it was in the previous iteration.
+    \end{enumerate}
+
+    At each iteration, if some point has changed the cluster it is in, then the value of $\sum_{j=1}^k\sum_{\x_i\in C_j} |\x_i - \mu_{j}|^2 = \sum_{i=1}^n|\x_i - \mu_{j(i)}|^2$ decreases. Hence, the algorithm terminates because, as there are finitely many points in $\mathcal S$, there are only a finite number of possibilities for the list $\mu_1, \mu_2, \ldots, \mu_k$.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Visual of $k$-means in $\mathbb R^2$}
+    
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{../../Images/kmeans_0.png}
+        \end{center}
+        \caption{Initial centroids}
+    \end{wrapfigure}
+
+    We show a visualization of the procedure for $k$-means on data in $\mathbb R^2$, with $k=2$.
+    \vspace*{12pt}
+
+    Initially, we choose two arbitrary centroids. These are drawn in black.
+
+    Then, the first step is to go through all of our data (drawn in ) and determine which of the two centroids is closest to each point. This assigns each point to one of the two clusters.
+
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Visual of $k$-means in $\mathbb R^2$}
+    
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{../../Images/kmeans_1.png}
+        \end{center}
+        \caption{Assigned clusters}
+    \end{wrapfigure}
+
+    We show a visualization of the procedure for $k$-means on data in $\mathbb R^2$, with $k=2$.
+    \vspace*{12pt}
+
+    Here, the two clusters are shown. 
+    
+    The points in one are drawn in light blue and the points in the other are drawn in red.  
+
+    The centroid of each cluster is displayed, outlined in the color of its cluster. The next step is to recompute the centroids.
+
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Visual of $k$-means in $\mathbb R^2$}
+    
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{../../Images/kmeans_2.png}
+        \end{center}
+        \caption{Updated clusters}
+    \end{wrapfigure}
+
+    We show a visualization of the procedure for $k$-means on data in $\mathbb R^2$, with $k=2$.
+    \vspace*{12pt}
+
+    The two newly computed centroids are shown. 
+    
+    In addition, we reassign points based on the (new) centroid that is closest. 
+
+    We notice that 4 of points have been removed from the blue cluster into the red cluster; also, 3 points have been removed from red cluster into the blue.
+
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Visual of $k$-means in $\mathbb R^2$}
+    
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{../../Images/kmeans_3.png}
+        \end{center}
+        \caption{Updated clusters}
+    \end{wrapfigure}
+
+    We show a visualization of the procedure for $k$-means on data in $\mathbb R^2$, with $k=2$.
+    \vspace*{12pt}
+
+    Again, we compute new centroids and reassign points based on the centroid that is closest. 
+    
+    In this step, there is 1 point that was previously in the blue cluster which changes into red. And 4 points that were in the red cluster have been moved into the blue cluster.
+
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Visual of $k$-means in $\mathbb R^2$}
+    
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{../../Images/kmeans_4.png}
+        \end{center}
+        \caption{Updated centroids}
+    \end{wrapfigure}
+
+    We show a visualization of the procedure for $k$-means on data in $\mathbb R^2$, with $k=2$.
+    \vspace*{12pt}
+
+    We compute new centroids again. 
+    
+    This time there is no change in the way that points are assigned to clusters when finding the closest centroid. 
+    
+    Since there is no change to the clustering assignment, the procedure terminates with these centroids.
+
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$k$-means depends on Initial Centroids}
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.5\textheight]{../../Images/kmeans_balldata0.png}
+        \end{center}
+        \caption{A data set to cluster}
+    \end{figure}
+\phantom{With initial centroids of $(0,0.5)$ and $(0, 0.25)$}
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$k$-means depends on Initial Centroids}
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.5\textheight]{../../Images/kmeans_balldata1.png}
+        \end{center}
+        \caption{A data set to cluster}
+    \end{figure}
+With initial centroids of $(0,0.5)$ and $(0, 0.25)$.
+\vfill
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{$k$-means depends on Initial Centroids}
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.5\textheight]{../../Images/kmeans_balldata2.png}
+        \end{center}
+        \caption{A data set to cluster}
+    \end{figure}
+With initial centroids of $(0,0.26)$ and $(0, 0.1)$.
+\vfill
 \end{frame}
 
 \begin{frame}
-    \frametitle{K-means}
-\end{frame}
+    \frametitle{Density-Based Spatial Clustering for Applications with Noise}
+    DBSCAN clustering does not require choosing a number of clusters at the start. 
 
-\begin{frame}
-    \frametitle{DBSCAN}
+    \begin{itemize}
+        \item Near a given point in $\mathcal S$, whether it gets included in a nearby cluster is based on the \textit{density} of points (in $\mathcal S$) near that given point. 
+        \item The procedure builds a directed graph (network of vertices and edges); vertices are points in $\mathcal S$; which edges are included is based on a choice of parameters, and takes into account the nearby density of points. 
+        \item Connectedness through edges of the graph determines when points are in the same cluster.
+    \end{itemize}
+    An example of a graph built in the DBSCAN procedure is drawn below. Points are colored according to their cluster.
+
+    \centering
+    \includegraphics[height=0.35\textheight]{../../Images/dbscan_graph.png}
 \end{frame}
 
 \end{document}
