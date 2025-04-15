@@ -173,8 +173,8 @@ keepspaces=true
 \newcommand{\ix}[1]{{\it #1}}
 
 \author{Chris Cornwell}
-\date{April 7, 2025}
-\title{Survey of Machine Learning models, cont'd}
+\date{April 14, 2025}
+\title{Selecting the Machine Learning Model}
 
 \begin{document}
 
@@ -187,91 +187,140 @@ keepspaces=true
     \tableofcontents
 \end{frame}
 
-\section{Decision Trees}
+\section{Overfitting \\ Having only concern be to minimize empirical loss}
 
 %%%%
 \begin{frame}
 \frametitle{Intro}
-Decision trees are another example of a powerful model function for machine learning. 
+Given sample data $\mathcal S$, consisting of greyscale images of handwritten digits $0,1,\ldots,9$, say we want a decision tree model to predict the correct digit, given an image. 
+
+Let the images be $p$ pixels by $p$ pixels. For an image, we might take the $p^2$ greyscale values (0{--}255) and lay them end to end to get a vector in $\mathbb R^{p^2}$. Then, could train a decision tree with however many splits are needed so that each leaf has points in $\mathcal S$ with only one label. 
 \begin{itemize}
-    \item Often used for classification (binary or multi-label); however, they can be used for regression tasks as well. 
-    \item Similar to neural networks which are capable of approximating any function, if the ``size'' of the decision tree is unrestrained then it can, in theory, produce an arbitrarily close approximation to any desired classification of points.
+    \item Gives 100\% accuracy on $\mathcal S$, the data used to determine the parameters.
+    \item But, the model won't perform nearly as well on data not from $\mathcal S$. 
 \end{itemize}
 
+Let's look at doing exactly this, using images of digits available from the Python package scikit-learn. 
 \end{frame}
 
 %%%%
-\begin{frame}
-    \frametitle{Construction of a decision tree}
-To build a decision tree, begin with a \textbf{decision stump} on $\mathbb R^d$. 
+\begin{frame}[fragile]
+    \frametitle{Decision tree model for handwritten digits}
+The images of digits from scikit-learn are $8$ pixels by $8$ pixels. With the submodule \ttt{datasets} imported from \ttt{sklearn}, the data can be loaded as follows.
 
-\begin{itemize}
-    \item Let $\omega = (b, \theta, j)$ be a triple consisting of $b\in\mathbb R$, $\theta\in\{1,-1\}$, and $j$ an integer with $1\le j\le d$. Then, define $f_{\omega}(\x) = \textrm{sign}(\theta(b - \x_j))$, where $\textrm{sign}(z)$ is 1 if $z\ge 0$ and is -1 otherwise. Such functions are called decision stumps.
-    \item Note that a decision stump is a special type of half-space model that has normal vector with a single non-zero component (i.e., $\textbf{w} = (0,\ldots,0,-\theta,0,\ldots,0)$). 
-\end{itemize}
+\begin{codeblock}
 
-\centering
-\includegraphics[height=0.3\textheight]{../../Images/decision_stump.png}
-\end{frame}
+\begin{python}
+data = datasets.load_digits()
+x = data.images
+y = data.target
+\end{python}
 
-%%%%
-\begin{frame}
-    \frametitle{Construction}
-    \begin{itemize}
-        \item Given sample data, $\mathcal S = \{(\x_i, \ix y_i)\}_{i=1}^n$ with $\x_i\in\mathbb R^d$, the decision stump which is the best fit may be found simply by minimizing error {--} that is, find the values of $b, \theta$, and $j$ that achieves the highest accuracy on $\mathcal S$. 
-        \item If there is no point in $\mathcal S$ between $\{x_{j} = b\}$ and $\{x_{j} = b'\}$, then the accuracy for $(b,\theta,j)$ and $(b',\theta,j)$ are the same. So, one can consider those values of $b$ that are an average of two ``consecutive'' $x_{i,j}$ from $\mathcal S$ (as well as one that is less than all such $j^{th}$ coordinates, and one that is larger than all). This gives a finite set of decision stumps to check.
-        \item A naive algorithm to determine the most accurate among this finite set of decision stumps takes on the order of $dn^2$ operations. \newline 
-        However, there is a more efficient approach, taking only $dn\log(n)$ time.
-    \end{itemize}
-\end{frame}
+\end{codeblock}
 
-%%%%
-\begin{frame}
-    \frametitle{Construction of a decision tree}
-A decision stump is a decision tree with ``depth'' 1. That is, can think of a decision tree as a collection of nested decision stumps, on smaller and smaller subsets of the data.
+To convert each $8\times 8$ array to a vector in $\mathbb R^{64}$, can use the \ttt{reshape} method; after assigning $\texttt{x}$ and $\texttt{y}$ as above, code below would output \ttt{(1797, 64)}.
 
-Begin with a decision stump on all the data; i.e., find a hyperplane $ x_j = b$, where $ 1\le j\le d$ and $b$ is some number and each data point is on one side: for each $\x_i \in \mathcal S$, either $x_{i,j} < b$ or $ x_{i,j} > b$. This splits the data into two subsets.
+\begin{codeblock}
 
-How do you choose where to make a split? You could use the highest accuracy approach described for stumps, but this has disadvantages when the proportion of $\ix y_i$ that are positive, compared to negative, is unbalanced.
-
-Often, something called \textbf{Information Gain} is used, which is defined via an entropy function $e$. That is, set $e(r) = -r\log(r) - (1-r)\log(1-r)$. Now, before making a split, set $r$ to be the proportion of $\ix y_i$ that are $1$ and $m$ the number of points. 
-
-Next, define $r_+$ (resp.\ $r_-$) to be the proportion of points on the positive (resp.\ negative) side of the split that will have label $1$, and let $m_+$ (resp.\ $m_-$) be the numbers of points on the positive (resp.\ negative) side. The information gain of the split is 
-    \[e(r) - (\frac{m_+}{m}e(r_+) + \frac{m_-}{m}e(r_-)).\]
-
-\end{frame}
-
-%Often when decision trees are discussed, the data is converted to points which have binary coordinates (either 0 or 1); however, it is not necessary. Here I will discuss data points with \( d\) numerical coordinates, in \( \mathbb R\), as I have before.  If you wish, you can translate to the binary setting by using 0 or 1 to represent whether or not the given data is larger than some threshold in each coordinate.
-
-%%%%
-\begin{frame}
-    \frametitle{Multiple branches}
-The goal of the process is to recursively partition each side. On each step, one chooses the split with maximum Information Gain, at each step restricting to the two subset of data points on one side. The process ends when points in the same part have the same label, or until some predetermined depth is reached. 
-
-An innermost region (where points have the same label) corresponds to a \textbf{leaf} of the tree.
-
-\centering 
-\includegraphics[height=0.35\textheight]{../../Images/decision_tree.png}
-\end{frame}
-
-%Below is a potential set of data for binary classification, with only 4 negatively-labeled points (the red points). If the first split made is along the horizontal line \( x_2 = -1.8\) (so \( j = 2\) and \(b = -1.8\)), then all but one point above the line is blue and 3 of the 12 points below the line are red.
-
-%[gallery columns="2" size="medium" ids="948,949"]
-
-%Call the top region above the line the positive region of the split; below the line is the negative region. Continuing with nested splits into each side, one could imagine using two more splits in the positive region to isolate the one red point. A way to isolate the three red points in the negative side is with three additional nested splits on that side (see the figure below).
-
-%I have drawn the corresponding decision tree to the right, where the dashed lines in the figure correspond to branchings of the tree. The branches of the tree are labeled with + or -, corresponding the side of the line one is following (in each split for <em>this</em> tree, the negative side is the one side that contains red points).
-
-%[gallery columns="2" size="medium" ids="950,952"]
-
-% Each leaf of the tree is a node where there are no further splittings beyond it, labeled by the labels of points in that region. The <strong>depth</strong> of a decision tree is defined to be the maximal number of branches that can be followed from the top node to a leaf. So the depth of the example decision tree is 4.
-
-%%%%
-\begin{frame}
-    \frametitle{Decision tree model}
-    Start by determining a decision tree on training data, as above. Then, given test data (not yet "seen" by the model), the decision tree model will check in which partition the test point resides. Then, it labels the test point with the label of the corresponding leaf. 
+\begin{python}
+# make each 8x8 array into 1d array with 64 entries
+x = x.reshape(len(x), -1)
+x.shape
+\end{python}
     
-    Often (to avoid overfitting), you decide beforehand on the depth of the tree (the maximal number of splits to get to a leaf). Since this will result in having more than one label in some of the partitions (and possibly all), the label given to a test point in each leaf is a function of the training labels in that partition {--} if the goal is classification, with some categorical labels, the label that has majority; if the goal is regression, with numerical labels, the mean, or the median, could be used.
+\end{codeblock}
+
+Randomly select 20\% of the data to test model with {--} it won't be used to determine the decision tree.
+
+\begin{codeblock}
+
+\begin{python}
+n_test = int(0.2*len(x))
+test_indices = np.random.choice(len(x), size=n_test, replace=False)
+train_indices = np.delete(np.arange(len(x)), test_indices)
+x_test, y_test = x[test_indices], y[test_indices]
+x_train, y_train = x[train_indices], y[train_indices]
+\end{python}
+    
+\end{codeblock}
+    
+*\textit{Alternatively, you can use the function} \lstinline[language=Python,stringstyle=\ttfamily]{train_test_split} \textit{from the scikit-learn submodule} \lstinline[language=Python,stringstyle=\ttfamily]{model_selection}.
+\end{frame}
+
+%%%%
+\begin{frame}[fragile]
+    \frametitle{Decision tree model for handwritten digits}
+With the setup from the last slide, use the training data to determine the decision tree.
+
+There is a submodule \lstinline[language=Python,stringstyle=\ttfamily]{tree} within scikit-learn that we can use.
+
+\begin{codeblock}
+
+\begin{python}
+model = tree.DecisionTreeClassifier()
+model.fit(x_train, y_train)
+\end{python}
+
+\end{codeblock}
+
+The default behavior of the \ttt{.fit()} method is that the tree has as many splits (decision stumps) as needed so that each leaf consists of points with a single label. The accuracy on \lstinline[language=Python,stringstyle=\ttfamily]{x_train} is, therefore, 100\%. 
+
+The accuracy of the model on \lstinline[language=Python,stringstyle=\ttfamily]{x_test} will depend some on which points were put into \lstinline[language=Python,stringstyle=\ttfamily]{x_test}; however, it tends to be around only 85\%.
+
+What happened is that the \textit{hypothesis class}, that set of functions that were possible outcomes to be the trained model, was too large (allowed too many possibilities for the resulting model). 
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Keeping the hypothesis class small}
+We discuss a (somewhat absurd) example to demonstrate the point that 
+\begin{center} small empirical loss $\not\Rightarrow$ small population loss\end{center}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{center}
+        \includegraphics[width=0.38\textwidth]{../../Images/fourth_square-13v37.png}
+    \end{center}
+    \caption{Upper-left square labeled -1}
+\end{wrapfigure}
+
+Allowing for \textit{any} function as a possible model, for any training data $\mathcal S = \{(\x_i, \ix y_i)_{i=1}^n$, with labels in $\{1,-1\}$, we set 
+        \[f_S(\x) = \begin{cases}\ix y_i,& \textrm{ if }\x = \x_i \\ 
+                                    -1,& \textrm{ otherwise.}
+        \end{cases}\]
+Regardless of $\mathcal S$, or the population distribution that it is a sample from, the empirical loss $\mathcal L_{S}(f_S) = \frac{\#\{i:\ \ix y_i \ne f_S(\x_i)\}}{n}$ is zero.
+\end{frame}
+
+
+%%%%
+\begin{frame}
+    \frametitle{Keeping the hypothesis class small}
+We discuss a (somewhat absurd) example to demonstrate the point that 
+\begin{center} small empirical loss $\not\Rightarrow$ small population loss\end{center}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{center}
+        \includegraphics[width=0.38\textwidth]{../../Images/fourth_square-13v37.png}
+    \end{center}
+    \caption{Upper-left square labeled -1}
+\end{wrapfigure}
+
+Suppose that the population data consists of points in $[0,1]^2$ (the square of points with both coordinates between $0$ and $1$), and that a point $(x_1,x_2)$ has label $-1$ if and only if $0\le x_1 < 0.5$ and $0.5< x_2 \le 1$ (See Figure).
+\vspace*{12pt}
+
+Since a sample $\mathcal S$ is finite, a randomly chosen point has probability $0$ of being in $\mathcal S$. Thus, given a random $\x\in[0,1]^2$, with probability $3/4$ the predicted label $f_S(\x)$ is wrong.
+
+The issue with both this model, and the decision tree that had no restriction on depth, is that the \textbf{variance} \textit{of the hypothesis class} is too large.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Bias-Variance Trade-off}
+    Suppose that we have chosen a hypothesis class (a class of parameterized functions, say), and a procedure that, given a training sample $\mathcal S$ from the population, determines a prediction function $f_S$.
+
+    In order to understand the \textit{expected} population loss, we want to consider the variance of $f_S(\x)$, not only over the input space but over possible training sets $\mathcal S$. That is, over all $(\x, y)$ and $S$, the expected value $\mathbb E[(f_S(\x) - y)^2]$.
+
+    Let $\overline{h}$ be the expected prediction function, over training sets.\footnote{This takes some advanced mathematics to carefully describe. It means there is a ``measure'' on sets of functions, which allows you to integrate over a set of functions to get a new function.} In practice, you could approximate $\overline{h}$ in the following way: for samples $S_1,\ldots,S_N$, each with the same number of points, drawn i.i.d.\ from the population, then for sufficiently large $N$, 
+        \[\overline{h}(\x) \approx \frac{1}{N}\sum_{i=1}^Nh_{S_i}(\x).\]
 \end{frame}
 
 
