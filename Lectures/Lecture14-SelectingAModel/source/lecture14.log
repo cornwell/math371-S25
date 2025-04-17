@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  15 APR 2025 00:17
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  16 APR 2025 22:01
  restricted system commands enabled.
 **lecture14
 (./lecture14.tex
@@ -2320,7 +2320,7 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 [6
 
 ]
-<../../Images/fourth_square-13v37.png, id=72, 482.80376pt x 331.2375pt>
+<../../Images/fourth_square-13v37.png, id=65, 482.80376pt x 331.2375pt>
 File: ../../Images/fourth_square-13v37.png Graphic file (type png)
 <use ../../Images/fourth_square-13v37.png>
 Package luatex.def Info: ../../Images/fourth_square-13v37.png  used on input li
@@ -2355,145 +2355,20 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
 
 [9
 
-] (./lecture14.toc)
+]
+Overfull \hbox (21.90552pt too wide) detected at line 350
+[]
+ []
+
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 7.65005pt on input line 350.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
+(Font)              scaled to size 7.65005pt on input line 350.
+
 
 [10
 
 ]
-
-[11
-
-]
-
-[12
-
-]
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 387.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 387.
-<../../Images/kmeans_0.png, id=116, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_0.png Graphic file (type png)
-<use ../../Images/kmeans_0.png>
-Package luatex.def Info: ../../Images/kmeans_0.png  used on input line 387.
-(luatex.def)             Requested size: 74.81442pt x 94.20296pt.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 8.92506pt on input line 387.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.71504pt on input line 387.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 12.24008pt on input line 387.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 8.92506pt on input line 387.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.71504pt on input line 387.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 387.
-
-
-
-[13
-
-<../../Images/kmeans_0.png>]
-
-[14
-
-]
-File: ../../Images/kmeans_0.png Graphic file (type png)
-<use ../../Images/kmeans_0.png>
-Package luatex.def Info: ../../Images/kmeans_0.png  used on input line 422.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
-
-[15
-
-]
-<../../Images/kmeans_1.png, id=135, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_1.png Graphic file (type png)
-<use ../../Images/kmeans_1.png>
-Package luatex.def Info: ../../Images/kmeans_1.png  used on input line 445.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
-
-[16
-
-<../../Images/kmeans_1.png>]
-<../../Images/kmeans_2.png, id=142, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_2.png Graphic file (type png)
-<use ../../Images/kmeans_2.png>
-Package luatex.def Info: ../../Images/kmeans_2.png  used on input line 468.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
-
-[17
-
-<../../Images/kmeans_2.png>]
-<../../Images/kmeans_3.png, id=149, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_3.png Graphic file (type png)
-<use ../../Images/kmeans_3.png>
-Package luatex.def Info: ../../Images/kmeans_3.png  used on input line 489.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
-
-[18
-
-<../../Images/kmeans_3.png>]
-<../../Images/kmeans_4.png, id=156, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_4.png Graphic file (type png)
-<use ../../Images/kmeans_4.png>
-Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 512.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
-
-[19
-
-<../../Images/kmeans_4.png>]
-<../../Images/kmeans_balldata0.png, id=163, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata0.png Graphic file (type png)
-<use ../../Images/kmeans_balldata0.png>
-Package luatex.def Info: ../../Images/kmeans_balldata0.png  used on input line 
-526.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
-
-
-[20
-
-<../../Images/kmeans_balldata0.png>]
-<../../Images/kmeans_balldata1.png, id=170, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata1.png Graphic file (type png)
-<use ../../Images/kmeans_balldata1.png>
-Package luatex.def Info: ../../Images/kmeans_balldata1.png  used on input line 
-540.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
-
-
-[21
-
-<../../Images/kmeans_balldata1.png>]
-<../../Images/kmeans_balldata2.png, id=178, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata2.png Graphic file (type png)
-<use ../../Images/kmeans_balldata2.png>
-Package luatex.def Info: ../../Images/kmeans_balldata2.png  used on input line 
-554.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
-
-
-[22
-
-<../../Images/kmeans_balldata2.png>]
-<../../Images/dbscan_graph.png, id=185, 237.0456pt x 298.4751pt>
-File: ../../Images/dbscan_graph.png Graphic file (type png)
-<use ../../Images/dbscan_graph.png>
-Package luatex.def Info: ../../Images/dbscan_graph.png  used on input line 569.
-
-(luatex.def)             Requested size: 74.81442pt x 94.20296pt.
-
-
-[23
-
-<../../Images/dbscan_graph.png>]
 \tf@nav=\write6
 
 \openout6 = lecture14.nav
@@ -2514,49 +2389,47 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `lecture14.out' has not changed.
-(rerunfilecheck)             Checksum: 7E69E86D4A893B6E2E333FED69DCA02E;481.
+(rerunfilecheck)             Checksum: 8E0BFED3E01A5B8F4A6842E600BA9FF3;388.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31615 strings out of 475915
- 125033,1977958 words of node,token memory allocated
- 8502 words of node memory still in use:
-   48 hlist, 9 vlist, 5 rule, 45 disc, 8 local_par, 12 math, 200 glue, 119 kern,
- 27 penalty, 621 glyph, 97 attribute, 61 glue_spec, 97 attribute_list, 4 write, 
-3 pdf_action, 24 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore node
-s
-   avail lists: 2:1643,3:357,4:432,5:637,6:53,7:4746,8:40,9:1971,10:131,11:210
- 53062 multiletter control sequences out of 65536+600000
- 293 fonts using 47473535 bytes
- 128i,11n,121p,667b,1128s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman7-
+ 31340 strings out of 475915
+ 100000,1977958 words of node,token memory allocated
+ 9454 words of node memory still in use:
+   224 hlist, 33 vlist, 27 rule, 8 disc, 8 local_par, 30 math, 202 glue, 115 ker
+n, 32 penalty, 416 glyph, 272 attribute, 61 glue_spec, 272 attribute_list, 4 wri
+te, 2 pdf_action, 18 pdf_colorstack nodes
+   avail lists: 2:1290,3:355,4:432,5:634,6:54,7:4931,8:105,9:1749,10:130,11:199
+ 52903 multiletter control sequences out of 65536+600000
+ 222 fonts using 40436703 bytes
+ 128i,13n,121p,499b,1128s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman9-
 italic.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/l
-m/lmroman7-regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opent
-ype/public/lm/lmroman10-regular.otf><c:/users/gener/appdata/local/programs/mikte
-x/fonts/opentype/public/lm/lmroman10-italic.otf><C:/Users/gener/AppData/Local/Pr
-ograms/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><c:/users/gener/appda
-ta/local/programs/miktex/fonts/opentype/public/lm/lmmono10-regular.otf><c:/users
-/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono8-regular.ot
-f><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono9
--regular.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/opentype/public
-/fira/FiraSans-Italic.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/op
-entype/public/fira/FiraSans-Regular.otf><C:/Users/gener/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gener/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/gener/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/gener/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/gener
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><C:/Users/ge
-ner/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/g
-ener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyb.pfb><C:/User
-s/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><C:/U
-sers/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/
-Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:
-/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zsfmi-reg.
-pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zsf
-mia-reg.pfb>
-Output written on lecture14.pdf (23 pages, 307087 bytes).
+m/lmroman7-italic.otf><c:/users/gener/appdata/local/programs/miktex/fonts/openty
+pe/public/lm/lmroman7-regular.otf><c:/users/gener/appdata/local/programs/miktex/
+fonts/opentype/public/lm/lmroman10-regular.otf><c:/users/gener/appdata/local/pro
+grams/miktex/fonts/opentype/public/lm/lmroman10-italic.otf><C:/Users/gener/AppDa
+ta/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><c:/users/
+gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono10-regular.ot
+f><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono8
+-regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public
+/lm/lmmono9-regular.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/open
+type/public/fira/FiraSans-Italic.otf><C:/Users/gener/AppData/Local/Programs/MiKT
+eX/fonts/opentype/public/fira/FiraSans-Regular.otf><C:/Users/gener/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gener/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/gener/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/
+gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
+Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><
+C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb>
+<C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyc.p
+fb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.
+pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys
+.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zs
+fmia-reg.pfb>
+Output written on lecture14.pdf (10 pages, 135623 bytes).
 
-PDF statistics: 295 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 131072)
- 32 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 196 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 131072)
+ 24 words of extra memory for PDF output out of 10000 (max. 100000000)
 
