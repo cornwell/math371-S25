@@ -1,0 +1,40 @@
+\frametitle{Cross-Validation}
+    If you are not in a ``data rich'' setting {--} that is, you do not have a large amount of data {--} then setting aside 10-20\% of it as validation data might make it difficult to train a model that performs well. Additionally, \textit{which} data goes into the validation subset might affect the resulting prediction function, and its performance, significantly.
+
+    A remedy is to use $k$-fold \textbf{cross-validation}. Commonly, practitioners use 5-fold or 10-fold cross-validation. Here, we describe the 5-fold version.
+
+    After having separated out the test data, randomly sort your remaining data into 5 subsets. For example, if \ttt{x} is the array to be separated into 5 arrays, the following would do the job.
+
+\begin{codeblock}
+
+\begin{python}
+indices = np.arange(len(x))
+np.random.shuffle(indices)
+n_subset = int(len(x)/5)
+for i in range(5):
+    subsets[i] = x[i*n_subset:(i+1)*n_subset]
+\end{python}
+
+\end{codeblock}
+
+Next, you train and do validation on 5 models, with training sets determined from the subsets:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        train & train & train & train & valid \\
+        \hline
+        \hline
+        train & train & train & valid & train \\
+        \hline
+        \hline
+        train & train & valid & train & train \\
+        \hline
+        \hline
+        train & valid & train & train & train \\
+        \hline
+        \hline
+        valid & train & train & train & train \\
+        \hline
+    \end{tabular}
+\end{center}

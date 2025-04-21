@@ -1,7 +1,7 @@
 \frametitle{Decision tree model for handwritten digits}
 With the setup from the last slide, use the training data to determine the decision tree.
 
-There is a submodule \lstinline[language=Python,stringstyle=\ttfamily]{tree} within scikit-learn that we can use.
+There is a submodule \ttt{tree} within scikit-learn that we can use.
 
 \begin{codeblock}
 
@@ -14,6 +14,6 @@ model.fit(x_train, y_train)
 
 The default behavior of the \ttt{.fit()} method is that the tree has as many splits (decision stumps) as needed so that each leaf consists of points with a single label. The accuracy on \lstinline[language=Python,stringstyle=\ttfamily]{x_train} is, therefore, 100\%.
 
-The accuracy of the model on \lstinline[language=Python,stringstyle=\ttfamily]{x_test} will depend some on which points were put into \lstinline[language=Python,stringstyle=\ttfamily]{x_test}; however, it tends to be around only 85\%.
+The accuracy of the model on \lstinline[language=Python,basicstyle=\ttfamily]{x_test} will depend some on which points were put into \lstinline[language=Python,basicstyle=\ttfamily]{x_test}; however, it tends to be around only 85\%.
 
 What happened is that the \textit{hypothesis class}, that set of functions that were possible outcomes to be the trained model, was too large (allowed too many possibilities for the resulting model).

@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  19 APR 2025 14:23
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  20 APR 2025 16:18
  restricted system commands enabled.
-**lecture14
-(./lecture14.tex
+**lecture15
+(./lecture15.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -1965,8 +1965,8 @@ File: listings.cfg 2024/05/25 1.10b listings configuration
 ))
 Package: listings 2024/05/25 1.10b (Carsten Heinz)
 \c@question=\count374
-(./lecture14.aux)
-\openout1 = lecture14.aux
+(./lecture15.aux)
+\openout1 = lecture15.aux
 
 LaTeX Font Info:    Checking defaults for OML/ntxsfmi/m/it on input line 179.
 LaTeX Font Info:    Trying to load font information for OML+ntxsfmi on input li
@@ -2079,10 +2079,10 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring ON on input line 179.
- (./lecture14.out) (./lecture14.out)
+ (./lecture15.out) (./lecture15.out)
 \@outlinefile=\write5
 
-\openout5 = lecture14.out
+\openout5 = lecture15.out
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/FiraSans(0)/m/n --> OT1/cmss/m/n on input line 179.
 
@@ -2227,7 +2227,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 179.
 \c@lstlisting=\count381
- (./lecture14.nav)
+ (./lecture15.nav)
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 (Font)              scaled to size 4.25003pt on input line 179.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
@@ -2241,144 +2241,277 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 [1
 
 {C:/Users/gener/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(./lecture14.toc)
+(./lecture15.toc)
 
 [2
 
-] (./lecture14.toc)
+] (./lecture15.toc)
 
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 204
+LaTeX Font Info:    Trying to load font information for U+msa on input line 216
 .
  (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 204
+LaTeX Font Info:    Trying to load font information for U+msb on input line 216
 .
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsfmia on input lin
-e 204.
+e 216.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtxsf/untxsfmia.fd
 File: untxsfmia.fd 2014/11/16 Fontinst v1.933 font definitions for U/ntxsfmia.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
-204.
+216.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
-204.
+216.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.20503pt on input line 204.
+(Font)              scaled to size 6.20503pt on input line 216.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 4.67503pt on input line 204.
+(Font)              scaled to size 4.67503pt on input line 216.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 8.50006pt on input line 204.
+(Font)              scaled to size 8.50006pt on input line 216.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.20503pt on input line 204.
+(Font)              scaled to size 6.20503pt on input line 216.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 4.67503pt on input line 204.
+(Font)              scaled to size 4.67503pt on input line 216.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 204.
+(Font)              size <5> substituted on input line 216.
 
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
+(Font)              scaled to size 8.50006pt on input line 216.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 216.
+(C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
+)
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 7.65005pt on input line 216.
 
 
 [4
 
 ]
-\openout4 = lecture14.vrb
- (./lecture14.vrb
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 2.
-
-(C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/05/25 1.10b listings language file
-)
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 4.25003pt on input line 19.
-)
 
 [5
 
 ]
-\openout4 = lecture14.vrb
- (./lecture14.vrb)
 
 [6
 
 ]
-<../../Images/fourth_square-13v37.png, id=65, 482.80376pt x 331.2375pt>
-File: ../../Images/fourth_square-13v37.png Graphic file (type png)
-<use ../../Images/fourth_square-13v37.png>
-Package luatex.def Info: ../../Images/fourth_square-13v37.png  used on input li
-ne 291.
-(luatex.def)             Requested size: 116.77164pt x 80.11018pt.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
-(Font)              scaled to size 8.50006pt on input line 291.
-
 
 [7
 
-<../../Images/fourth_square-13v37.png>]
-File: ../../Images/fourth_square-13v37.png Graphic file (type png)
-<use ../../Images/fourth_square-13v37.png>
-Package luatex.def Info: ../../Images/fourth_square-13v37.png  used on input li
-ne 313.
-(luatex.def)             Requested size: 116.77164pt x 80.11018pt.
-
+]
 
 [8
 
 ]
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 324.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 5.27003pt on input line 324.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.80005pt on input line 324.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 5.27003pt on input line 324.
-
 
 [9
 
 ]
-Overfull \hbox (21.90552pt too wide) detected at line 350
-[]
- []
-
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 350.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 350.
-
 
 [10
 
 ]
+
+[11
+
+]
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 6.80005pt on input line 235.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 5.27003pt on input line 235.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 6.80005pt on input line 235.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 5.27003pt on input line 235.
+
+
+[12
+
+]
+
+[13
+
+]
+
+[14
+
+]
+
+[15
+
+]
+
+[16
+
+]
+
+[17
+
+]
+
+[18
+
+]
+
+[19
+
+] (./lecture15.toc)
+
+[20
+
+]
+<../../Images/high-bias-schematic.png, id=150, 453.19313pt x 335.00156pt>
+File: ../../Images/high-bias-schematic.png Graphic file (type png)
+<use ../../Images/high-bias-schematic.png>
+Package luatex.def Info: ../../Images/high-bias-schematic.png  used on input li
+ne 271.
+(luatex.def)             Requested size: 109.23189pt x 80.7448pt.
+
+Overfull \vbox (5.19809pt too high) detected at line 271
+ []
+
+
+
+[21
+
+<../../Images/high-bias-schematic.png>]
+File: ../../Images/high-bias-schematic.png Graphic file (type png)
+<use ../../Images/high-bias-schematic.png>
+Package luatex.def Info: ../../Images/high-bias-schematic.png  used on input li
+ne 271.
+(luatex.def)             Requested size: 109.23189pt x 80.7448pt.
+
+Overfull \vbox (5.19809pt too high) detected at line 271
+ []
+
+
+
+[22
+
+]
+File: ../../Images/high-bias-schematic.png Graphic file (type png)
+<use ../../Images/high-bias-schematic.png>
+Package luatex.def Info: ../../Images/high-bias-schematic.png  used on input li
+ne 271.
+(luatex.def)             Requested size: 109.23189pt x 80.7448pt.
+
+Overfull \vbox (5.19809pt too high) detected at line 271
+ []
+
+
+
+[23
+
+]
+<../../Images/high-variance-schematic.png, id=168, 462.22687pt x 333.49594pt>
+File: ../../Images/high-variance-schematic.png Graphic file (type png)
+<use ../../Images/high-variance-schematic.png>
+Package luatex.def Info: ../../Images/high-variance-schematic.png  used on inpu
+t line 293.
+(luatex.def)             Requested size: 111.91002pt x 80.7448pt.
+
+
+[24
+
+<../../Images/high-variance-schematic.png>]
+File: ../../Images/high-variance-schematic.png Graphic file (type png)
+<use ../../Images/high-variance-schematic.png>
+Package luatex.def Info: ../../Images/high-variance-schematic.png  used on inpu
+t line 293.
+(luatex.def)             Requested size: 111.91002pt x 80.7448pt.
+
+
+[25
+
+]
+File: ../../Images/high-variance-schematic.png Graphic file (type png)
+<use ../../Images/high-variance-schematic.png>
+Package luatex.def Info: ../../Images/high-variance-schematic.png  used on inpu
+t line 293.
+(luatex.def)             Requested size: 111.91002pt x 80.7448pt.
+
+
+[26
+
+]
+<../../Images/high-bias-Tree-DigitsImages.png, id=185, 397.485pt x 312.9291pt>
+File: ../../Images/high-bias-Tree-DigitsImages.png Graphic file (type png)
+<use ../../Images/high-bias-Tree-DigitsImages.png>
+Package luatex.def Info: ../../Images/high-bias-Tree-DigitsImages.png  used on 
+input line 305.
+(luatex.def)             Requested size: 153.84189pt x 121.11516pt.
+
+
+[27
+
+<../../Images/high-bias-Tree-DigitsImages.png>]
+File: ../../Images/high-bias-Tree-DigitsImages.png Graphic file (type png)
+<use ../../Images/high-bias-Tree-DigitsImages.png>
+Package luatex.def Info: ../../Images/high-bias-Tree-DigitsImages.png  used on 
+input line 305.
+(luatex.def)             Requested size: 153.84189pt x 121.11516pt.
+
+
+[28
+
+]
+<../../Images/high-variance-Tree-DigitsImages.png, id=197, 392.4261pt x 312.929
+1pt>
+File: ../../Images/high-variance-Tree-DigitsImages.png Graphic file (type png)
+<use ../../Images/high-variance-Tree-DigitsImages.png>
+Package luatex.def Info: ../../Images/high-variance-Tree-DigitsImages.png  used
+ on input line 317.
+(luatex.def)             Requested size: 184.3758pt x 147.02415pt.
+
+
+[29
+
+<../../Images/high-variance-Tree-DigitsImages.png>] (./lecture15.toc)
+
+[30
+
+]
+\openout4 = lecture15.vrb
+ (./lecture15.vrb)
+Overfull \vbox (18.3483pt too high) detected at line 363
+ []
+
+
+
+[31
+
+]
 \tf@nav=\write6
 
-\openout6 = lecture14.nav
+\openout6 = lecture15.nav
 \tf@toc=\write7
 
-\openout7 = lecture14.toc
+\openout7 = lecture15.toc
 \tf@snm=\write8
 
-\openout8 = lecture14.snm
- (./lecture14.aux)
+\openout8 = lecture15.snm
+ (./lecture15.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
@@ -2388,48 +2521,38 @@ L3 programming layer <2024-05-27>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package rerunfilecheck Info: File `lecture14.out' has not changed.
-(rerunfilecheck)             Checksum: 8E0BFED3E01A5B8F4A6842E600BA9FF3;388.
+Package rerunfilecheck Info: File `lecture15.out' has not changed.
+(rerunfilecheck)             Checksum: 1BAECCD8F884DA3F8B2F5D29FB0EBF3F;523.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31316 strings out of 475915
+ 31414 strings out of 475915
  100000,1977958 words of node,token memory allocated
- 9454 words of node memory still in use:
-   224 hlist, 33 vlist, 27 rule, 8 disc, 8 local_par, 30 math, 202 glue, 115 ker
-n, 32 penalty, 416 glyph, 272 attribute, 61 glue_spec, 272 attribute_list, 4 wri
-te, 2 pdf_action, 18 pdf_colorstack nodes
-   avail lists: 2:1284,3:355,4:432,5:612,6:54,7:4925,8:105,9:1743,10:130,11:199
- 52879 multiletter control sequences out of 65536+600000
- 222 fonts using 40436703 bytes
- 128i,13n,121p,499b,1128s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman9-
-italic.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/l
-m/lmroman7-italic.otf><c:/users/gener/appdata/local/programs/miktex/fonts/openty
-pe/public/lm/lmroman7-regular.otf><c:/users/gener/appdata/local/programs/miktex/
-fonts/opentype/public/lm/lmroman10-regular.otf><c:/users/gener/appdata/local/pro
-grams/miktex/fonts/opentype/public/lm/lmroman10-italic.otf><C:/Users/gener/AppDa
-ta/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><c:/users/
-gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono10-regular.ot
-f><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono8
--regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public
-/lm/lmmono9-regular.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/open
-type/public/fira/FiraSans-Italic.otf><C:/Users/gener/AppData/Local/Programs/MiKT
-eX/fonts/opentype/public/fira/FiraSans-Regular.otf><C:/Users/gener/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gener/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/gener/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/
-gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
-Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><
-C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb>
-<C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyc.p
-fb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.
-pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys
-.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtxsf/zs
-fmia-reg.pfb>
-Output written on lecture14.pdf (10 pages, 137112 bytes).
+ 19857 words of node memory still in use:
+   286 hlist, 12 vlist, 84 rule, 65 disc, 13 local_par, 4 math, 725 glue, 249 ke
+rn, 32 penalty, 1001 glyph, 377 attribute, 61 glue_spec, 377 attribute_list, 4 w
+rite, 28 pdf_literal, 50 pdf_colorstack nodes
+   avail lists: 2:156,3:237,4:172,5:559,6:28,7:3534,8:26,9:834,10:20,11:226
+ 52909 multiletter control sequences out of 65536+600000
+ 210 fonts using 37548383 bytes
+ 128i,11n,121p,442b,1033s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono8-r
+egular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/l
+m/lmmono9-regular.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/openty
+pe/public/fira/FiraSans-Bold.otf><c:/users/gener/appdata/local/programs/miktex/f
+onts/opentype/public/lm/lmmono10-regular.otf><C:/Users/gener/AppData/Local/Progr
+ams/MiKTeX/fonts/opentype/public/fira/FiraSans-Italic.otf><C:/Users/gener/AppDat
+a/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Regular.otf><C:/User
+s/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
+:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtx
+mi.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/tx
+exs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/t
+xsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/
+txsys.pfb>
+Output written on lecture15.pdf (31 pages, 225343 bytes).
 
-PDF statistics: 196 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 131072)
- 24 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 281 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 131072)
+ 40 words of extra memory for PDF output out of 10000 (max. 100000000)
 
