@@ -321,45 +321,110 @@ For example, a grid search method might be applied, but choosing the model with 
 %%%%
 \begin{frame}[fragile]
     \frametitle{Cross-Validation}
-    If you are not in a ``data rich'' setting {--} that is, you do not have a large amount of data {--} then setting aside 10-20\% of it as validation data might make it difficult to train a model that performs well. Additionally, \textit{which} data goes into the validation subset might affect the resulting prediction function, and its performance, significantly.
+    When lacking in data, then putting aside 10-20\% as validation data might cause trained model to perform poorly. Also, in this setting \textit{which} data goes into validation subset can affect the resulting prediction function and its performance, perhaps significantly.
     
-    A remedy is to use $k$-fold \textbf{cross-validation}. Commonly, practitioners use 5-fold or 10-fold cross-validation. Here, we describe the 5-fold version. 
+    \pause
+    Remedy: $k$-fold \textbf{cross-validation}. Often, 5-fold or 10-fold cross-validation is used. We describe the 5-fold version. 
 
-    After having separated out the test data, randomly sort your remaining data into 5 subsets. For example, if \ttt{x} is the array to be separated into 5 arrays, the following would do the job.
+    \pause
+    After separating the test data, randomly sort remaining data into 5 subsets.
 
 \begin{codeblock}
 
 \begin{python}
-indices = np.arange(len(x))
+indices = np.arange(len(data))
 np.random.shuffle(indices)
-n_subset = int(len(x)/5)
+n_subset = int(len(data)/5)
+subset = []
 for i in range(5):
-    subsets[i] = x[i*n_subset:(i+1)*n_subset]
+    subset[i] = data[indices[i*n_subset]:indices[(i+1)*n_subset]]
 \end{python}
 
 \end{codeblock}
 
-Next, you train and do validation on 5 models, with training sets determined from the subsets:
+\pause
+Train and compute $\mathcal L_{train}$, $\mathcal L_{valid}$ on 5 models; training sets made from subsets:
 
 \begin{center}
-    \begin{tabular}{|c|c|c|c|c|}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{l}
+        {\footnotesize\color{blue}Model 1} \\ 
+        {\footnotesize\color{blue}Model 2} \\
+        {\footnotesize\color{blue}Model 3} \\
+        {\footnotesize\color{blue}Model 4} \\
+        {\footnotesize\color{blue}Model 5}
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
+    \begin{tabular}{|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
         \hline 
-        train & train & train & train & valid \\ 
+        \quad train & \quad train & \quad train & \quad train & \quad valid \\ 
         \hline
         \hline
-        train & train & train & valid & train \\ 
+        \quad train & \quad train & \quad train & \quad valid & \quad train \\ 
         \hline
         \hline
-        train & train & valid & train & train \\ 
+        \quad train & \quad train & \quad valid & \quad train & \quad train \\ 
         \hline
         \hline
-        train & valid & train & train & train \\ 
+        \quad train & \quad valid & \quad train & \quad train & \quad train \\ 
         \hline
         \hline
-        valid & train & train & train & train \\
+        \quad valid & \quad train & \quad train & \quad train & \quad train \\
         \hline
     \end{tabular}
 \end{center}
+{\color{blue}
+\begin{center}
+    \begin{tabular}{p{0.09\textwidth}p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}}
+        \phantom{i} & \ttt{subset[0]} & \ttt{subset[1]} & \ttt{subset[2]} & \ttt{subset[3]} & \ttt{subset[4]}
+    \end{tabular}
+\end{center}
+}
+
 \end{frame}
 
+%%%%
+\begin{frame}[fragile]
+    \frametitle{Cross-Validation}
+    
+\begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{l}
+        {\footnotesize\color{blue}Model 1} \\ 
+        {\footnotesize\color{blue}Model 2} \\
+        {\footnotesize\color{blue}Model 3} \\
+        {\footnotesize\color{blue}Model 4} \\
+        {\footnotesize\color{blue}Model 5}
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
+    \begin{tabular}{|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+        \hline 
+        \quad train & \quad train & \quad train & \quad train & \quad valid \\ 
+        \hline
+        \hline
+        \quad train & \quad train & \quad train & \quad valid & \quad train \\ 
+        \hline
+        \hline
+        \quad train & \quad train & \quad valid & \quad train & \quad train \\ 
+        \hline
+        \hline
+        \quad train & \quad valid & \quad train & \quad train & \quad train \\ 
+        \hline
+        \hline
+        \quad valid & \quad train & \quad train & \quad train & \quad train \\
+        \hline
+    \end{tabular}
+\end{center}
+\vspace*{-10pt}
+{\color{blue}
+\begin{center}
+    \begin{tabular}{p{0.09\textwidth}p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}}
+        \phantom{i} & \ttt{subset[0]} & \ttt{subset[1]} & \ttt{subset[2]} & \ttt{subset[3]} & \ttt{subset[4]}
+    \end{tabular}
+\end{center}
+}
+
+After computing the training and validation losses for the 5 models, as described, one can use them for diagnosing and selecting hyperparameters {--} for example, average the 5 scores and use the average as the value of $\mathcal L_{train}$ and $\mathcal L_{valid}$ when comparing to other hyperparameter choices.
+
+\end{frame}
 \end{document}

@@ -3,7 +3,9 @@
 \usepackage{helvet}
 \usepackage{hyperref, graphicx}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{centernot}
 \usepackage{etoolbox}
 \usepackage{wrapfig}
 \usepackage{tikz}
@@ -267,14 +269,14 @@ The default behavior of the \ttt{.fit()} method is that the tree has as many spl
 
 The accuracy of the model on \lstinline[language=Python,basicstyle=\ttfamily]{x_test} will depend some on which points were put into \lstinline[language=Python,basicstyle=\ttfamily]{x_test}; however, it tends to be around only 85\%.
 
-What happened is that the \textit{hypothesis class}, that set of functions that were possible outcomes to be the trained model, was too large (allowed too many possibilities for the resulting model). 
+What happened is that the \textbf{hypothesis class}, that set of functions that were possible outcomes to be the trained model, was too large (allowed too many possibilities for the resulting model). 
 \end{frame}
 
 %%%%
 \begin{frame}
     \frametitle{Keeping the hypothesis class small}
 We discuss a (somewhat absurd) example to demonstrate the point that 
-\begin{center} small empirical loss $\not\Rightarrow$ small population loss\end{center}
+\begin{center} small empirical loss $\centernot\implies$ small population loss\end{center}
 
 \begin{wrapfigure}{r}{0.4\textwidth}
     \begin{center}
@@ -295,7 +297,7 @@ Regardless of $\mathcal S$, or the population distribution that it is a sample f
 \begin{frame}
     \frametitle{Keeping the hypothesis class small}
 We discuss a (somewhat absurd) example to demonstrate the point that 
-\begin{center} small empirical loss $\not\Rightarrow$ small population loss\end{center}
+\begin{center} small empirical loss $\centernot\implies$ small population loss\end{center}
 
 \begin{wrapfigure}{r}{0.4\textwidth}
     \begin{center}
@@ -309,23 +311,48 @@ Suppose that the population data consists of points in $[0,1]^2$ (the square of 
 
 Since a sample $\mathcal S$ is finite, a randomly chosen point has probability $0$ of being in $\mathcal S$. Thus, given a random $\x\in[0,1]^2$, with probability $3/4$ the predicted label $f_S(\x)$ is wrong.
 
-The issue with both this model, and the decision tree that had no restriction on depth, is that the \textbf{variance} \textit{of the hypothesis class} is too large.
+The issue with both this model, and the decision tree that had no restriction on depth, is that the \textbf{variance} of the procedure $S \leadsto f_S$ is too large.
 \end{frame}
 
 %%%%
 \begin{frame}
     \frametitle{Bias-Variance Trade-off}
-    Suppose that we have chosen a hypothesis class (a class of parameterized functions, say), and a procedure that, given a training sample $\mathcal S$ from the population, determines a prediction function $f_S$.
+    Suppose that we have chosen a hypothesis class (a class of parameterized functions, say), and a procedure $S \leadsto f_S$ that determines a prediction function from training data $\mathcal S$. 
+    \begin{itemize}
+        \item \textit{By $f_S$, we no longer mean only the absurd function two slides previous; instead, for a type of machine learning model and procedure to train, $f_S$ is whichever prediction function results from training on $\mathcal S$.}
+    \end{itemize}
 
-    In order to understand the \textit{expected} population loss, we want to consider the variance of $f_S(\x)$, not only over the input space but over possible training sets $\mathcal S$. That is, over all $(\x, y)$ and $S$, the expected value $\mathbb E[(f_S(\x) - \ix y)^2]$.
+    \pause
+    Using Mean Squared Error as loss function, want to understand the \textit{expected population loss}, not only over the distribution that data is drawn from, but also over training sets $\mathcal S$. That is, over all $(\x, y)$ and $\mathcal S$, the expected value\footnote{Using subscripts for what we average over.} $\mathbb E_{S, \x, \ix y}[(f_S(\x) - \ix y)^2]$.
 
-    Let $\overline{h}$ be the expected prediction function, over training sets.\footnote{This takes some advanced mathematics to carefully describe. It means there is a ``measure'' on sets of functions, which allows you to integrate over a set of functions to get a new function.} In practice, you could approximate $\overline{h}$ in the following way: for samples $S_1,\ldots,S_N$, each with the same number of points, drawn i.i.d.\ from the population, then for sufficiently large $N$, 
-        \[\overline{h}(\x) \approx \frac{1}{N}\sum_{i=1}^Nh_{S_i}(\x).\]
+    \pause
+    The expected population loss will decompose, with a so-called Bias term, and a Variance term. Their relationship is roughly as below.
+    %\centering
+    %\includegraphics[height=0.3\textheight]{_imagefilename_}
 \end{frame}
 
 %%%%
 \begin{frame}
     \frametitle{Bias-Variance Trade-off}
+    Suppose that we have chosen a hypothesis class (a class of parameterized functions, say), and a procedure $S \leadsto f_S$ that determines a prediction function from training data $\mathcal S$. 
+    \begin{itemize}
+        \item \textit{By $f_S$, we no longer mean only the absurd function two slides previous; instead, for a type of machine learning model and procedure to train, $f_S$ is whichever prediction function results from training on $\mathcal S$.}
+    \end{itemize}
+
+    Using Mean Squared Error as loss function, want to understand the \textit{expected population loss}, not only over the distribution that data is drawn from, but also over training sets $\mathcal S$. That is, over all $(\x, y)$ and $\mathcal S$, the expected value\footnote{Using subscripts for what we average over.} $\mathbb E_{S, \x, \ix y}[(f_S(\x) - \ix y)^2]$.
+
+    \pause
+    Let $\overline{f}$ be the expected function, averaged over training sets,\footnote{This takes some advanced mathematics to carefully describe. It means there is a ``measure'' on sets of functions, which allows you to integrate over a set of functions to get a new function.} so that $\mathbb E_{\mathcal S}[f_S] = \overline{f}$. 
+    
+    \pause
+    In practice, could approximate $\overline{f}$ in the following way: for samples $\mathcal S_1, \mathcal S_2\ldots,\mathcal S_N$, each with same number of points, drawn i.i.d.\ from the population, then for sufficiently large $N$, 
+        \[\overline{f}(\x) \approx \frac{1}{N}\sum_{i=1}^Nf_{S_i}(\x).\]
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Bias-Variance Trade-off}
+    The expected population loss decomposes as follows.
     \begin{align*}
         \mathbb E_{S,\x, \ix y}&[(f_S(\x) - \ix y)^2] \\
             &= \mathbb E_{S,\x, \ix y}[(f_S(\x) - \overline{f}(\x) + \overline{f}(\x) - \ix y)^2] \\
@@ -336,15 +363,15 @@ The issue with both this model, and the decision tree that had no restriction on
         \mathbb E_{S,\x, \ix y}[(f_S(\x) - \ix y)^2] 
         &= \mathbb E_{S,\x}[(f_S(\x) - \overline{f}(\x))^2] + \mathbb E_{\x,\ix y}[(\overline{f}(\x) - \ix y)^2].
     \end{align*}
-    A similar argument shows that 
+    Label $\ix y$ may be a distribution, given $\x$, not deterministic function. For $\overline{\ix y}(\x)=\mathbb E[\ix y|\x]$, similar argument shows 
     \begin{align*}
-        \mathbb E_{\x, \ix y}[(\overline{f}(\x) - y)^2] 
-        &= \mathbb E_{\x}[(\overline{f}(\x) - \overline{y}(\x))^2] + \mathbb E_{\x,\ix y}[(\overline{y}(\x) - \ix y)^2].
+        \mathbb E_{\x, \ix y}[(\overline{f}(\x) - \ix y)^2] 
+        &= \mathbb E_{\x}[(\overline{f}(\x) - \overline{\ix y}(\x))^2] + \mathbb E_{\x,\ix y}[(\overline{\ix y}(\x) - \ix y)^2].
     \end{align*}
     And so 
     {\small
     \[\mathbb E_{S,\x, \ix y}[(f_S(\x) - \ix y)^2]  
-     = \mathbb E_{S,\x}[(f_S(\x) - \overline{f}(\x))^2] + \mathbb E_{\x}[(\overline{f}(\x) - \overline{y}(\x))^2] + \mathbb E_{\x,\ix y}[(\overline{y}(\x) - \ix y)^2].\]
+     = \mathbb E_{S,\x}[(f_S(\x) - \overline{f}(\x))^2] + \mathbb E_{\x}[(\overline{f}(\x) - \overline{\ix y}(\x))^2] + \mathbb E_{\x,\ix y}[(\overline{\ix y}(\x) - \ix y)^2].\]
      \begin{flushright}{\color{blue}Variance $\uparrow$}\qquad\qquad\qquad\qquad {\color{blue}Bias$^2$ $\uparrow$}\qquad\qquad\qquad {\color{blue}Noise $\uparrow$}\qquad\quad\phantom{i} \end{flushright}
     }
 \end{frame}
