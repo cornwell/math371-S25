@@ -204,6 +204,64 @@ keepspaces=true
 %%%%
 \begin{frame}
     \frametitle{Regularization in Regression to Fit a Polynomial}
+    \renewcommand\thefootnote{\textcolor{white}{\arabic{footnote}}}
+    A polynomial function will be fit to the data depicted below. The blue points are part of the training set (32 points) and the reddish-orange points are in the test set (8 points).
+    
+    {\color{white}Using regression to fit a degree 18 polynomial to the data gives the curve depicted. The curve requires many local maxima and minima (in a small interval) to pass close to the training data. This requires some of the coefficients to have large absolute value.}\footnote{{\color{white}The derivative needs to be relatively large and change sign quickly, over small changes in $x$. With many coefficients, they must be large in absolute value.}}
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.30\textheight]{../../Images/data_polynomial_fit.png}
+        \end{center}
+        \caption{Data for polynomial fit, training set in blue}
+    \end{figure}
+
+    {\color{white}Several coefficients of the polynomial are in the millions. MSE$_{test}\approx 3.5$.}
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Regularization in Regression to Fit a Polynomial}
+    \renewcommand\thefootnote{\textcolor{black}{\arabic{footnote}}}
+    A polynomial function will be fit to the data depicted below. The blue points are part of the training set (32 points) and the reddish-orange points are in the test set (8 points).
+    
+    Using regression to fit a degree 18 polynomial to the data gives the curve depicted. The curve requires many local maxima and minima (in a small interval) to pass close to the training data. This requires some of the coefficients to have large absolute value.\footnote{The derivative needs to be relatively large and change sign quickly, over small changes in $x$. With many coefficients, they must be large in absolute value.}
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.30\textheight]{../../Images/data_polynomial18_fit.png}
+        \end{center}
+        \caption{Degree 18 polynomial fit, no regularization}
+    \end{figure}
+    Several coefficients of the polynomial are in the millions. MSE$_{test}\approx 3.5$.
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Regularization in Regression to Fit a Polynomial}
+    One option for regularization while fitting a polynomial to the data: 
+    \begin{itemize}
+        \item use gradient descent on the Mean Squared Error, but add a term of the form $\lambda|\textbf{w}|^2$, for some constant $\lambda$. 
+    \end{itemize}
+    That is, with $f_{(\textbf{w}, b)}(x)$ being a degree 18 polynomial (non-constant coefficients from $\textbf{w}$), have the loss function be 
+        \[\mathcal L_{\mathcal S}(\textbf{w}, b) = \lambda|\textbf{w}|^2 + \frac{1}n\sum_{i=1}^n (f_{\textbf{w}, b}(x_i) - \ix y_i)^2.\]
+    Then, for $1\le j\le d$ ($d = $ degree of the polynomial), the partial derivative $\frac{\partial}{\partial w_j}\mathcal L_{\mathcal S}$ is the same as in the non-regularized case except for one added term, $2\lambda w_j$.
+
+    This is called \textit{Ridge regression}, or $L_2$ regularization.  
+\end{frame}
+
+%%%%
+\begin{frame}
+    \frametitle{Regularization in Regression to Fit a Polynomial}
+    Implementing $L_2$ regularization, a degree 18 polynomial that is fit to this data gives the curve depicted below. 
+    
+    \begin{figure}
+        \begin{center}
+            \includegraphics[height=0.35\textheight]{../../Images/data_polynomial18_regfit.png}
+        \end{center}
+        \caption{Degree 18 polynomial fit, with regularization}
+    \end{figure}
+    All coefficients in the newly fit degree 18 polynomial have absolute value that is less than $0.35$. The MSE on the test data is about 0.004.
 \end{frame}
 
 \end{document}
