@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  27 APR 2025 15:06
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2025.1.12)  29 APR 2025 00:31
  restricted system commands enabled.
 **lecture18
 (./lecture18.tex
@@ -2256,95 +2256,93 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 205
+<../../Images/clusters.png, id=44, 279.29344pt x 293.59688pt>
+File: ../../Images/clusters.png Graphic file (type png)
+<use ../../Images/clusters.png>
+Package luatex.def Info: ../../Images/clusters.png  used on input line 225.
+(luatex.def)             Requested size: 102.41217pt x 107.657pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 225
 .
  (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 205
+LaTeX Font Info:    Trying to load font information for U+msb on input line 225
 .
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsfmia on input lin
-e 205.
+e 225.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtxsf/untxsfmia.fd
 File: untxsfmia.fd 2014/11/16 Fontinst v1.933 font definitions for U/ntxsfmia.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
-205.
+225.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
-205.
+225.
 
 (C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.20503pt on input line 205.
+(Font)              scaled to size 6.20503pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 4.67503pt on input line 205.
+(Font)              scaled to size 4.67503pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 8.50006pt on input line 205.
+(Font)              scaled to size 8.50006pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.20503pt on input line 205.
+(Font)              scaled to size 6.20503pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 4.67503pt on input line 205.
+(Font)              scaled to size 4.67503pt on input line 225.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 205.
+(Font)              size <5> substituted on input line 225.
 
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
-(Font)              scaled to size 8.50006pt on input line 205.
+(Font)              scaled to size 8.50006pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 205.
+(Font)              scaled to size 6.80005pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 5.27003pt on input line 205.
+(Font)              scaled to size 5.27003pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.80005pt on input line 205.
+(Font)              scaled to size 6.80005pt on input line 225.
 LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 5.27003pt on input line 205.
+(Font)              scaled to size 5.27003pt on input line 225.
 
 
 [4
 
-]
+<../../Images/clusters.png>]
+File: ../../Images/clusters.png Graphic file (type png)
+<use ../../Images/clusters.png>
+Package luatex.def Info: ../../Images/clusters.png  used on input line 225.
+(luatex.def)             Requested size: 102.41217pt x 107.657pt.
+
 
 [5
 
 ]
-<../../Images/UnitBallVolume.png, id=63, 462.528pt x 346.896pt>
-File: ../../Images/UnitBallVolume.png Graphic file (type png)
-<use ../../Images/UnitBallVolume.png>
-Package luatex.def Info: ../../Images/UnitBallVolume.png  used on input line 23
-1.
-(luatex.def)             Requested size: 107.65662pt x 80.7448pt.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 8.92506pt on input line 231.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 6.71504pt on input line 231.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 12.24008pt on input line 231.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 8.92506pt on input line 231.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 6.71504pt on input line 231.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 231.
-
+File: ../../Images/clusters.png Graphic file (type png)
+<use ../../Images/clusters.png>
+Package luatex.def Info: ../../Images/clusters.png  used on input line 225.
+(luatex.def)             Requested size: 102.41217pt x 107.657pt.
 
 
 [6
 
-<../../Images/UnitBallVolume.png>]
+]
+File: ../../Images/clusters.png Graphic file (type png)
+<use ../../Images/clusters.png>
+Package luatex.def Info: ../../Images/clusters.png  used on input line 225.
+(luatex.def)             Requested size: 102.41217pt x 107.657pt.
+
 
 [7
 
@@ -2353,13 +2351,6 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
 [8
 
 ]
-Overfull \hbox (15.71123pt too wide) in paragraph at lines 293--293
- [] 
- []
-
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 293.
-
 
 [9
 
@@ -2367,130 +2358,460 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 
 [10
 
-] (./lecture18.toc)
+]
+<../../Images/UnitBallVolume.png, id=90, 462.528pt x 346.896pt>
+File: ../../Images/UnitBallVolume.png Graphic file (type png)
+<use ../../Images/UnitBallVolume.png>
+Package luatex.def Info: ../../Images/UnitBallVolume.png  used on input line 25
+9.
+(luatex.def)             Requested size: 107.65662pt x 80.7448pt.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 8.92506pt on input line 259.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 6.71504pt on input line 259.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 12.24008pt on input line 259.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 8.92506pt on input line 259.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 6.71504pt on input line 259.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 259.
+
+
 
 [11
 
-]
+<../../Images/UnitBallVolume.png>]
+File: ../../Images/UnitBallVolume.png Graphic file (type png)
+<use ../../Images/UnitBallVolume.png>
+Package luatex.def Info: ../../Images/UnitBallVolume.png  used on input line 25
+9.
+(luatex.def)             Requested size: 107.65662pt x 80.7448pt.
+
 
 [12
 
 ]
+File: ../../Images/UnitBallVolume.png Graphic file (type png)
+<use ../../Images/UnitBallVolume.png>
+Package luatex.def Info: ../../Images/UnitBallVolume.png  used on input line 25
+9.
+(luatex.def)             Requested size: 107.65662pt x 80.7448pt.
+
 
 [13
 
 ]
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 354.
-LaTeX Font Info:    Font shape `TU/FiraSans(0)/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 354.
-<../../Images/kmeans_0.png, id=115, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_0.png Graphic file (type png)
-<use ../../Images/kmeans_0.png>
-Package luatex.def Info: ../../Images/kmeans_0.png  used on input line 354.
-(luatex.def)             Requested size: 74.81442pt x 94.20296pt.
+File: ../../Images/UnitBallVolume.png Graphic file (type png)
+<use ../../Images/UnitBallVolume.png>
+Package luatex.def Info: ../../Images/UnitBallVolume.png  used on input line 25
+9.
+(luatex.def)             Requested size: 107.65662pt x 80.7448pt.
 
 
 [14
 
-<../../Images/kmeans_0.png>]
+]
 
 [15
 
 ]
-File: ../../Images/kmeans_0.png Graphic file (type png)
-<use ../../Images/kmeans_0.png>
-Package luatex.def Info: ../../Images/kmeans_0.png  used on input line 389.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
 
 [16
 
 ]
-<../../Images/kmeans_1.png, id=133, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_1.png Graphic file (type png)
-<use ../../Images/kmeans_1.png>
-Package luatex.def Info: ../../Images/kmeans_1.png  used on input line 412.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
 
 [17
 
-<../../Images/kmeans_1.png>]
-<../../Images/kmeans_2.png, id=140, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_2.png Graphic file (type png)
-<use ../../Images/kmeans_2.png>
-Package luatex.def Info: ../../Images/kmeans_2.png  used on input line 435.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
+]
 
 [18
 
-<../../Images/kmeans_2.png>]
-<../../Images/kmeans_3.png, id=147, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_3.png Graphic file (type png)
-<use ../../Images/kmeans_3.png>
-Package luatex.def Info: ../../Images/kmeans_3.png  used on input line 456.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
+]
 
 [19
 
-<../../Images/kmeans_3.png>]
-<../../Images/kmeans_4.png, id=154, 237.0456pt x 298.4751pt>
-File: ../../Images/kmeans_4.png Graphic file (type png)
-<use ../../Images/kmeans_4.png>
-Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 479.
-(luatex.def)             Requested size: 76.82246pt x 96.73pt.
-
+]
 
 [20
 
-<../../Images/kmeans_4.png>]
-<../../Images/kmeans_balldata0.png, id=161, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata0.png Graphic file (type png)
-<use ../../Images/kmeans_balldata0.png>
-Package luatex.def Info: ../../Images/kmeans_balldata0.png  used on input line 
-493.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
-
+]
 
 [21
 
-<../../Images/kmeans_balldata0.png>]
-<../../Images/kmeans_balldata1.png, id=169, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata1.png Graphic file (type png)
-<use ../../Images/kmeans_balldata1.png>
-Package luatex.def Info: ../../Images/kmeans_balldata1.png  used on input line 
-507.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
+]
+<../../Images/pairwise-distances-dim2.png, id=153, 400.3758pt x 298.4751pt>
+File: ../../Images/pairwise-distances-dim2.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim2.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim2.png  used on inpu
+t line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+<../../Images/pairwise-distances-dim10.png, id=154, 406.1574pt x 298.4751pt>
+File: ../../Images/pairwise-distances-dim10.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim10.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim10.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 72.26398pt.
+<../../Images/pairwise-distances-dim50.png, id=155, 400.3758pt x 298.4751pt>
+File: ../../Images/pairwise-distances-dim50.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim50.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim50.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 315.
+LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/it' will be
+(Font)              scaled to size 7.65005pt on input line 315.
 
 
 [22
 
-<../../Images/kmeans_balldata1.png>]
-<../../Images/kmeans_balldata2.png, id=176, 237.7683pt x 298.4751pt>
-File: ../../Images/kmeans_balldata2.png Graphic file (type png)
-<use ../../Images/kmeans_balldata2.png>
-Package luatex.def Info: ../../Images/kmeans_balldata2.png  used on input line 
-521.
-(luatex.def)             Requested size: 107.20154pt x 134.5733pt.
+<../../Images/pairwise-distances-dim2.png><../../Images/pairwise-distances-dim10
+.png><../../Images/pairwise-distances-dim50.png>]
+File: ../../Images/pairwise-distances-dim2.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim2.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim2.png  used on inpu
+t line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+File: ../../Images/pairwise-distances-dim10.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim10.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim10.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 72.26398pt.
+File: ../../Images/pairwise-distances-dim50.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim50.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim50.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
 
 
 [23
 
-<../../Images/kmeans_balldata2.png>]
-<../../Images/dbscan_graph.png, id=183, 237.0456pt x 298.4751pt>
-File: ../../Images/dbscan_graph.png Graphic file (type png)
-<use ../../Images/dbscan_graph.png>
-Package luatex.def Info: ../../Images/dbscan_graph.png  used on input line 536.
-
-(luatex.def)             Requested size: 74.81442pt x 94.20296pt.
+]
+File: ../../Images/pairwise-distances-dim2.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim2.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim2.png  used on inpu
+t line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+File: ../../Images/pairwise-distances-dim10.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim10.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim10.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 72.26398pt.
+File: ../../Images/pairwise-distances-dim50.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim50.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim50.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
 
 
 [24
 
-<../../Images/dbscan_graph.png>]
+]
+File: ../../Images/pairwise-distances-dim2.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim2.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim2.png  used on inpu
+t line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+File: ../../Images/pairwise-distances-dim10.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim10.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim10.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 72.26398pt.
+File: ../../Images/pairwise-distances-dim50.png Graphic file (type png)
+<use ../../Images/pairwise-distances-dim50.png>
+Package luatex.def Info: ../../Images/pairwise-distances-dim50.png  used on inp
+ut line 315.
+(luatex.def)             Requested size: 98.335pt x 73.30693pt.
+
+
+[25
+
+]
+Overfull \hbox (15.71123pt too wide) in paragraph at lines 348--348
+ [] 
+ []
+
+
+
+[26
+
+]
+Overfull \hbox (15.71123pt too wide) in paragraph at lines 348--348
+ [] 
+ []
+
+
+
+[27
+
+]
+Overfull \hbox (15.71123pt too wide) in paragraph at lines 348--348
+ [] 
+ []
+
+
+
+[28
+
+]
+
+[29
+
+]
+
+[30
+
+]
+
+[31
+
+]
+
+[32
+
+] (./lecture18.toc)
+
+[33
+
+]
+<../../Images/kmeans_4.png, id=222, 237.0456pt x 298.4751pt>
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 386.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+
+[34
+
+<../../Images/kmeans_4.png>]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 386.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+
+[35
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 386.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+
+[36
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 386.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+
+[37
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 386.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+
+[38
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 409.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+Underfull \hbox (badness 2547) in paragraph at lines 409--409
+[][]\TU/FiraSans(0)/m/n/10 In any it-er-a-tion of []󰌡[], for $[][]$ to change
+ its clus-
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 409--409
+\TU/FiraSans(0)/m/n/10 ter, it is nec-es-sary that $\LMS/ntxsy/m/n/10 j[][] ^^@ \OML/ntxsfmi/m/it/10 []\LMS/ntxsy/m/n/10 j$ \TU/FiraSans(0)/m/n/10 de-creases, so
+ []
+
+
+
+[39
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 409.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+Underfull \hbox (badness 2547) in paragraph at lines 409--409
+[][]\TU/FiraSans(0)/m/n/10 In any it-er-a-tion of []󰌡[], for $[][]$ to change
+ its clus-
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 409--409
+\TU/FiraSans(0)/m/n/10 ter, it is nec-es-sary that $\LMS/ntxsy/m/n/10 j[][] ^^@ \OML/ntxsfmi/m/it/10 []\LMS/ntxsy/m/n/10 j$ \TU/FiraSans(0)/m/n/10 de-creases, so
+ []
+
+
+
+[40
+
+]
+File: ../../Images/kmeans_4.png Graphic file (type png)
+<use ../../Images/kmeans_4.png>
+Package luatex.def Info: ../../Images/kmeans_4.png  used on input line 409.
+(luatex.def)             Requested size: 64.12613pt x 80.7448pt.
+
+Underfull \hbox (badness 2547) in paragraph at lines 409--409
+[][]\TU/FiraSans(0)/m/n/10 In any it-er-a-tion of []󰌡[], for $[][]$ to change
+ its clus-
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 409--409
+\TU/FiraSans(0)/m/n/10 ter, it is nec-es-sary that $\LMS/ntxsy/m/n/10 j[][] ^^@ \OML/ntxsfmi/m/it/10 []\LMS/ntxsy/m/n/10 j$ \TU/FiraSans(0)/m/n/10 de-creases, so
+ []
+
+
+
+[41
+
+]
+\openout4 = lecture18.vrb
+ (./lecture18.vrb
+(C:/Users/gener/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
+)
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 27--28
+[][] 
+ []
+
+)
+
+[42
+
+] (./lecture18.vrb
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 27--28
+[][] 
+ []
+
+)
+
+[43
+
+] (./lecture18.vrb
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 27--28
+[][] 
+ []
+
+)
+
+[44
+
+] (./lecture18.vrb
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 27--28
+[][] 
+ []
+
+)
+
+[45
+
+] (./lecture18.vrb
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 27--28
+[][] 
+ []
+
+)
+
+[46
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[47
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[48
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[49
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[50
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[51
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 487.
+
+
+Overfull \hbox (14.64737pt too wide) in paragraph at lines 487--487
+[][] 
+ []
+
+
+
+[52
+
+]
 \tf@nav=\write6
 
 \openout6 = lecture18.nav
@@ -2511,43 +2832,43 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `lecture18.out' has not changed.
-(rerunfilecheck)             Checksum: 8F2F6729F6F618ED7C97503100D20E19;280.
+(rerunfilecheck)             Checksum: E07B4E6600124E45C2285094EED70231;323.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31488 strings out of 475915
- 125033,1977958 words of node,token memory allocated
- 8476 words of node memory still in use:
-   48 hlist, 9 vlist, 5 rule, 45 disc, 8 local_par, 12 math, 200 glue, 119 kern,
- 27 penalty, 621 glyph, 95 attribute, 61 glue_spec, 95 attribute_list, 4 write, 
-24 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 2:546,3:525,4:193,5:366,6:21,7:2505,8:71,9:494,10:164,11:210
- 52948 multiletter control sequences out of 65536+600000
- 292 fonts using 47039447 bytes
- 128i,11n,121p,566b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10
--regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public
-/lm/lmromandemi10-regular.otf><c:/users/gener/appdata/local/programs/miktex/font
-s/opentype/public/lm/lmroman10-italic.otf><C:/Users/gener/AppData/Local/Programs
-/MiKTeX/fonts/opentype/public/fira/FiraSans-Italic.otf><C:/Users/gener/AppData/L
-ocal/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><C:/Users/gene
-r/AppData/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Regular.otf>
-<C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr5.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr7.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/txfonts/rtxmi.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/txfonts/txsyb.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/txfonts/txsyc.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX
+ 31750 strings out of 475915
+ 125025,1977958 words of node,token memory allocated
+ 13740 words of node memory still in use:
+   129 hlist, 11 vlist, 5 rule, 29 disc, 10 local_par, 65 math, 337 glue, 153 ke
+rn, 52 penalty, 690 glyph, 567 attribute, 61 glue_spec, 567 attribute_list, 4 wr
+ite, 216 pdf_literal, 48 pdf_colorstack nodes
+   avail lists: 1:15,2:1045,3:545,4:168,5:365,6:25,7:2258,8:71,9:438,10:20,11:14
+2,12:1
+ 53071 multiletter control sequences out of 65536+600000
+ 288 fonts using 46160695 bytes
+ 128i,11n,121p,481b,902s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono10-
+regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opentype/public/
+lm/lmmono9-regular.otf><c:/users/gener/appdata/local/programs/miktex/fonts/opent
+ype/public/lm/lmroman10-regular.otf><c:/users/gener/appdata/local/programs/mikte
+x/fonts/opentype/public/lm/lmroman10-italic.otf><C:/Users/gener/AppData/Local/Pr
+ograms/MiKTeX/fonts/opentype/public/fira/FiraSans-Italic.otf><C:/Users/gener/App
+Data/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Bold.otf><C:/User
+s/gener/AppData/Local/Programs/MiKTeX/fonts/opentype/public/fira/FiraSans-Regula
+r.otf><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr10.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr5.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr9.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/txfonts/rtxmi.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/newtx/txexs.pfb><C:/Users/gener/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/newtx/txsym.pfb><C:/Users/gener/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/newtx/txsys.pfb><C:/Users/gener/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/newtxsf/zsfmi-reg.pfb><C:/Users/gener/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/newtxsf/zsfmia-reg.pfb>
-Output written on lecture18.pdf (24 pages, 299975 bytes).
+Output written on lecture18.pdf (52 pages, 347056 bytes).
 
-PDF statistics: 269 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 131072)
+PDF statistics: 405 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 131072)
  32 words of extra memory for PDF output out of 10000 (max. 100000000)
 
