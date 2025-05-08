@@ -197,11 +197,12 @@ keepspaces=true
     \frametitle{Boosting - General Idea}
 
     \textbf{Boosting} is a technique that trains models which each have high Bias {--} low Variance {--} and it creates a particular linear combination of these models which is a better fit for the data (this ``boosted'' model having increased Variance).
-
+    \pause
     \vspace{12pt}
 
     \begin{itemize}
         \item Ideally, the simple models, that have high Bias, allow for very efficient training, keeping computation times small.
+        \pause
         \item Two popular algorithms for this general idea are AdaBoost and ``Gradient Boosted Decision Trees'' {--} which are used in a tool called XGBoost.
     \end{itemize}
     
@@ -210,28 +211,51 @@ keepspaces=true
 %%%%
 \begin{frame}
     \frametitle{The $0$-$1$ Loss Function and Learning Algorithms}
-    To discuss our assumptions with boosting, we will consider the setting of binary classification. The loss function in this slide clearly generalizes to Classification tasks with more labels. One can also adapt it to a Regression task, though it is not obvious how and requires a choice of another hyperparameter. 
+    For our assumptions with boosting, we consider the setting of binary classification. There is a clear generalization to multi-label Classification tasks. Additionally, one can adapt it to a Regression task (using a different loss function). 
     
-    In binary classification, we'll write the empirical $0$-$1$ \textbf{loss function} as $\mathcal L_{\mathcal S}^{01}$; it is defined as follows. Given a prediction function $f:\mathbb R^d\to\{1, -1\}$ that has been trained on data, the loss function on data $\mathcal S = \{(\x_i,\ix y_i)\}_{i=1}^n$ is simply the probability that $f(\x_i) \ne \ix y_i$. That is, 
+    \pause
+    For binary classification, write the empirical $0$-$1$ \textbf{loss function} as $\mathcal L_{\mathcal S}^{01}$; it is defined as follows. Given a prediction function $f:\mathbb R^d\to\{1, -1\}$, the loss function on data $\mathcal S = \{(\x_i,\ix y_i)\}_{i=1}^n$ is the probability that $f(\x_i) \ne \ix y_i$. That is, 
         \[\mathcal L_{\mathcal S}^{01}(f) = \frac{|\{i\ :\ f(\x_i) \ne \ix y_i\}|}{n}.\]
-    The population $0$-$1$ loss would be the probability that $f(\x) \ne \ix y$ when $(\x,\ix y)$ is drawn from the population.
+    \pause
+    Population loss: probability that $f(\x) \ne \ix y$ when $(\x,\ix y)$ is drawn from the population.
 
-    A \textbf{learner} or \textbf{learning algorithm} is a procedure or rule that finds (or trains) $f_{\mathcal S}$ from given training data $\mathcal S$. In boosting, we begin with a learner that does okay, but may not have a very small value of $\mathcal L_{\mathcal S}^{01}(f_{\mathcal S})$ and build one which will have much better $0$-$1$ loss through linear combinations.
+    \pause
+    A \textbf{learner} or \textbf{learning algorithm} is a procedure or rule that finds (or trains) $f_{\mathcal S}$ from given training data $\mathcal S$. 
+\end{frame}
 
-    \textit{Need to include information about Loss with probability vector }\textbf{p}.
+%%%%
+\begin{frame}
+    \frametitle{Loss with weights}
+    Recall how each empirical loss function $\mathcal L_{\mathcal S}$ is the average of a ``per-example'' loss over the set $\mathcal S$. In the $0$-$1$ case, a per-example loss of 
+    \[\ell^{01}(f, (\x,\ix y)) = \begin{cases}0,\ \text{if }f(\x)=\ix y\\ 1,\ \text{else}\end{cases}\] 
+    \vspace{-6pt}
+    gives us that $\mathcal L_{\mathcal S}^{01}(f)$ is the average over $\mathcal S$; \pause\ that is 
+        \[\mathcal L_{\mathcal S}^{01}(f) = \frac1{n}\ell^{01}(f, (\x_1,\ix y_1)) + \frac1{n}\ell^{01}(f, (\x_2,\ix y_2)) + \ldots + \frac1{n}\ell^{01}(f, (\x_n,\ix y_n)).\]
+    \pause
+    In this average, each point in $\mathcal S$ is \textit{weighted} equally. However, given a probability vector $\textbf{p} = (p_1,p_2,\ldots,p_n)$, we could weight points in $\mathcal S$ according to $\textbf{p}$: 
+        \[p_1\ell^{01}(f, (\x_1,\ix y_1)) + p_2\ell^{01}(f, (\x_2,\ix y_2)) + \ldots + p_n\ell^{01}(f, (\x_n,\ix y_n)).\]
+    \pause
+    We'll write $\mathcal L_{\mathcal S}^{01}(f, \textbf{p})$ for this weighted loss function. Note that a similar weighted loss exists for any ``standard'' empirical loss function.\footnote{The standard one corresponding to $\textbf{p} = (1/n, 1/n,\ldots,1/n)$.}
+
+    \pause
+    Below, we begin with a learner that does okay, but $\mathcal L_{\mathcal S}^{01}(f_{\mathcal S})$ may not be that ``small''; however, through weighted loss and adaptively changing $\textbf{p}$, we build one with much better $0$-$1$ loss.
 \end{frame}
 
 \begin{frame}
     \frametitle{Weak Learners}
     For $\gamma$, with $0 < \gamma < \frac12$, we call a learning algorithm a $\gamma$-\textbf{weak learner} if, for any $0 < \delta < 1$, there is a positive integer $N$ so that whenever $|\mathcal S| \ge N$ then the learning algorithm determines $f_{\mathcal S}$ so that $\mathcal L_{\mathcal S}^{01}(f_{\mathcal S}) \le \frac{1}{2} - \gamma$.
 
+    \pause
     \vspace{12pt}
     Note that, for a sufficiently large set of training data $\mathcal S$, a $\gamma$-weak learner will produce a prediction function $f_{\mathcal S}$ that is incorrect less than half of the time. That is, for small $\gamma$, this is a bit better than using a coin flip.
 
+    \pause
     Decision stumps can be viewed as weak learners. More precisely, for data where the label should have a single sign ($+1$ or $-1$) for all $\x$ that have some coordinate $x_j$ that is in a fixed interval, decision stumps are $\gamma$-weak learners for some $0 < \gamma < \frac16$.
 
+    \pause
     Since decision stumps are decision trees that have only depth 1, and they are weak learners for such a classification problem, decision trees are also weak learners. 
     \begin{itemize}
+        \pause
         \item Hence, it is common to use decision trees with small max depth as the base model in a boosting algorithm.
     \end{itemize}
 \end{frame}
@@ -243,19 +267,26 @@ keepspaces=true
     One chooses a number $T$ of \textit{rounds} for the AdaBoost algorithm. In round $t$, with $1\le t\le T$, say that $f_t$ is the basic model that is trained in that round. That round will also have a corresponding coefficient $w_t$. The final (boosted) model is given by 
             \[f(\x) = \operatorname{sign}(w_1f_1(\x) + w_2f_2(\x) + \ldots + w_Tf_T(\x)).\]
     
+    \pause
     The procedure for finding $f_t$ and $w_t$ is the following. 
 
     In each round $t$, there is a probability vector $\textbf{p}^{(t)}\in\mathbb R^n$. In round 1, we give $\textbf{p}^{(1)}$ uniform weights; that is, $\textbf{p}^{(1)} = (1/n, 1/n, \ldots, 1/n)$. 
 
+    \pause
     Now, in round $t$ of AdaBoost:
     \begin{enumerate}
-        \item Use your learner, with weights $\textbf{p}^{(t)}$, to determine $f_t$.
+        \item Use your learner to minimize weighted loss $\mathcal L_{\mathcal S}^{01}(f,\textbf{p}^{(t)})$, getting $f_t$.
         \pause
         \item Compute the weighted empirical loss $\varepsilon_t = \mathcal L_{\mathcal S}(f_t, \textbf{p}^{(t)})$. 
+        \pause
         \item Define $w_t = \ln\left(\frac{1}{\varepsilon_t} - 1\right)$.
+        \pause
         \item Find $\textbf{p}^{(t+1)} = (p_1^{(t+1)}, \ldots, p_n^{(t+1)})$ by setting 
             \[p_i^{(t+1)} = \frac{p_i^{(t)}e^{-w_ty_if_t(\x_i)}}{\sum_{j=1}^n p_j^{(t)}e^{-w_ty_jf_t(\x_j)}}.\]
     \end{enumerate}
+
+    \pause
+    Once done with $T$ rounds, the boosted model is the one given by linear combination above.
 
 \end{frame}
 
